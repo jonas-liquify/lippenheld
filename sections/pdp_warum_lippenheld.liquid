@@ -1,31 +1,16 @@
-<div class="lh_pdp_why_media" aria-hidden="true">
-          {% if section.settings.image_hintergrundbild %}
+<div class="lh_pdp_why_media" aria-hidden="true">{% if section.settings.image_hintergrundbild %}
 {{ section.settings.image_hintergrundbild | image_url: width: 1000 | image_tag: class: 'lh_pdp_why_bgimg', loading: 'lazy' }}
 {% else %}
 <img class="lh_pdp_why_bgimg" src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
-{% endif %}
-        </div>
-        <div class="padding-global padding-section-large lh_pdp_why_inner">
-          <div class="container-large">
-            <header class="lh_pdp_why_header text-align-center">
-              <p class="lh_pdp_why_kicker">
+{% endif %}</div><div class="padding-global padding-section-large lh_pdp_why_inner"><div class="container-large"><header class="lh_pdp_why_header text-align-center"><p class="lh_pdp_why_kicker">
 {{ section.settings.text_kicker }}
-</p>
-              <h2 class="lh_pdp_why_title">
+</p><h2 class="lh_pdp_why_title">
 {{ section.settings.text_uberschrift }}
-</h2>
-            </header>
-            <div class="lh_pdp_why_quotes" li-content-for-theme-blocks="">
+</h2></header><div class="lh_pdp_why_quotes" li-content-for-theme-blocks="">
 {% content_for 'blocks' %}
-</div>
-            <div class="lh_pdp_why_cta text-align-center">
-              <a class="lh_btn lh_btn--black lh_pdp_why_btn" href="{{ section.settings.url_cta_link }}"> {{ section.settings.text_cta_button }} </a>
-              <p class="lh_pdp_why_points">
+</div><div class="lh_pdp_why_cta text-align-center"><a class="lh_btn lh_btn--black lh_pdp_why_btn" href="{{ section.settings.url_cta_link }}"> {{ section.settings.text_cta_button }} </a><p class="lh_pdp_why_points">
 {{ section.settings.text_treuepunkte_unter_cta }}
-</p>
-            </div>
-          </div>
-        </div> {% schema %} {
+</p></div></div></div> {% schema %} {
     "tag": "section",
     "name": "PDP Warum Lippenheld",
     "class": "lh_pdp_section lh_pdp_why",

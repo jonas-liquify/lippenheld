@@ -1,39 +1,22 @@
 <div class="lh_pdp_ugc" id="reviews" li-block="UGC Galerie" li-block:category="Medien" {{ block.shopify_attributes }}>
-                    
-                    
                     <p class="lh_pdp_ugc_kicker">
 {{ block.settings.text_ugc_uberschrift }}
 </p>
-                    
-                    
-                    <div class="lh_pdp_ugc_grid">
-                      <div class="lh_pdp_ugc_cell">
-                        {% if block.settings.image_ugc_1 %}
+                    <div class="lh_pdp_ugc_grid"><div class="lh_pdp_ugc_cell">{% if block.settings.image_ugc_1 %}
 {{ block.settings.image_ugc_1 | image_url: width: 1000 | image_tag: loading: 'lazy' }}
 {% else %}
 <img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
-{% endif %}
-                      </div>
-                      <div class="lh_pdp_ugc_cell">
-                        {% if block.settings.image_ugc_2 %}
+{% endif %}</div><div class="lh_pdp_ugc_cell">{% if block.settings.image_ugc_2 %}
 {{ block.settings.image_ugc_2 | image_url: width: 1000 | image_tag: loading: 'lazy' }}
 {% else %}
 <img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
-{% endif %}
-                      </div>
-                      <div class="lh_pdp_ugc_cell">
-                        {% if block.settings.image_ugc_3 %}
+{% endif %}</div><div class="lh_pdp_ugc_cell">{% if block.settings.image_ugc_3 %}
 {{ block.settings.image_ugc_3 | image_url: width: 1000 | image_tag: loading: 'lazy' }}
 {% else %}
 <img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
-{% endif %}
-                      </div>
-                      <div class="lh_pdp_ugc_cell lh_pdp_ugc_more">
+{% endif %}</div><div class="lh_pdp_ugc_cell lh_pdp_ugc_more">
 {{ block.settings.text_ugc_mehr_anzahl }}
-</div>
-                    </div>
-                    
-                  
+</div></div>
                 </div> {% schema %} {
     "name": "UGC Galerie",
     "settings": [

@@ -1,36 +1,16 @@
 <div li-block="Preis & Steuern" li-block:category="Kaufzone" {{ block.shopify_attributes }}>
-                    
-                    
-                    <div class="lh_pdp_price_block">
-                      <div class="product-header_price-wrapper">
-                        <div class="lh_pdp_price_main text-size-large text-weight-bold" li-js-price="product.selected_or_first_available_variant.price" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.price, true, '{{ shop.money_with_currency_format }}')">13,99 €</div>
-                        <template x-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
+                    <div class="lh_pdp_price_block"><div class="product-header_price-wrapper"><div class="lh_pdp_price_main text-size-large text-weight-bold" li-js-price="product.selected_or_first_available_variant.price" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.price, true, '{{ shop.money_with_currency_format }}')">13,99 €</div><template x-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
             <div li-js-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
-        
-                          <div class="text-size-regular text-style-strikethrough text-style-muted" li-js-price="product.selected_or_first_available_variant.compare_at_price" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.compare_at_price, true, '{{ shop.money_with_currency_format }}')">—</div>
-                                </div>
-    </template>
-                        <div class="product-header_tag-list">
-                          <template x-if="product.selected_or_first_available_variant.available != true">
+        <div class="text-size-regular text-style-strikethrough text-style-muted" li-js-price="product.selected_or_first_available_variant.compare_at_price" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.compare_at_price, true, '{{ shop.money_with_currency_format }}')">—</div>        </div>
+    </template><div class="product-header_tag-list"><template x-if="product.selected_or_first_available_variant.available != true">
             <div class="product-item_tag" li-js-if="product.selected_or_first_available_variant.available != true">
         Ausverkauft        </div>
-    </template>
-                          <template x-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
+    </template><template x-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
             <div class="product-item_tag is-red" li-js-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
         Sale        </div>
-    </template>
-                        </div>
-                      </div>
-                      <p class="lh_pdp_price_meta">
+    </template></div></div><p class="lh_pdp_price_meta">
 {{ block.settings.text_basispreis_zeile }}
-</p>
-                      <p class="lh_pdp_price_meta">
-                        inkl. MwSt. zzgl. 
-                        <a href="/policies/shipping-policy">Versandkosten</a>
-                      </p>
-                    </div>
-                    
-                  
+</p><p class="lh_pdp_price_meta">inkl. MwSt. zzgl. <a href="/policies/shipping-policy">Versandkosten</a></p></div>
                 </div> {% schema %} {
     "name": "Preis & Steuern",
     "settings": [
