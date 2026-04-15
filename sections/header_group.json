@@ -1,1 +1,53 @@
-{"type":"header","name":"Header Group","sections":{"header":{"type":"header","settings":{}}},"order":["header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "image_logo": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+        "text_suche_schliessen_label": "Schließen",
+        "text_suche_treffer_vorschlage": "Vorschläge",
+        "text_suche_treffer_produkte": "Produkte",
+        "text_suche_treffer_seiten": "Seiten",
+        "text_suche_bereich_vorschlage": "Beliebte Suchanfragen",
+        "text_suche_bereich_bestseller": "Kürzlich angesehen",
+        "collection_search_bestseller": "",
+        "collection_search_bestseller_limit": 6,
+        "text_warenkorb_titel": "WARENKORB",
+        "text_warenkorb_promo_vorn": "Gute Wahl!",
+        "text_warenkorb_promo_hinten": "nur das beste für deine Lippen",
+        "text_mini_cart_upsell_kicker": "Gemeinsam kaufen",
+        "text_mini_cart_upsell_titel": "Lippenheld Spatel",
+        "text_mini_cart_upsell_untertitel": "Kosmetikspatel",
+        "text_mini_cart_upsell_preis": "14,99 €",
+        "url_mini_cart_upsell_link": "",
+        "text_mini_cart_label_zwischensumme": "Zwischensumme",
+        "text_mini_cart_label_rabattcode": "Rabattcode",
+        "text_mini_cart_rabatt_hinweis": "Im nächsten Schritt",
+        "text_mini_cart_label_versand": "Versand",
+        "text_mini_cart_versand_wert": "Kostenlos",
+        "text_mini_cart_label_gesamt": "Gesamt",
+        "text_mini_cart_checkout": "Sicher zur Kasse",
+        "href_routescart_url": "",
+        "text_mini_cart_warenkorb_link": "Warenkorb",
+        "text_warenkorb_titel_leer": "WARENKORB",
+        "text_warenkorb_promo_vorn_leer": "Gute Wahl!",
+        "text_warenkorb_promo_hinten_leer": "nur das beste für deine Lippen",
+        "text_mini_cart_leer_text": "Keine Produkte im Warenkorb"
+      }
+    }
+  },
+  "order": [
+    "header"
+  ]
+}

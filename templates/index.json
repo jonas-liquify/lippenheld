@@ -15,17 +15,27 @@
         "hero-titel": {
           "type": "_hero-titel",
           "name": "Hero Titel",
-          "settings": {}
+          "settings": {
+            "text_hero_uberschrift": "Natürliche Lippenpflege, schützt und pflegt, nährt und regeneriert, sanft wirksam"
+          },
+          "blocks": {}
         },
         "hero-unterzeile": {
           "type": "_hero-unterzeile",
           "name": "Hero Unterzeile",
-          "settings": {}
+          "settings": {
+            "text_hero_unterzeile": "Mit Laborgeprüfter Rezeptur. Gewonnen aus AQUA Mora dem Olivenpresswasser. Schützt, Pflegt &amp; regeneriert, 100% natürlich."
+          },
+          "blocks": {}
         },
         "hero-button": {
           "type": "_hero-button",
           "name": "Hero Button",
-          "settings": {}
+          "settings": {
+            "url_hero_button_link": "",
+            "text_hero_button": "Jetzt entdecken"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -33,7 +43,13 @@
         "hero-unterzeile",
         "hero-button"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#26261f",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_x": 60,
+        "image_hero_hintergrund": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg"
+      }
     },
     "intro_und_produkte": {
       "type": "intro_und_produkte",
@@ -41,19 +57,34 @@
         "intro-spalte": {
           "type": "_intro-spalte",
           "name": "Intro Spalte",
-          "settings": {}
+          "settings": {
+            "text_intro_uberschrift": "Regeneriert, schützt und pflegt die Lippen ",
+            "richtext_intro_text": "<p>Lippenheld, schützt &amp; pflegt, nährt &amp; regeneriert.naturrein und liebevoll gewonnen.</p>",
+            "text_intro_button": "Jetzt entdecken"
+          },
+          "blocks": {}
         },
         "produkt-karte": {
           "type": "_produkt-karte",
           "name": "Produkt Karte",
-          "settings": {}
+          "settings": {
+            "card_product": ""
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "intro-spalte",
         "produkt-karte"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_x": 60,
+        "intro_highlight_collection": "",
+        "intro_button_url": ""
+      }
     },
     "lippen_problem": {
       "type": "lippen_problem",
@@ -61,13 +92,23 @@
         "lip-kachel": {
           "type": "_lip-kachel",
           "name": "Lip Kachel",
-          "settings": {}
+          "settings": {
+            "text_label": "Mein tägliches Ritual"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "lip-kachel"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#afbaab",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_x": 60,
+        "text_lip_uberschrift": "Was ist dein Lippenproblem?",
+        "richtext_lip_text": "<p>Nicht sicher, welcher Lippenheld für dich passt? Wähle einfach den Zustand deiner Lippen aus.</p>"
+      }
     },
     "reviews_bereich": {
       "type": "reviews_bereich",
@@ -75,29 +116,40 @@
         "reviews-kopf": {
           "type": "_reviews-kopf",
           "name": "Reviews Kopf",
-          "settings": {}
+          "settings": {
+            "text_uberschrift": "Endlich wirklich gepflegte Lippen",
+            "richtext_text": "<p>Schützt durch die einzigartige Rezeptur, kein versiegeln der Lippen, sondern intelligente Versorgung, pflegt intensiv durch die reichhaltigen Inhaltsstoffe, natürliche Regeneration, verstärkt durch das natürliche Antioxidans - Hydroxytyrosol, spürbar geschmeidige Lippen, ohne Kompromisse</p>",
+            "url_button_link": "",
+            "text_button": "Jetzt entdecken"
+          },
+          "blocks": {}
         },
         "review-karussell": {
           "type": "_review-karussell",
           "name": "Review Karussell",
           "settings": {},
-          "blocks": {
-            "review-kachel": {
-              "type": "_review-kachel",
-              "name": "Review Kachel",
-              "settings": {}
-            }
-          }
+          "blocks": {}
         },
         "reviews-statistik": {
           "type": "_reviews-statistik",
           "name": "Reviews Statistik",
-          "settings": {}
+          "settings": {
+            "text_zahl_1": "94%",
+            "richtext_text_1": "<p>sagten, ihre Lippen fühlten sich sofort glatter &amp; geschmeidiger an*</p>",
+            "text_zahl_2": "13%",
+            "richtext_text_2": "<p>effektiver als Aciclovir, also Zovirax</p>",
+            "text_zahl_3": "19%",
+            "richtext_text_3": "<p>sagten, ihre Lippen fühlten sich sofort glatter &amp; geschmeidiger an***</p>"
+          },
+          "blocks": {}
         },
         "reviews-hinweis": {
           "type": "_reviews-hinweis",
           "name": "Reviews Hinweis",
-          "settings": {}
+          "settings": {
+            "richtext_disclaimer": "<p>**Dauer der Verminderung von Rötungen: Klinische Tests an 26 Frauen, innerhalb von 60 Minuten nach Produktanwendung im Vergleich zur unbehandelten Kontrollgruppe.</p>"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -106,7 +158,12 @@
         "reviews-statistik",
         "reviews-hinweis"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_x": 60
+      }
     },
     "warum_lippenheld": {
       "type": "warum_lippenheld",
@@ -114,19 +171,57 @@
         "warum-kopf": {
           "type": "_warum-kopf",
           "name": "Warum Kopf",
-          "settings": {}
+          "settings": {
+            "text_uberschrift": "Das stärkste Antioxidans aus Aqua Mora. 100% natürliche Bestandteile"
+          },
+          "blocks": {}
+        },
+        "warum_akkordeon_8Jz9nN": {
+          "type": "_warum-akkordeon",
+          "name": "Warum Akkordeon",
+          "settings": {
+            "text_titel": "Präventiv & Pflegend",
+            "richtext_text": "<p>Lippenheld basiert auf einem der stärksten Oliven-Antioxidantien der Welt. Die Formulierung schützt, regeneriert und pflegt – ganz ohne Chemie, synthetische Zusätze oder unnötige Füllstoffe. Pure Natur für gesunde Lippen.</p>",
+            "url_button_link": "",
+            "text_button": "Jetzt entdecken"
+          },
+          "blocks": {}
+        },
+        "warum_akkordeon_dJ3GtA": {
+          "type": "_warum-akkordeon",
+          "name": "Warum Akkordeon",
+          "settings": {
+            "text_titel": "Präventiv & Pflegend",
+            "richtext_text": "<p>Lippenheld basiert auf einem der stärksten Oliven-Antioxidantien der Welt. Die Formulierung schützt, regeneriert und pflegt – ganz ohne Chemie, synthetische Zusätze oder unnötige Füllstoffe. Pure Natur für gesunde Lippen.</p>",
+            "url_button_link": "",
+            "text_button": "Jetzt entdecken"
+          },
+          "blocks": {}
         },
         "warum-akkordeon": {
           "type": "_warum-akkordeon",
           "name": "Warum Akkordeon",
-          "settings": {}
+          "settings": {
+            "text_titel": "Präventiv & Pflegend",
+            "richtext_text": "<p>Lippenheld basiert auf einem der stärksten Oliven-Antioxidantien der Welt. Die Formulierung schützt, regeneriert und pflegt – ganz ohne Chemie, synthetische Zusätze oder unnötige Füllstoffe. Pure Natur für gesunde Lippen.</p>",
+            "url_button_link": "",
+            "text_button": "Jetzt entdecken"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "warum-kopf",
+        "warum_akkordeon_8Jz9nN",
+        "warum_akkordeon_dJ3GtA",
         "warum-akkordeon"
       ],
-      "settings": {}
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_x": 0,
+        "image_warum_bild": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg"
+      }
     },
     "founder_story": {
       "type": "founder_story",
@@ -134,19 +229,31 @@
         "founder-bild": {
           "type": "_founder-bild",
           "name": "Founder Bild",
-          "settings": {}
+          "settings": {},
+          "blocks": {}
         },
         "founder-zitat": {
           "type": "_founder-zitat",
           "name": "Founder Zitat",
-          "settings": {}
+          "settings": {
+            "richtext_zitat": "<p>„Als Naturmediziner mit 35 Jahren Berufserfahrung in meinem Naturheilzentrum Allgäu, entwickle ich auch für die verschiedensten Unternehmen Biokosmetik. Aber was es bis jetzt wirklich nicht gab, war ein wirksamer Lippbalm der wissenschaftlich untersucht, auch gegen Herpesviren agiert und dabei pflegt und die Lippen schützt.“</p>",
+            "richtext_name_und_rolle": "<p>Dr. h.c. Progress Universität Gyumri Edmund C. Herzog <br/> Gründer und Geschäftsführer</p>",
+            "url_button_link": "",
+            "text_button": "Jetzt entdecken"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "founder-bild",
         "founder-zitat"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_x": 0
+      }
     },
     "trusted_kunden": {
       "type": "trusted_kunden",
@@ -154,30 +261,60 @@
         "trusted-intro": {
           "type": "_trusted-intro",
           "name": "Trusted Intro",
-          "settings": {}
+          "settings": {
+            "image_hintergrund": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+            "text_uberschrift": "Trusted by 100.000 Kunden"
+          },
+          "blocks": {}
         },
         "trusted-vorher-nachher": {
           "type": "_trusted-vorher-nachher",
           "name": "Trusted Vorher Nachher",
           "settings": {},
           "blocks": {
-            "ba-foto": {
+            "ba_foto_fRwqbx": {
               "type": "_ba-foto",
               "name": "BA Foto",
-              "settings": {}
+              "settings": {
+                "text_beschriftung": "Before"
+              },
+              "blocks": {}
+            },
+            "ba_foto_AJXwmr": {
+              "type": "_ba-foto",
+              "name": "BA Foto",
+              "settings": {
+                "text_beschriftung": "Before"
+              },
+              "blocks": {}
             }
-          }
+          },
+          "block_order": [
+            "ba_foto_fRwqbx",
+            "ba_foto_AJXwmr"
+          ]
         }
       },
       "block_order": [
         "trusted-intro",
         "trusted-vorher-nachher"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#afbaab",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_x": 60
+      }
     },
     "trustpilot": {
       "type": "trustpilot",
-      "settings": {}
+      "settings": {
+        "bg_color": "#f6f6f4",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_x": 60,
+        "trustpilot_embed": ""
+      }
     },
     "aqua_mora_story": {
       "type": "aqua_mora_story",
@@ -185,22 +322,33 @@
         "aqua-siegel": {
           "type": "_aqua-siegel",
           "name": "Aqua Siegel",
-          "settings": {}
+          "settings": {},
+          "blocks": {}
         },
         "aqua-titel": {
           "type": "_aqua-titel",
           "name": "Aqua Titel",
-          "settings": {}
+          "settings": {
+            "text_uberschrift": "AQUA MORA UND DER WIRKSTOFF HYROXYTHROSOL"
+          },
+          "blocks": {}
         },
         "aqua-text": {
           "type": "_aqua-text",
           "name": "Aqua Text",
-          "settings": {}
+          "settings": {
+            "richtext_text": "<p>Es klingt wie ein Toskanisches Märchen, das jetzt wahr wurde. Von Generation zu Generation wurde es mündlich weitergegeben. Das aus der Olive gewonnene Aqua Mora ist ein gesundheitsfördernder Trunk, der von den alten Toskanerinnen nach der Olivenernte getrunken wurde. Viele Generationen setzten auf das alte Geheimnis ohne zu wissen was dahinter steckte.</p>"
+          },
+          "blocks": {}
         },
         "aqua-button": {
           "type": "_aqua-button",
           "name": "Aqua Button",
-          "settings": {}
+          "settings": {
+            "url_button_link": "",
+            "text_button": "Jetzt entdecken"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -209,7 +357,12 @@
         "aqua-text",
         "aqua-button"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#f6f6f0",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_x": 60
+      }
     },
     "instagram": {
       "type": "instagram",
@@ -217,30 +370,39 @@
         "insta-kopf": {
           "type": "_insta-kopf",
           "name": "Insta Kopf",
-          "settings": {}
+          "settings": {
+            "text_titel": "lippenheld AUF INSTAGRAM:",
+            "url_profil_url": ""
+          },
+          "blocks": {}
         },
         "insta-galerie": {
           "type": "_insta-galerie",
           "name": "Insta Galerie",
           "settings": {},
-          "blocks": {
-            "insta-kachel": {
-              "type": "_insta-kachel",
-              "name": "Insta Kachel",
-              "settings": {}
-            }
-          }
+          "blocks": {}
         }
       },
       "block_order": [
         "insta-kopf",
         "insta-galerie"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_x": 60
+      }
     },
     "custom_liquid": {
       "type": "custom_liquid",
-      "settings": {}
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_x": 60,
+        "custom_liquid": ""
+      }
     }
   },
   "layout": "theme",
