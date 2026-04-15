@@ -1,4 +1,5 @@
-// predictive-search
+<script><script>
+redictive-search
         class PredictiveSearch extends HTMLElement {
           constructor() {
             super();
@@ -17,7 +18,7 @@
             this.getSearchResults(searchTerm);
           }
           getSearchResults(searchTerm) {
-            fetch(`{% unless request.locale.root_url == '/' %}{{ request.locale.root_url }}{% endunless %}/search/suggest?q=${searchTerm}&section_id=predictive_search`)
+            fetch(`{% unless request.locale.root_url == '/' %}{{ request.locale.root_url }}{% endunless %}/search/suggest?q=${searchTerm}&amp;section_id=predictive_search`)
               .then((response) => {
                 if (!response.ok) {
                   var error = new Error(response.status);
@@ -51,3 +52,4 @@
           }
         }
         customElements.define('predictive-search', PredictiveSearch);
+</script>

@@ -1,13 +1,9 @@
 <div class="lh_pdp_trusted_item" li-block="_Trusted Logo" li-block:category="Trusted" {{ block.shopify_attributes }}>
-                    
-                
                     {% if block.settings.image_logo %}
 {{ block.settings.image_logo | image_url: width: 1000 | image_tag: loading: 'lazy' }}
 {% else %}
 <img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
 {% endif %}
-                    
-              
                 </div> {% schema %} {
     "name": "Trusted Logo",
     "settings": [

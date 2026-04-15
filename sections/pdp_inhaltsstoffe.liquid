@@ -1,32 +1,16 @@
-<div class="lh_pdp_ingredients_grid">
-          <div class="lh_pdp_ingredients_col lh_pdp_ingredients_col_list">
-            <p class="lh_pdp_ingredients_label">
+<div class="lh_pdp_ingredients_grid"><div class="lh_pdp_ingredients_col lh_pdp_ingredients_col_list"><p class="lh_pdp_ingredients_label">
 {{ section.settings.text_spalte_1_label }}
-</p>
-            <ol class="lh_pdp_ingredients_ol" li-content-for-theme-blocks="">
+</p><ol class="lh_pdp_ingredients_ol" li-content-for-theme-blocks="">
 {% content_for 'blocks' %}
-</ol>
-            <div class="lh_pdp_ingredients_inci lh_text_playfair"> {{ section.settings.richtext_inci_langtext }} </div>
-          </div>
-          <div class="lh_pdp_ingredients_col lh_pdp_ingredients_col_visual">
-            {% if section.settings.image_mittleres_bild %}
+</ol><div class="lh_pdp_ingredients_inci lh_text_playfair"> {{ section.settings.richtext_inci_langtext }} </div></div><div class="lh_pdp_ingredients_col lh_pdp_ingredients_col_visual">{% if section.settings.image_mittleres_bild %}
 {{ section.settings.image_mittleres_bild | image_url: width: 1000 | image_tag: class: 'lh_pdp_ingredients_hero', loading: 'lazy' }}
 {% else %}
 <img class="lh_pdp_ingredients_hero" src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
-{% endif %}
-          </div>
-          <div class="lh_pdp_ingredients_col lh_pdp_ingredients_col_story">
-            <p class="lh_pdp_ingredients_kicker">
+{% endif %}</div><div class="lh_pdp_ingredients_col lh_pdp_ingredients_col_story"><p class="lh_pdp_ingredients_kicker">
 {{ section.settings.text_spalte_3_kicker }}
-</p>
-            <h2 class="lh_pdp_ingredients_headline">
+</p><h2 class="lh_pdp_ingredients_headline">
 {{ section.settings.text_headline }}
-</h2>
-            <div class="lh_pdp_ingredients_copy lh_text_playfair"> {{ section.settings.richtext_fliesstext_1 }} </div>
-            <div class="lh_pdp_ingredients_copy lh_text_playfair"> {{ section.settings.richtext_fliesstext_2 }} </div>
-            <a class="lh_btn lh_btn--black lh_pdp_ingredients_btn" href="{{ section.settings.url_button_link }}"> {{ section.settings.text_button }} </a>
-          </div>
-        </div> {% schema %} {
+</h2><div class="lh_pdp_ingredients_copy lh_text_playfair"> {{ section.settings.richtext_fliesstext_1 }} </div><div class="lh_pdp_ingredients_copy lh_text_playfair"> {{ section.settings.richtext_fliesstext_2 }} </div><a class="lh_btn lh_btn--black lh_pdp_ingredients_btn" href="{{ section.settings.url_button_link }}"> {{ section.settings.text_button }} </a></div></div> {% schema %} {
     "tag": "section",
     "name": "PDP Inhaltsstoffe",
     "class": "lh_pdp_section lh_pdp_ingredients",
