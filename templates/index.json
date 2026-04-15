@@ -3,62 +3,62 @@
         "hero_start": {
             "type": "hero_start",
             "blocks": {
-                "_hero-titel": {
+                "hero-titel": {
                     "type": "_hero-titel",
                     "name": "Hero Titel"
                 },
-                "_hero-unterzeile": {
+                "hero-unterzeile": {
                     "type": "_hero-unterzeile",
                     "name": "Hero Unterzeile"
                 },
-                "_hero-button": {
+                "hero-button": {
                     "type": "_hero-button",
                     "name": "Hero Button"
                 }
             },
             "block_order": [
-                "_hero-titel",
-                "_hero-unterzeile",
-                "_hero-button"
+                "hero-titel",
+                "hero-unterzeile",
+                "hero-button"
             ]
         },
         "intro_und_produkte": {
             "type": "intro_und_produkte",
             "blocks": {
-                "_intro-spalte": {
+                "intro-spalte": {
                     "type": "_intro-spalte",
                     "name": "Intro Spalte"
                 },
-                "_produkt-karte": {
+                "produkt-karte": {
                     "type": "_produkt-karte",
                     "name": "Produkt Karte"
                 }
             },
             "block_order": [
-                "_intro-spalte",
-                "_produkt-karte"
+                "intro-spalte",
+                "produkt-karte"
             ]
         },
         "lippen_problem": {
             "type": "lippen_problem",
             "blocks": {
-                "_lip-kachel": {
+                "lip-kachel": {
                     "type": "_lip-kachel",
                     "name": "Lip Kachel"
                 }
             },
             "block_order": [
-                "_lip-kachel"
+                "lip-kachel"
             ]
         },
         "reviews_bereich": {
             "type": "reviews_bereich",
             "blocks": {
-                "_reviews-kopf": {
+                "reviews-kopf": {
                     "type": "_reviews-kopf",
                     "name": "Reviews Kopf"
                 },
-                "_review-karussell": {
+                "review-karussell": {
                     "type": "_review-karussell",
                     "name": "Review Karussell",
                     "blocks": {
@@ -68,64 +68,64 @@
                         }
                     }
                 },
-                "_reviews-statistik": {
+                "reviews-statistik": {
                     "type": "_reviews-statistik",
                     "name": "Reviews Statistik"
                 },
-                "_reviews-hinweis": {
+                "reviews-hinweis": {
                     "type": "_reviews-hinweis",
                     "name": "Reviews Hinweis"
                 }
             },
             "block_order": [
-                "_reviews-kopf",
-                "_review-karussell",
-                "_reviews-statistik",
-                "_reviews-hinweis"
+                "reviews-kopf",
+                "review-karussell",
+                "reviews-statistik",
+                "reviews-hinweis"
             ]
         },
         "warum_lippenheld": {
             "type": "warum_lippenheld",
             "blocks": {
-                "_warum-kopf": {
+                "warum-kopf": {
                     "type": "_warum-kopf",
                     "name": "Warum Kopf"
                 },
-                "_warum-akkordeon": {
+                "warum-akkordeon": {
                     "type": "_warum-akkordeon",
                     "name": "Warum Akkordeon"
                 }
             },
             "block_order": [
-                "_warum-kopf",
-                "_warum-akkordeon"
+                "warum-kopf",
+                "warum-akkordeon"
             ]
         },
         "founder_story": {
             "type": "founder_story",
             "blocks": {
-                "_founder-bild": {
+                "founder-bild": {
                     "type": "_founder-bild",
                     "name": "Founder Bild"
                 },
-                "_founder-zitat": {
+                "founder-zitat": {
                     "type": "_founder-zitat",
                     "name": "Founder Zitat"
                 }
             },
             "block_order": [
-                "_founder-bild",
-                "_founder-zitat"
+                "founder-bild",
+                "founder-zitat"
             ]
         },
         "trusted_kunden": {
             "type": "trusted_kunden",
             "blocks": {
-                "_trusted-intro": {
+                "trusted-intro": {
                     "type": "_trusted-intro",
                     "name": "Trusted Intro"
                 },
-                "_trusted-vorher-nachher": {
+                "trusted-vorher-nachher": {
                     "type": "_trusted-vorher-nachher",
                     "name": "Trusted Vorher Nachher",
                     "blocks": {
@@ -137,8 +137,8 @@
                 }
             },
             "block_order": [
-                "_trusted-intro",
-                "_trusted-vorher-nachher"
+                "trusted-intro",
+                "trusted-vorher-nachher"
             ]
         },
         "trustpilot": {
@@ -147,38 +147,38 @@
         "aqua_mora_story": {
             "type": "aqua_mora_story",
             "blocks": {
-                "_aqua-siegel": {
+                "aqua-siegel": {
                     "type": "_aqua-siegel",
                     "name": "Aqua Siegel"
                 },
-                "_aqua-titel": {
+                "aqua-titel": {
                     "type": "_aqua-titel",
                     "name": "Aqua Titel"
                 },
-                "_aqua-text": {
+                "aqua-text": {
                     "type": "_aqua-text",
                     "name": "Aqua Text"
                 },
-                "_aqua-button": {
+                "aqua-button": {
                     "type": "_aqua-button",
                     "name": "Aqua Button"
                 }
             },
             "block_order": [
-                "_aqua-siegel",
-                "_aqua-titel",
-                "_aqua-text",
-                "_aqua-button"
+                "aqua-siegel",
+                "aqua-titel",
+                "aqua-text",
+                "aqua-button"
             ]
         },
         "instagram": {
             "type": "instagram",
             "blocks": {
-                "_insta-kopf": {
+                "insta-kopf": {
                     "type": "_insta-kopf",
                     "name": "Insta Kopf"
                 },
-                "_insta-galerie": {
+                "insta-galerie": {
                     "type": "_insta-galerie",
                     "name": "Insta Galerie",
                     "blocks": {
@@ -190,8 +190,8 @@
                 }
             },
             "block_order": [
-                "_insta-kopf",
-                "_insta-galerie"
+                "insta-kopf",
+                "insta-galerie"
             ]
         },
         "custom_liquid": {
