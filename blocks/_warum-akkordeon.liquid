@@ -1,0 +1,41 @@
+<details class="lh_accordion_item" name="lh_why_accordion" open="" li-block="_Warum Akkordeon" li-block:category="Akkordeon" {{ block.shopify_attributes }}>
+                    <summary class="lh_accordion_head"><span>
+{{ block.settings.text_titel }}
+</span> <span aria-hidden="true">⌄</span></summary>
+                    <div class="lh_accordion_body"><div class="lh_text_playfair"> {{ block.settings.richtext_text }} </div><a class="lh_btn lh_btn--black" href="{{ block.settings.url_button_link }}" style="margin-top:1rem;"> {{ block.settings.text_button }} </a></div>
+                </details> {% schema %} {
+    "name": "Warum Akkordeon",
+    "settings": [
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "Pr\u00e4ventiv &amp; Pflegend"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Lippenheld basiert auf einem der st\u00e4rksten Oliven-Antioxidantien der Welt. Die Formulierung sch\u00fctzt, regeneriert und pflegt \u2013 ganz ohne Chemie, synthetische Zus\u00e4tze oder unn\u00f6tige F\u00fcllstoffe. Pure Natur f\u00fcr gesunde Lippen.<\/p>"
+        },
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button Link"
+        },
+        {
+            "id": "text_button",
+            "type": "text",
+            "label": "Button",
+            "default": "Jetzt entdecken"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Warum Akkordeon",
+            "category": "Akkordeon",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,25 @@
+<div li-block="Treuepunkte" li-block:category="Kaufzone" {{ block.shopify_attributes }}>
+                    
+                    
+                    <div class="lh_pdp_loyalty"> {{ block.settings.richtext_treuepunkte_text }} </div>
+                    
+                  
+                </div> {% schema %} {
+    "name": "Treuepunkte",
+    "settings": [
+        {
+            "id": "richtext_treuepunkte_text",
+            "type": "richtext",
+            "label": "Treuepunkte Text",
+            "default": "<p>Verdiene <strong>1.199 T-Punkte<\/strong> mit diesem Einkauf<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Treuepunkte",
+            "category": "Kaufzone",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

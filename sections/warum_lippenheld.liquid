@@ -1,0 +1,86 @@
+<div class="padding-global lh_section_layout" style="--lh-sec-pt: {{ section.settings.padding_top }}px;--lh-sec-pb: {{ section.settings.padding_bottom }}px;--lh-sec-px: {{ section.settings.padding_x }}px;"><div class="container-large lh_why_split_container"><div class="lh_why_img">{% if section.settings.image_warum_bild %}
+{{ section.settings.image_warum_bild | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}</div><div class="lh_why_panel" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Warum Lippenheld",
+    "class": "lh_why_split",
+    "blocks": [
+        {
+            "type": "_warum-kopf"
+        },
+        {
+            "type": "_warum-akkordeon"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Abstand"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 160,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 160,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_x",
+            "min": 0,
+            "max": 120,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand links\/rechts",
+            "default": 0
+        },
+        {
+            "id": "image_warum_bild",
+            "type": "image_picker",
+            "label": "Warum Bild"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Warum Lippenheld",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "_warum-kopf"
+                },
+                {
+                    "type": "_warum-akkordeon"
+                },
+                {
+                    "type": "_warum-akkordeon"
+                },
+                {
+                    "type": "_warum-akkordeon"
+                },
+                {
+                    "type": "_warum-akkordeon"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

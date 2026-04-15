@@ -1,0 +1,24 @@
+<div class="lh_founder_img" li-block="_Founder Bild" li-block:category="Medien" {{ block.shopify_attributes }}>
+                    {% if block.settings.image_foto %}
+{{ block.settings.image_foto | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                </div> {% schema %} {
+    "name": "Founder Bild",
+    "settings": [
+        {
+            "id": "image_foto",
+            "type": "image_picker",
+            "label": "Foto"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Founder Bild",
+            "category": "Medien",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

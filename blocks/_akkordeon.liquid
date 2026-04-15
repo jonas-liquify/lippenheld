@@ -1,0 +1,34 @@
+<details class="lh_accordion_item lh_pdp_acc" name="lh_pdp_acc" open="" li-block="_Akkordeon" li-block:category="Produkttexte" {{ block.shopify_attributes }}>
+                    
+                    
+                    <summary class="lh_accordion_head">
+                      <span>
+{{ block.settings.text_titel }}
+</span>
+                       
+                      <span aria-hidden="true">⌄</span>
+                    </summary>
+                    
+                    
+                    <div class="lh_accordion_body w-richtext" li-object="product.description">{{ product.description }}</div>
+                    
+                  
+                </details> {% schema %} {
+    "name": "Akkordeon",
+    "settings": [
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "Produktdetails"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Akkordeon",
+            "category": "Produkttexte",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

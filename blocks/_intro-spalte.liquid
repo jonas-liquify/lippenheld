@@ -1,0 +1,39 @@
+<div class="lh_intro_col" li-block="_Intro Spalte" li-block:category="Text" {{ block.shopify_attributes }}>
+                    <p class="lh_kicker">
+{{ block.settings.text_intro_uberschrift }}
+</p>
+                    <div class="lh_text_playfair"> {{ block.settings.richtext_intro_text }} </div>
+                    <a class="lh_btn lh_btn--outline" href="{% if section.settings.intro_highlight_collection != blank %}{{ section.settings.intro_highlight_collection.url }}{% else %}{{ section.settings.intro_button_url }}{% endif %}" href="#">
+{{ block.settings.text_intro_button }}
+</a>
+                </div> {% schema %} {
+    "name": "Intro Spalte",
+    "settings": [
+        {
+            "id": "text_intro_uberschrift",
+            "type": "text",
+            "label": "Intro \u00dcberschrift",
+            "default": "Regeneriert, sch\u00fctzt und pflegt die Lippen"
+        },
+        {
+            "id": "richtext_intro_text",
+            "type": "richtext",
+            "label": "Intro Text",
+            "default": "<p>Lippenheld, sch\u00fctzt &amp; pflegt, n\u00e4hrt &amp; regeneriert.naturrein und liebevoll gewonnen.<\/p>"
+        },
+        {
+            "id": "text_intro_button",
+            "type": "text",
+            "label": "Intro Button",
+            "default": "Jetzt entdecken"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Intro Spalte",
+            "category": "Text",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}
