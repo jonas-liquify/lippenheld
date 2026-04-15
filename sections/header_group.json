@@ -14,7 +14,6 @@
     "header": {
       "type": "header",
       "settings": {
-        "image_logo": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
         "text_suche_schliessen_label": "Schließen",
         "text_suche_treffer_vorschlage": "Vorschläge",
         "text_suche_treffer_produkte": "Produkte",
