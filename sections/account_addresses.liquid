@@ -1,0 +1,180 @@
+<div class="padding-global padding-section-small">
+            <div class="container-large">
+              <div class="addresses_grid" x-data="{modal: 99}">
+                {% for address in customer.addresses %}    <div class="addresses_wrapper outline-solid-1" li-for="address in customer.addresses" id="w-node-_28393307-8bd6-513a-3564-7f1ca909485c-a9094858">
+                                    
+                  
+                            <div class="addresses_padding is-header">
+                    {% if address == customer.default_address %}    <div class="text-size-regular" li-if="address == customer.default_address">
+    Main Address    </div>
+{% endif %}
+                    {% if address != customer.default_address %}    <div class="text-size-regular" li-if="address != customer.default_address">
+    Other Address    </div>
+{% endif %}
+                  </div>
+                            
+                  
+                            <div class="addresses_padding">
+                    <div class="text-size-regular" li-object="address | format_address">{{ address | format_address }}</div>
+                    <div class="addresses_edit">
+                      <div class="addresses_modal" x-bind:aria-hidden="modal === {{forloop.index}} ? 'false' : 'true'" aria-modal="true" x-transition="" x-on:keydown.escape.window="open = 99" x-show="modal === {{forloop.index}}" role="dialog" x-trap.inert="modal === {{forloop.index}}" x-trap.noscroll="modal === {{forloop.index}}" id="modal-{{forloop.index}}" x-cloak="">
+                        <div class="addresses_modal-close" x-on:click="modal = 99"></div>
+                        <div class="addresses_form">
+                          <div class="w-form">
+                            {% form 'customer_address', address %}
+<div class="addresses_form-grid">
+                                <h3 class="heading-style-h3" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051ee8-b7051ee4">Edit Address</h3>
+                                <div class="form_field-wrapper">
+                                  <div class="form_field-label">First Name</div>
+                                  <input class="form_input w-input" li-object:value="form.first_name" maxlength="256" name="address[first_name]" data-name="Address First Name" type="text" id="Address-First-Name-4" required="" value="{{ form.first_name }}">
+                                </div>
+                                <div class="form_field-wrapper" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051eee-b7051ee4">
+                                  <div class="form_field-label">Last Name</div>
+                                  <input class="form_input w-input" li-object:value="form.last_name" maxlength="256" name="address[last_name]" data-name="Address Last Name" type="text" id="Address-Last-Name-4" required="" value="{{ form.last_name }}">
+                                </div>
+                                <div class="form_field-wrapper" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051ef2-b7051ee4">
+                                  <div class="form_field-label">Company</div>
+                                  <input class="form_input w-input" li-object:value="form.company" maxlength="256" name="address[company]" data-name="Address Company" type="text" id="Address-Company-4" required="" value="{{ form.company }}">
+                                </div>
+                                <div class="form_field-wrapper" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051ef6-b7051ee4">
+                                  <div class="form_field-label">Address</div>
+                                  <input class="form_input w-input" li-object:value="form.address1" maxlength="256" name="address[address1]" data-name="Address Address" type="text" id="Address-Address-2" required="" value="{{ form.address1 }}">
+                                </div>
+                                <div class="form_field-wrapper" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051efa-b7051ee4">
+                                  <div class="form_field-label">Address 2</div>
+                                  <input class="form_input w-input" li-object:value="form.address2" maxlength="256" name="address[address2]" data-name="Address Address" type="text" id="Address-Address" required="" value="{{ form.address2 }}">
+                                </div>
+                                <div class="form_field-wrapper" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051efe-b7051ee4">
+                                  <div class="form_field-label">Zip</div>
+                                  <input class="form_input w-input" li-object:value="form.zip" maxlength="256" name="address[zip]" data-name="Address Zip" type="text" id="Address-Zip-4" required="" value="{{ form.zip }}">
+                                </div>
+                                <div class="form_field-wrapper" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051f02-b7051ee4">
+                                  <div class="form_field-label">City</div>
+                                  <input class="form_input w-input" li-object:value="form.city" maxlength="256" name="address[city]" data-name="Address City" type="text" id="Address-City-4" required="" value="{{ form.city }}">
+                                </div>
+                                <div class="form_field-wrapper" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051f06-b7051ee4">
+                                  <div class="form_field-label">Country</div>
+                                  <select class="form_input" data-default="{{ form.country }}" name="address[country]"></select>
+                                </div>
+                                <div class="form_field-wrapper" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051f0e-b7051ee4">
+                                  <div class="form_field-label">Phone Number</div>
+                                  <input class="form_input w-input" li-object:value="form.phone" maxlength="256" name="address[phone]" data-name="Address Phone 2" type="text" required="" value="{{ form.phone }}">
+                                </div>
+                                <div class="form_checkbox" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051f12-b7051ee4">
+                                  <div class="form_checkbox-icon" li-object="form.set_as_default_checkbox" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051f13-b7051ee4">{{ form.set_as_default_checkbox }}</div>
+                                  <div>Save as default</div>
+                                </div>
+                                <input class="button w-button" type="submit" data-wait="Please wait..." id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051f16-b7051ee4" value="Save">
+                                <a class="text-size-regular text-style-link" aria-controls="modal-{{forloop.index}}" x-on:click="modal = 99" id="w-node-c1cc0feb-3fc0-f42f-4d44-745bb7051f17-b7051ee4" href="#">Cancel</a>
+                              </div>
+                            {% endform %}
+                            <div class="hide w-form-done">
+                              <div>Thank you! Your submission has been received!</div>
+                            </div>
+                            <div class="hide w-form-fail">
+                              <div>Oops! Something went wrong while submitting the form.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="text-size-regular text-style-link" id="openModalButton-{{forloop.index}}" x-on:click="modal = {{forloop.index}}" aria-haspopup="dialog" aria-controls="modal-{{forloop.index}}" href="#">Edit</a>
+                      <div>
+                        <div class="addresses_delete-button hide"></div>
+                        <div class="w-embed">
+                          <form class="address-delete-form" method="post" action="/account/addresses/{{ address.id }}">
+                            <input type="hidden" name="_method" value="delete">
+                            <button class="addresses_delete-button" type="submit" aria-label="Delete Address"></button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                            
+                
+                        </div>
+{% endfor %}
+                <div class="addresses_wrapper is-new outline-solid-1" id="w-node-_28393307-8bd6-513a-3564-7f1ca9094870-a9094858">
+                  <div class="addresses_padding">
+                    <div class="addresses_modal" x-bind:aria-hidden="modal === 100 ? 'false' : 'true'" aria-modal="true" x-transition="" x-on:keydown.escape.window="open = 99" x-show="modal === 100" role="dialog" x-trap.inert="modal === 100" x-trap.noscroll="modal === 100" id="modal-100" x-cloak="">
+                      <div class="addresses_modal-close" x-on:click="modal = 99"></div>
+                      <div class="addresses_form">
+                        <div class="w-form">
+                          {% form 'customer_address', customer.new_address, class: 'addresses_form-wrapper' %}
+<div class="addresses_form-grid">
+                              <h3 class="heading-style-h3" id="w-node-_431962bc-cbac-6ad1-3996-e9d2495180d9-495180d5">New Adresse</h3>
+                              <div class="form_field-wrapper">
+                                <div class="form_field-label">First Name</div>
+                                <input class="form_input w-input" maxlength="256" name="address[first_name]" data-name="Address First Name" type="text" id="Address-First-Name-5" required="">
+                              </div>
+                              <div class="form_field-wrapper" id="w-node-_431962bc-cbac-6ad1-3996-e9d2495180df-495180d5">
+                                <div class="form_field-label">Last Name</div>
+                                <input class="form_input w-input" maxlength="256" name="address[last_name]" data-name="Address Last Name" type="text" id="Address-Last-Name-5" required="">
+                              </div>
+                              <div class="form_field-wrapper" id="w-node-_431962bc-cbac-6ad1-3996-e9d2495180e3-495180d5">
+                                <div class="form_field-label">Company</div>
+                                <input class="form_input w-input" maxlength="256" name="address[company]" data-name="Address Company" type="text" id="Address-Company-5">
+                              </div>
+                              <div class="form_field-wrapper" id="w-node-_431962bc-cbac-6ad1-3996-e9d2495180e7-495180d5">
+                                <div class="form_field-label">Address</div>
+                                <input class="form_input w-input" maxlength="256" name="address[address1]" data-name="Address Address" type="text" id="Address-Address-3">
+                              </div>
+                              <div class="form_field-wrapper" id="w-node-_431962bc-cbac-6ad1-3996-e9d2495180eb-495180d5">
+                                <div class="form_field-label">Address 2</div>
+                                <input class="form_input w-input" maxlength="256" name="address[address2]" data-name="Address Address 2" type="text" id="Address-Address-4">
+                              </div>
+                              <div class="form_field-wrapper" id="w-node-_431962bc-cbac-6ad1-3996-e9d2495180ef-495180d5">
+                                <div class="form_field-label">Zip</div>
+                                <input class="form_input w-input" maxlength="256" name="address[zip]" data-name="Address Zip" type="text" id="Address-Zip-5">
+                              </div>
+                              <div class="form_field-wrapper" id="w-node-_431962bc-cbac-6ad1-3996-e9d2495180f3-495180d5">
+                                <div class="form_field-label">City</div>
+                                <input class="form_input w-input" maxlength="256" name="address[city]" data-name="Address City" type="text" id="Address-City-5">
+                              </div>
+                              <div class="form_field-wrapper" id="w-node-_431962bc-cbac-6ad1-3996-e9d2495180f7-495180d5">
+                                <div class="form_field-label">Country</div>
+                                <select class="form_input" li-object="all_country_option_tags" data-default="{{ form.country }}" name="address[country]">{{ all_country_option_tags }}</select>
+                              </div>
+                              <div class="form_field-wrapper" id="w-node-_431962bc-cbac-6ad1-3996-e9d2495180ff-495180d5">
+                                <div class="form_field-label">Phone Number</div>
+                                <input class="form_input w-input" maxlength="256" name="address[phone]" data-name="Address Phone" type="text" id="Address-Phone-2">
+                              </div>
+                              <div class="form_checkbox" id="w-node-_431962bc-cbac-6ad1-3996-e9d249518103-495180d5">
+                                <div class="form_checkbox-icon" li-object="form.set_as_default_checkbox" id="w-node-_431962bc-cbac-6ad1-3996-e9d249518104-495180d5">{{ form.set_as_default_checkbox }}</div>
+                                <div>Save as default</div>
+                              </div>
+                              <input class="button w-button" type="submit" data-wait="Please wait..." id="w-node-_431962bc-cbac-6ad1-3996-e9d249518107-495180d5" value="Create">
+                              <a class="text-size-regular text-style-link" aria-controls="modal-100" x-on:click="modal = 99" id="w-node-_431962bc-cbac-6ad1-3996-e9d249518108-495180d5" href="#">Cancel</a>
+                            </div>
+                          {% endform %}
+                          <div class="w-form-done">
+                            <div>Thank you! Your submission has been received!</div>
+                          </div>
+                          <div class="w-form-fail">
+                            <div>Oops! Something went wrong while submitting the form.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <img class="addresses_plus" src="{{ 'plus.svg' | asset_url }}" loading="lazy" alt="">
+                    <button class="addresses_opener" x-on:click="modal = 100" id="openModalButton-100" aria-label="Create new address" aria-controls="modal-100" aria-haspopup="dialog"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> {% schema %} {
+    "tag": "section",
+    "name": "Account-Addresses",
+    "class": "section_account",
+    "presets": [
+        {
+            "name": "Account-Addresses",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "customers\/addresses"
+        ]
+    }
+} {% endschema %}

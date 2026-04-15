@@ -1,0 +1,20 @@
+<div li-block="Kategorie" li-block:category="Kopfbereich" {{ block.shopify_attributes }}>
+                    
+                    
+                    <p class="lh_pdp_kicker" li-object:text="product.type">
+{{ product.type }}
+</p>
+                    
+                  
+                </div> {% schema %} {
+    "name": "Kategorie",
+    "settings": [],
+    "presets": [
+        {
+            "name": "Kategorie",
+            "category": "Kopfbereich",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

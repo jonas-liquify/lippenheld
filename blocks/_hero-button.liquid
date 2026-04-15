@@ -1,0 +1,26 @@
+<div class="lh_hero_block" li-block="_Hero Button" li-block:category="Hero" {{ block.shopify_attributes }}>
+                    <a class="lh_btn lh_btn--white" href="{{ block.settings.url_hero_button_link }}"> {{ block.settings.text_hero_button }} </a>
+                </div> {% schema %} {
+    "name": "Hero Button",
+    "settings": [
+        {
+            "id": "url_hero_button_link",
+            "type": "url",
+            "label": "Hero Button Link"
+        },
+        {
+            "id": "text_hero_button",
+            "type": "text",
+            "label": "Hero Button",
+            "default": "Jetzt entdecken"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Button",
+            "category": "Hero",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,24 @@
+<div li-block="_Aqua Siegel" li-block:category="Story" {{ block.shopify_attributes }}>
+                    {% if block.settings.image_siegel %}
+{{ block.settings.image_siegel | image_url: width: 1000 | image_tag: class: 'lh_seal', loading: 'lazy' }}
+{% else %}
+<img class="lh_seal" src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                </div> {% schema %} {
+    "name": "Aqua Siegel",
+    "settings": [
+        {
+            "id": "image_siegel",
+            "type": "image_picker",
+            "label": "Siegel"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Aqua Siegel",
+            "category": "Story",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

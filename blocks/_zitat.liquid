@@ -1,0 +1,36 @@
+<div class="lh_pdp_quote" li-block="_Zitat" li-block:category="Zitate" {{ block.shopify_attributes }}>
+                    
+                
+                    <p class="lh_pdp_quote_title">
+{{ block.settings.text_zitat_titel }}
+</p>
+                    
+                
+                    <div class="lh_pdp_quote_text lh_text_playfair"> {{ block.settings.richtext_zitat_text }} </div>
+                    
+              
+                </div> {% schema %} {
+    "name": "Zitat",
+    "settings": [
+        {
+            "id": "text_zitat_titel",
+            "type": "text",
+            "label": "Zitat Titel",
+            "default": "Oliphenolia\u00ae"
+        },
+        {
+            "id": "richtext_zitat_text",
+            "type": "richtext",
+            "label": "Zitat Text",
+            "default": "<p>Mit Oliphenolia\u00ae, einem patentierten Wirkstoff auf Basis von Hydroxytyrosol aus Oliven, sch\u00fctzt Lippenheld die Lippen effektiv \u2013 wissenschaftlich best\u00e4tigt.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Zitat",
+            "category": "Zitate",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

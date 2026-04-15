@@ -1,0 +1,40 @@
+<div class="lh_founder_content" li-block="_Founder Zitat" li-block:category="Text" {{ block.shopify_attributes }}>
+                    <div class="lh_quote"> {{ block.settings.richtext_zitat }} </div>
+                    <div class="lh_attribution"> {{ block.settings.richtext_name_und_rolle }} </div>
+                    <a class="lh_btn lh_btn--black" href="{{ block.settings.url_button_link }}"> {{ block.settings.text_button }} </a>
+                </div> {% schema %} {
+    "name": "Founder Zitat",
+    "settings": [
+        {
+            "id": "richtext_zitat",
+            "type": "richtext",
+            "label": "Zitat",
+            "default": "<p>\u201eAls Naturmediziner mit 35 Jahren Berufserfahrung in meinem Naturheilzentrum Allg\u00e4u, entwickle ich auch f\u00fcr die verschiedensten Unternehmen Biokosmetik. Aber was es bis jetzt wirklich nicht gab, war ein wirksamer Lippbalm der wissenschaftlich untersucht, auch gegen Herpesviren agiert und dabei pflegt und die Lippen sch\u00fctzt.\u201c<\/p>"
+        },
+        {
+            "id": "richtext_name_und_rolle",
+            "type": "richtext",
+            "label": "Name und Rolle",
+            "default": "<p>Dr. h.c. Progress Universit\u00e4t Gyumri Edmund C. Herzog <br\/> Gr\u00fcnder und Gesch\u00e4ftsf\u00fchrer<\/p>"
+        },
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button Link"
+        },
+        {
+            "id": "text_button",
+            "type": "text",
+            "label": "Button",
+            "default": "Jetzt entdecken"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Founder Zitat",
+            "category": "Text",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

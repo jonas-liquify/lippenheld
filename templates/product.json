@@ -1,0 +1,172 @@
+{
+    "sections": {
+        "product_header": {
+            "type": "product_header",
+            "blocks": {
+                "kategorie": {
+                    "type": "kategorie",
+                    "name": "Kategorie"
+                },
+                "produktname": {
+                    "type": "produktname",
+                    "name": "Produktname"
+                },
+                "bewertung": {
+                    "type": "bewertung",
+                    "name": "Bewertung"
+                },
+                "lead": {
+                    "type": "lead",
+                    "name": "Lead"
+                },
+                "_usp-liste": {
+                    "type": "_usp-liste",
+                    "name": "USP Liste",
+                    "blocks": {
+                        "usp-punkt": {
+                            "type": "_usp-punkt",
+                            "name": "USP Punkt"
+                        }
+                    }
+                },
+                "preis-steuern": {
+                    "type": "preis-steuern",
+                    "name": "Preis & Steuern"
+                },
+                "treuepunkte": {
+                    "type": "treuepunkte",
+                    "name": "Treuepunkte"
+                },
+                "warenkorb": {
+                    "type": "warenkorb",
+                    "name": "Warenkorb"
+                },
+                "lieferversprechen": {
+                    "type": "lieferversprechen",
+                    "name": "Lieferversprechen"
+                },
+                "ugc-galerie": {
+                    "type": "ugc-galerie",
+                    "name": "UGC Galerie"
+                },
+                "_akkordeon": {
+                    "type": "_akkordeon",
+                    "name": "Akkordeon"
+                },
+                "cross-sell": {
+                    "type": "cross-sell",
+                    "name": "Cross-Sell"
+                }
+            },
+            "block_order": [
+                "kategorie",
+                "produktname",
+                "bewertung",
+                "lead",
+                "_usp-liste",
+                "preis-steuern",
+                "treuepunkte",
+                "warenkorb",
+                "lieferversprechen",
+                "ugc-galerie",
+                "_akkordeon",
+                "cross-sell"
+            ]
+        },
+        "pdp_vorteile_leiste": {
+            "type": "pdp_vorteile_leiste",
+            "blocks": {
+                "_vorteilsspalte": {
+                    "type": "_vorteilsspalte",
+                    "name": "Vorteilsspalte"
+                }
+            },
+            "block_order": [
+                "_vorteilsspalte"
+            ]
+        },
+        "pdp_kundenstimmen": {
+            "type": "pdp_kundenstimmen"
+        },
+        "pdp_inhaltsstoffe": {
+            "type": "pdp_inhaltsstoffe",
+            "blocks": {
+                "_inhaltszeile": {
+                    "type": "_inhaltszeile",
+                    "name": "Inhaltszeile"
+                }
+            },
+            "block_order": [
+                "_inhaltszeile"
+            ]
+        },
+        "pdp_trusted_logos": {
+            "type": "pdp_trusted_logos",
+            "blocks": {
+                "_trusted-logo": {
+                    "type": "_trusted-logo",
+                    "name": "Trusted Logo"
+                }
+            },
+            "block_order": [
+                "_trusted-logo"
+            ]
+        },
+        "pdp_warum_lippenheld": {
+            "type": "pdp_warum_lippenheld",
+            "blocks": {
+                "_zitat": {
+                    "type": "_zitat",
+                    "name": "Zitat"
+                }
+            },
+            "block_order": [
+                "_zitat"
+            ]
+        },
+        "pdp_trustpilot": {
+            "type": "pdp_trustpilot"
+        },
+        "pdp_faq": {
+            "type": "pdp_faq",
+            "blocks": {
+                "_faq": {
+                    "type": "_faq",
+                    "name": "FAQ"
+                }
+            },
+            "block_order": [
+                "_faq"
+            ]
+        },
+        "pdp_social": {
+            "type": "pdp_social",
+            "blocks": {
+                "_social-link": {
+                    "type": "_social-link",
+                    "name": "Social Link"
+                }
+            },
+            "block_order": [
+                "_social-link"
+            ]
+        },
+        "ahnliche_produkte": {
+            "type": "ahnliche_produkte"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "product_header",
+        "pdp_vorteile_leiste",
+        "pdp_kundenstimmen",
+        "pdp_inhaltsstoffe",
+        "pdp_trusted_logos",
+        "pdp_warum_lippenheld",
+        "pdp_trustpilot",
+        "pdp_faq",
+        "pdp_social",
+        "ahnliche_produkte"
+    ]
+}

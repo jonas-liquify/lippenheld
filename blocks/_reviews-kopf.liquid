@@ -1,0 +1,42 @@
+<div class="lh_reviews_head" li-block="_Reviews Kopf" li-block:category="Kopf" {{ block.shopify_attributes }}>
+                    <p class="lh_kicker">
+{{ block.settings.text_uberschrift }}
+</p>
+                    <div class="lh_text_playfair"> {{ block.settings.richtext_text }} </div>
+                    <a class="lh_btn lh_btn--outline" href="{{ block.settings.url_button_link }}"> {{ block.settings.text_button }} </a>
+                </div> {% schema %} {
+    "name": "Reviews Kopf",
+    "settings": [
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Endlich wirklich gepflegte Lippen"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Sch\u00fctzt durch die einzigartige Rezeptur, kein versiegeln der Lippen, sondern intelligente Versorgung, pflegt intensiv durch die reichhaltigen Inhaltsstoffe, nat\u00fcrliche Regeneration, verst\u00e4rkt durch das nat\u00fcrliche Antioxidans - Hydroxytyrosol, sp\u00fcrbar geschmeidige Lippen, ohne Kompromisse<\/p>"
+        },
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button Link"
+        },
+        {
+            "id": "text_button",
+            "type": "text",
+            "label": "Button",
+            "default": "Jetzt entdecken"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Reviews Kopf",
+            "category": "Kopf",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

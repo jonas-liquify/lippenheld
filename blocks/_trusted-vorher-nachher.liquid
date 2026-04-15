@@ -1,0 +1,28 @@
+<div class="swiper-slide lh_trusted_ba_slide" li-block="_Trusted Vorher Nachher" li-block:category="Vorher Nachher" {{ block.shopify_attributes }}>
+                    <div class="lh_ba_pair" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div>
+                </div> {% schema %} {
+    "name": "Trusted Vorher Nachher",
+    "blocks": [
+        {
+            "type": "_ba-foto"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [],
+    "presets": [
+        {
+            "name": "Trusted Vorher Nachher",
+            "category": "Vorher Nachher",
+            "blocks": [
+                {
+                    "type": "_ba-foto"
+                }
+            ]
+        }
+    ],
+    "tag": null
+} {% endschema %}

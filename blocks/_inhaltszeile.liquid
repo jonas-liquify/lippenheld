@@ -1,0 +1,27 @@
+<li li-block="_Inhaltszeile" li-block:category="INCI Liste" {{ block.shopify_attributes }}>
+                    
+                
+                    <span>
+{{ block.settings.text_zeile }}
+</span>
+                    
+              
+                </li> {% schema %} {
+    "name": "Inhaltszeile",
+    "settings": [
+        {
+            "id": "text_zeile",
+            "type": "text",
+            "label": "Zeile",
+            "default": "1 \u2014 HYDROXYTYROSOL"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Inhaltszeile",
+            "category": "INCI Liste",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,1085 @@
+<div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="product-header_component lh_pdp_component">
+              <script src="{{ 'li_custom.js' | asset_url }}" type="text/javascript"></script>
+<div class="w-layout-grid product-header_layout lh_pdp_grid" li-element="product-variant-container" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)">
+                <div class="lh_pdp_col lh_pdp_col_media">
+                  <div class="swiper-container is-product-gallery lh_pdp_swiper" id="w-node-aaec4065-ff42-9417-cd74-abddd54400f1-d54400ec">
+                    <div class="lh_pdp_gallery_stage">
+                      <div class="lh_pdp_gallery_chrome" aria-hidden="true">
+                        <span class="lh_pdp_badge_bestseller">
+{{ section.settings.text_badge_bestseller }}
+</span>
+                        <div class="lh_pdp_seals">
+                          {% if section.settings.image_siegel_1 %}
+{{ section.settings.image_siegel_1 | image_url: width: 1000 | image_tag: class: 'lh_pdp_seal', width: '78', height: '78' }}
+{% else %}
+<img class="lh_pdp_seal" src="{{ 'platzhalter.svg' | asset_url }}" alt="" width="78" height="78">
+{% endif %}
+                          {% if section.settings.image_siegel_2 %}
+{{ section.settings.image_siegel_2 | image_url: width: 1000 | image_tag: class: 'lh_pdp_seal lh_pdp_seal_round', width: '78', height: '78' }}
+{% else %}
+<img class="lh_pdp_seal lh_pdp_seal_round" src="{{ 'platzhalter.svg' | asset_url }}" alt="" width="78" height="78">
+{% endif %}
+                        </div>
+                      </div>
+                      <div class="swiper is-product-gallery">
+                        <div class="swiper-wrapper is-product-gallery" id="my-gallery" li-for:inside="media in product.media">
+        {% for media in product.media %}                            
+                          
+                            {% if media.media_type == 'image' %}    <div class="swiper-slide is-product-gallery" li-if="media.media_type == 'image'">
+    
+                            <div class="product-header_gallery-lightbox">
+                              <img class="product-header_gallery-image" li-object:src="media | image_url: width: 1000" li-object:alt="media.alt" alt="{{ media.alt }}" src="{{ media | image_url: width: 1000 }}" loading="lazy">
+                            </div>
+                              </div>
+{% endif %}
+                            
+                          
+                            {% if media.media_type == 'video' %}    <div class="swiper-slide is-product-gallery" li-if="media.media_type == 'video'">
+    
+                            <div class="product-header_gallery-lightbox">
+                              <div class="product-header_gallery-image" li-object="media | video_tag: controls: true">{{ media | video_tag: controls: true }}</div>
+                            </div>
+                              </div>
+{% endif %}
+                            
+                        
+                    {% endfor %}    </div>
+                      </div>
+                    </div>
+                    <div class="product-header_slider-wrapper">
+                      <div class="swiper_button-wrapper is-product-slider pointer-events-off z-index-1 hide-mobile-landscape">
+                        <a class="swiper_button swiper-prev pointer-events-on w-inline-block" aria-label="Previous Slide" href="#">
+                          <div class="swiper_button-icon is-reversed w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323">
+                              <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                                <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                                <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                              </g>
+                            </svg>
+                          </div>
+                        </a>
+                         
+                        <a class="swiper_button swiper-next pointer-events-on w-inline-block" aria-label="Next Slide" href="#">
+                          <div class="swiper_button-icon w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323">
+                              <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                                <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                                <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                              </g>
+                            </svg>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="swiper is-product-thumbnail">
+                        <div class="swiper-wrapper is-product-thumbnail" li-for:inside="media in product.media">
+        {% for media in product.media %}                            
+                          
+                            {% if media.media_type == 'image' %}    <div class="swiper-slide is-product-thumbnail" li-if="media.media_type == 'image'">
+    
+                            <img class="product-header_thumbnail-image" li-object:src="media | image_url: width: 200" li-object:alt="media.alt" alt="{{ media.alt }}" src="{{ media | image_url: width: 200 }}" loading="lazy">
+                              </div>
+{% endif %}
+                            
+                          
+                            {% if media.media_type == 'video' %}    <div class="swiper-slide is-product-thumbnail" li-if="media.media_type == 'video'">
+    
+                            <img class="product-header_thumbnail-image" li-object:src="media | image_url: width: 200" li-object:alt="media.alt" alt="{{ media.alt }}" src="{{ media | image_url: width: 200 }}" loading="lazy">
+                            <div class="product-header_play-icon w-embed" aria-hidden="true">
+                              <svg class="iconify iconify--ic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                                <path fill="currentColor" d="M8 5v14l11-7z"></path>
+                              </svg>
+                            </div>
+                              </div>
+{% endif %}
+                            
+                        
+                    {% endfor %}    </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide is-product-thumbnail is-active hide"></div>
+                  </div>
+                  <div class="lh_pdp_editorial">
+                    <article class="lh_pdp_story_article">
+                      <p class="lh_pdp_story_kicker">
+{{ section.settings.text_story_1_kicker }}
+</p>
+                      <div class="lh_pdp_story_text"> {{ section.settings.richtext_story_1_text }} </div>
+                      {% if section.settings.image_story_bild_1 %}
+{{ section.settings.image_story_bild_1 | image_url: width: 1000 | image_tag: class: 'lh_pdp_story_img', loading: 'lazy' }}
+{% else %}
+<img class="lh_pdp_story_img" src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                    </article>
+                    <div class="lh_pdp_story_wide">
+                      {% if section.settings.image_story_bild_breit %}
+{{ section.settings.image_story_bild_breit | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                    </div>
+                    <article class="lh_pdp_story_article">
+                      <p class="lh_pdp_story_kicker">
+{{ section.settings.text_story_2_kicker }}
+</p>
+                      <div class="lh_pdp_story_text"> {{ section.settings.richtext_story_2_text }} </div>
+                      {% if section.settings.image_story_bild_2 %}
+{{ section.settings.image_story_bild_2 | image_url: width: 1000 | image_tag: class: 'lh_pdp_story_img', loading: 'lazy' }}
+{% else %}
+<img class="lh_pdp_story_img" src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                    </article>
+                  </div>
+                </div>
+                <div class="product-header_product-details lh_pdp_sidebar" li-content-for-theme-blocks="" id="w-node-aaec4065-ff42-9417-cd74-abddd5440108-d54400ec">
+{% content_for 'blocks' %}
+</div>
+              </div>
+            </div>
+          </div>
+          <div class="hide w-embed w-script">
+            <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              document.addEventListener("DOMContentLoaded", () => {
+                $(".swiper-container").each(function(index) {
+                  const thumbsSwiper = new Swiper($(this).find(".swiper.is-product-thumbnail")[0], {
+                    slidesPerView: "auto",
+                    rewind: false,
+                    loopedSlides: 8,
+                    slideToClickedSlide: true,
+                    spaceBetween: "4%",
+                  });
+                  const swiper = new Swiper($(this).find(".swiper.is-product-gallery")[0], {
+                    mousewheel: {
+                      forceToAxis: true
+                    },
+                    thumbs: {
+                      swiper: thumbsSwiper,
+                      slideThumbActiveClass: "is-active",
+                    },
+                    keyboard: {
+                      enabled: true,
+                      onlyInViewport: true
+                    },
+                    navigation: {
+                      nextEl: $(this).find(".swiper-next")[0],
+                      prevEl: $(this).find(".swiper-prev")[0],
+                    }
+                  });
+                });
+              });
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+    
+    
+    
+    
+      
+          
+          
+          
+          
+          
+          
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </script>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Product Header",
+    "class": "section_product-header lh_pdp",
+    "blocks": [
+        {
+            "type": "kategorie"
+        },
+        {
+            "type": "produktname"
+        },
+        {
+            "type": "bewertung"
+        },
+        {
+            "type": "lead"
+        },
+        {
+            "type": "_usp-liste"
+        },
+        {
+            "type": "preis-steuern"
+        },
+        {
+            "type": "treuepunkte"
+        },
+        {
+            "type": "warenkorb"
+        },
+        {
+            "type": "lieferversprechen"
+        },
+        {
+            "type": "ugc-galerie"
+        },
+        {
+            "type": "_akkordeon"
+        },
+        {
+            "type": "cross-sell"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_badge_bestseller",
+            "type": "text",
+            "label": "Badge Bestseller",
+            "default": "Bestseller"
+        },
+        {
+            "id": "image_siegel_1",
+            "type": "image_picker",
+            "label": "Siegel 1"
+        },
+        {
+            "id": "image_siegel_2",
+            "type": "image_picker",
+            "label": "Siegel 2"
+        },
+        {
+            "id": "text_story_1_kicker",
+            "type": "text",
+            "label": "Story 1 Kicker",
+            "default": "Das morgendliche Ritual"
+        },
+        {
+            "id": "richtext_story_1_text",
+            "type": "richtext",
+            "label": "Story 1 Text",
+            "default": "<p>So wichtig wie das t\u00e4gliche Z\u00e4hneputzen ist die Pflege f\u00fcr deine Lippen. Nach jedem Z\u00e4hneputzen kommt der Lippenheld \u2013 so sch\u00fctzt du sie effektiv.<\/p>"
+        },
+        {
+            "id": "image_story_bild_1",
+            "type": "image_picker",
+            "label": "Story Bild 1"
+        },
+        {
+            "id": "image_story_bild_breit",
+            "type": "image_picker",
+            "label": "Story Bild breit"
+        },
+        {
+            "id": "text_story_2_kicker",
+            "type": "text",
+            "label": "Story 2 Kicker",
+            "default": "Schutz und Pflege der Lippen"
+        },
+        {
+            "id": "richtext_story_2_text",
+            "type": "richtext",
+            "label": "Story 2 Text",
+            "default": "<p>Naturrein &amp; liebevoll von Hand geerntet. Mit Lippenheld setzen wir auf die Kraft von Hydroxytyrosol \u2013 einem seltenen, hochwirksamen Antioxidans aus Oliven.<\/p>"
+        },
+        {
+            "id": "image_story_bild_2",
+            "type": "image_picker",
+            "label": "Story Bild 2"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product Header",
+            "category": "Produktseite",
+            "blocks": [
+                {
+                    "type": "kategorie"
+                },
+                {
+                    "type": "produktname"
+                },
+                {
+                    "type": "bewertung"
+                },
+                {
+                    "type": "lead"
+                },
+                {
+                    "type": "_usp-liste",
+                    "blocks": [
+                        {
+                            "type": "_usp-punkt"
+                        },
+                        {
+                            "type": "_usp-punkt"
+                        },
+                        {
+                            "type": "_usp-punkt"
+                        },
+                        {
+                            "type": "_usp-punkt"
+                        },
+                        {
+                            "type": "_usp-punkt"
+                        }
+                    ]
+                },
+                {
+                    "type": "preis-steuern"
+                },
+                {
+                    "type": "treuepunkte"
+                },
+                {
+                    "type": "warenkorb"
+                },
+                {
+                    "type": "lieferversprechen"
+                },
+                {
+                    "type": "ugc-galerie"
+                },
+                {
+                    "type": "_akkordeon"
+                },
+                {
+                    "type": "_akkordeon"
+                },
+                {
+                    "type": "_akkordeon"
+                },
+                {
+                    "type": "_akkordeon"
+                },
+                {
+                    "type": "cross-sell"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

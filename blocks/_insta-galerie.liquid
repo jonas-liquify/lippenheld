@@ -1,0 +1,28 @@
+<div li-block="_Insta Galerie" li-block:category="Gitter" {{ block.shopify_attributes }}>
+                    <div class="lh_insta_grid" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div>
+                </div> {% schema %} {
+    "name": "Insta Galerie",
+    "blocks": [
+        {
+            "type": "_insta-kachel"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [],
+    "presets": [
+        {
+            "name": "Insta Galerie",
+            "category": "Gitter",
+            "blocks": [
+                {
+                    "type": "_insta-kachel"
+                }
+            ]
+        }
+    ],
+    "tag": null
+} {% endschema %}

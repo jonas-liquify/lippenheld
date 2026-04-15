@@ -1,0 +1,265 @@
+export const component = {
+  "name": "Navbar",
+  "props": []
+}
+
+export const template = `
+<div class="section_header-group" li-section-group:type="header" li-section-group="Header Group">
+  <div class="section_navbar" li-section:on_groups="*" li-section="Header">
+    <div class="nav_component lh_nav w-nav" data-animation="default" data-easing2="ease" fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium" data-w-id="9132635a-7891-b0d1-9b20-ecb0d5a86df9" role="banner" data-duration="400" x-data="{ searchOpen: false, cartOpen: false, closeModals() { this.searchOpen = false; this.cartOpen = false }, toggleSearch(e) { e.preventDefault(); this.cartOpen = false; this.searchOpen = !this.searchOpen; if (this.searchOpen) { this.$nextTick(() => { const el = this.$refs.searchInput; if (el) el.focus(); }); } }, toggleCart(e) { e.preventDefault(); this.searchOpen = false; this.cartOpen = !this.cartOpen; } }" @keydown.escape.window="closeModals()">
+      <div class="nav_container lh_nav_container">
+        <a class="nav_logo-link w-nav-brand" href="#" li-object:href="routes.root_url">
+          <img class="nav_logo" src="../images/liquify-logo.svg" loading="lazy" li-settings:image="Logo" alt>
+        </a>
+        <nav class="nav_menu is-page-height-tablet w-nav-menu lh_nav_menus" role="navigation" id="w-node-_9132635a-7891-b0d1-9b20-ecb0d5a86dfd-d5a86df8">
+          <div class="lh_nav_menus_inner">
+            <div class="lh_nav_menu_left">
+              <div class="nav_menu-dropdown w-dropdown" data-hover="true" data-delay="200" li-for="link in linklists[section.settings.menu].links">
+                <div class="nav_dropdown-toggle w-dropdown-toggle">
+                  <div class="dropdown-icon w-embed" li-if="link.links.size > 0">
+                    <svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                  <a class="w-inline-block" li-object:href="link.url" href="#">
+                    <div>
+                      <div li-object="link.title">Link Four</div>
+                    </div>
+                  </a>
+                </div>
+                <nav class="nav_dropdown-list no-scrollbar w-dropdown-list" li-if="link.links.size > 0 ">
+                  <div class="padding-global max-width-full">
+                    <div class="container-large">
+                      <div class="nav_dropdown-grid">
+                        <div li-for="child_link in link.links" id="w-node-_9132635a-7891-b0d1-9b20-ecb0d5a86e09-d5a86df8">
+                          <a class="nav_dropdown-link w-dropdown-link" href="#" li-object="child_link.title" li-object:href="child_link.url">Link Five</a>
+                          <div li-if="child_link.links.size > 0">
+                            <div li-for="grandchild_link in child_link.links">
+                              <a class="nav_dropdown-link_child w-dropdown-link" href="#" li-object="grandchild_link.title" li-object:href="grandchild_link.url">Link Five</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+            <div class="lh_nav_menu_end">
+              <div class="lh_nav_menu_right" li-if="section.settings.menu_right != blank and section.settings.menu_right != section.settings.menu">
+                <div class="nav_menu-dropdown w-dropdown" data-hover="true" data-delay="200" li-for="link in linklists[section.settings.menu_right].links">
+                  <div class="nav_dropdown-toggle w-dropdown-toggle">
+                    <div class="dropdown-icon w-embed" li-if="link.links.size > 0">
+                      <svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+                      </svg>
+                    </div>
+                    <a class="w-inline-block" li-object:href="link.url" href="#">
+                      <div>
+                        <div li-object="link.title">Link Four</div>
+                      </div>
+                    </a>
+                  </div>
+                  <nav class="nav_dropdown-list no-scrollbar w-dropdown-list" li-if="link.links.size > 0 ">
+                    <div class="padding-global max-width-full">
+                      <div class="container-large">
+                        <div class="nav_dropdown-grid">
+                          <div li-for="child_link in link.links">
+                            <a class="nav_dropdown-link w-dropdown-link" href="#" li-object="child_link.title" li-object:href="child_link.url">Link Five</a>
+                            <div li-if="child_link.links.size > 0">
+                              <div li-for="grandchild_link in child_link.links">
+                                <a class="nav_dropdown-link_child w-dropdown-link" href="#" li-object="grandchild_link.title" li-object:href="grandchild_link.url">Link Five</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+              <div class="nav_actions lh_nav_actions">
+                <div class="nav_shop-icons">
+                  <div class="nav_search">
+                    <div class="nav_dropdown lh_nav_overlay_dd" data-hover="false" data-delay="0" :class="{ 'w--open': searchOpen }">
+                      <div class="nav_shop-icon w-dropdown-toggle" role="button" tabindex="0" :aria-expanded="searchOpen" aria-haspopup="dialog" @click="toggleSearch($event)" @keydown.enter.prevent="toggleSearch($event)" @keydown.space.prevent="toggleSearch($event)" :class="{ 'w--open': searchOpen }">
+                        <div class="icon-embed-xsmall w-embed">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 25 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                            <mask id="mask0_2941_121300" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                              <rect x="0.123535" y="0.987549" width="24" height="24" fill="#D9D9D9"></rect>
+                            </mask>
+                            <g mask="url(#mask0_2941_121300)">
+                              <path d="M19.7235 21.9875L13.4235 15.6875C12.9235 16.0875 12.3485 16.4042 11.6985 16.6375C11.0485 16.8709 10.3569 16.9875 9.62354 16.9875C7.80687 16.9875 6.26937 16.3584 5.01104 15.1C3.7527 13.8417 3.12354 12.3042 3.12354 10.4875C3.12354 8.67088 3.7527 7.13338 5.01104 5.87505C6.26937 4.61672 7.80687 3.98755 9.62354 3.98755C11.4402 3.98755 12.9777 4.61672 14.236 5.87505C15.4944 7.13338 16.1235 8.67088 16.1235 10.4875C16.1235 11.2209 16.0069 11.9125 15.7735 12.5625C15.5402 13.2125 15.2235 13.7875 14.8235 14.2875L21.1235 20.5875L19.7235 21.9875ZM9.62354 14.9875C10.8735 14.9875 11.936 14.55 12.811 13.675C13.686 12.8 14.1235 11.7375 14.1235 10.4875C14.1235 9.23755 13.686 8.17505 12.811 7.30005C11.936 6.42505 10.8735 5.98755 9.62354 5.98755C8.37354 5.98755 7.31104 6.42505 6.43604 7.30005C5.56104 8.17505 5.12354 9.23755 5.12354 10.4875C5.12354 11.7375 5.56104 12.8 6.43604 13.675C7.31104 14.55 8.37354 14.9875 9.62354 14.9875Z" fill="currentColor"></path>
+                            </g>
+                          </svg>
+                        </div>
+                      </div>
+                      <nav class="nav_predictive-search-holder w-dropdown-list" :class="{ 'w--open': searchOpen }" :aria-hidden="!searchOpen" @click="if (!$event.target.closest('.lh_search_sheet')) closeModals()">
+                        <div class="predictive-search_component lh_nav_drawer_panel lh_search_sheet">
+                          <predictive-search>
+                            <div class="predictive-search_holder">
+                              <div class="predictive-search_form w-form">
+                                <form class="predictive-search_form-component" id="wf-form-produkt-suche" name="wf-form-produkt-suche" data-name="produkt-suche" action="/search" method="get" data-wf-page-id="67b3772a62948c24651cdc17" data-wf-element-id="ace72904-ccb0-6b8e-3d5e-d5f5ca33919d">
+                                  <div class="lh_search_sheet_toolbar">
+                                    <div class="lh_search_sheet_query">
+                                      <div class="predictive-search_input-holder">
+                                        <label class="form_hidden-label" for="search-input">Search</label>
+                                        <div class="lh_search_sheet_search_icon icon-embed-xsmall w-embed" aria-hidden="true">
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 25 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                            <mask id="mask0_lh_search_sheet" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                                              <rect x="0.123535" y="0.987549" width="24" height="24" fill="#D9D9D9"></rect>
+                                            </mask>
+                                            <g mask="url(#mask0_lh_search_sheet)">
+                                              <path d="M19.7235 21.9875L13.4235 15.6875C12.9235 16.0875 12.3485 16.4042 11.6985 16.6375C11.0485 16.8709 10.3569 16.9875 9.62354 16.9875C7.80687 16.9875 6.26937 16.3584 5.01104 15.1C3.7527 13.8417 3.12354 12.3042 3.12354 10.4875C3.12354 8.67088 3.7527 7.13338 5.01104 5.87505C6.26937 4.61672 7.80687 3.98755 9.62354 3.98755C11.4402 3.98755 12.9777 4.61672 14.236 5.87505C15.4944 7.13338 16.1235 8.67088 16.1235 10.4875C16.1235 11.2209 16.0069 11.9125 15.7735 12.5625C15.5402 13.2125 15.2235 13.7875 14.8235 14.2875L21.1235 20.5875L19.7235 21.9875ZM9.62354 14.9875C10.8735 14.9875 11.936 14.55 12.811 13.675C13.686 12.8 14.1235 11.7375 14.1235 10.4875C14.1235 9.23755 13.686 8.17505 12.811 7.30005C11.936 6.42505 10.8735 5.98755 9.62354 5.98755C8.37354 5.98755 7.31104 6.42505 6.43604 7.30005C5.56104 8.17505 5.12354 9.23755 5.12354 10.4875C5.12354 11.7375 5.56104 12.8 6.43604 13.675C7.31104 14.55 8.37354 14.9875 9.62354 14.9875Z" fill="currentColor"></path>
+                                            </g>
+                                          </svg>
+                                        </div>
+                                        <input class="predictive-search_input" type="search" id="search-input" name="q" x-ref="searchInput" placeholder="Suche nach Artikeln…">
+                                        <input class="hide w-button" type="submit" data-wait="Please wait..." id="submit-search" value="Submit">
+                                      </div>
+                                    </div>
+                                    <button class="lh_search_sheet_close" type="button" @click="closeModals()" aria-label="Suche schließen">
+                                      <span class="lh_search_sheet_close_icon w-embed" aria-hidden="true">
+                                        <svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M1.84775 14.178L0.447754 12.778L6.04775 7.17798L0.447754 1.57798L1.84775 0.177979L7.44775 5.77798L13.0478 0.177979L14.4478 1.57798L8.84775 7.17798L14.4478 12.778L13.0478 14.178L7.44775 8.57798L1.84775 14.178Z" fill="currentColor"></path>
+                                        </svg>
+                                      </span>
+                                      <span class="lh_search_sheet_close_label" li-settings:text="Suche Schließen Label">Schließen</span>
+                                    </button>
+                                  </div>
+                                  <div class="lh_search_drawer_scroll">
+                                    <div class="predictive-search_overflow no-scrollbar" id="predictive-search">
+                                      <div class="predictive-search_section" li-section="predictive_search">
+                                        <div class="predictive-search_conditional" li-if="predictive_search.performed">
+                                          <div class="hide" li-tag="assign first_column_results_size = predictive_search.resources.queries.size | plus: predictive_search.resources.collections.size | plus: predictive_search.resources.pages.size | plus: predictive_search.resources.articles.size | plus: predictive_search.resources.products.size">This is some text inside of a div block.</div>
+                                          <div class="predictive-search_conditional" li-if="first_column_results_size > 0">
+                                            <div class="predictive-search_topic" li-if="predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0">
+                                              <div class="predictive-search_headline">
+                                                <div class="lh_search_sheet_heading" li-settings:text="Suche Treffer Vorschläge">Vorschläge</div>
+                                              </div>
+                                              <ul class="predictive-search_list w-list-unstyled lh_search_sheet_pill_list" role="list">
+                                                <li class="predictive-search_item" li-for="query in predictive_search.resources.queries">
+                                                  <a class="predictive-search_link lh_search_sheet_pill w-inline-block" li-object:href="query.url" href="#">
+                                                    <div li-object="query.styled_text">Tag</div>
+                                                  </a>
+                                                </li>
+                                                <li class="predictive-search_item" li-for="collection in predictive_search.resources.collections">
+                                                  <a class="predictive-search_link lh_search_sheet_pill w-inline-block" li-object:href="collection.url" href="#">
+                                                    <div li-object="collection.title">Tag</div>
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                            <div class="predictive-search_topic" li-if="predictive_search.resources.products.size > 0 or predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0">
+                                              <div class="predictive-search_headline">
+                                                <div class="lh_search_sheet_heading" li-settings:text="Suche Treffer Produkte">Produkte</div>
+                                              </div>
+                                              <ul class="predictive-search_product-list w-list-unstyled lh_search_sheet_product_grid" role="list">
+                                                <li class="predictive-search_produt-item" li-for="product in predictive_search.resources.products">
+                                                  <a class="predictive-search_line-item lh_search_sheet_product_card w-inline-block" li-object:href="product.url" href="#">
+                                                    <div class="predictive-search_image-wrapper lh_search_sheet_product_visual">
+                                                      <img class="predictive-search_image" li-object:src="product.featured_media | image_url: width: 150" li-object:alt="product.featured_image.alt" alt src="images/platzhalter.svg" loading="lazy">
+                                                    </div>
+                                                    <div class="lh_search_sheet_rating" aria-hidden="true">
+                                                      <span class="lh_search_sheet_rating_stars">★★★★★</span>
+                                                      <span class="lh_search_sheet_rating_val">4.9</span>
+                                                    </div>
+                                                    <div class="predictive-search_product-info lh_search_sheet_product_copy">
+                                                      <div class="lh_search_sheet_product_titles">
+                                                        <div class="text-size-regular text-weight-bold lh_search_sheet_product_title">
+                                                          <span li-object="product.title">Product Title</span>
+                                                        </div>
+                                                        <div class="lh_search_sheet_product_sub" li-if="product.type != blank" li-object="product.type">Typ</div>
+                                                      </div>
+                                                      <div class="text-size-small lh_search_sheet_product_price">
+                                                        <span li-object="product.price | money">18.00$</span>
+                                                      </div>
+                                                    </div>
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                            <div class="predictive-search_topic" li-if="predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0">
+                                              <div class="predictive-search_headline">
+                                                <div class="lh_search_sheet_heading" li-settings:text="Suche Treffer Seiten">Seiten</div>
+                                              </div>
+                                              <ul class="predictive-search_list w-list-unstyled lh_search_sheet_pill_list" role="list">
+                                                <li class="predictive-search_item" li-for="page in predictive_search.resources.pages">
+                                                  <a class="predictive-search_link lh_search_sheet_pill w-inline-block" li-object:href="page.url" href="#">
+                                                    <div li-object="page.title">Tag</div>
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                          <div class="predictive-search_conditional" li-if="first_column_results_size == 0">
+                                            <div class="predictive-search_topic">
+                                              <div class="text-style-muted lh_search_sheet_empty">
+                                                Nichts gefunden unter &quot;<span li-object="predictive_search.terms">Search Term</span>&quot;
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="predictive-search_conditional" li-unless="predictive_search.performed">
+                                          <div class="predictive-search_overflow lh_search_sheet_idle">
+                                            <div class="predictive-search_topic">
+                                              <div class="predictive-search_headline">
+                                                <div class="lh_search_sheet_heading" li-settings:text="Suche Bereich Vorschläge">Beliebte Suchanfragen</div>
+                                              </div>
+                                              <ul class="predictive-search_list w-list-unstyled lh_search_sheet_pill_list" role="list">
+                                                <li class="predictive-search_item" li-block="Search - Suggestion">
+                                                  <a class="predictive-search_link lh_search_sheet_pill w-inline-block" li-settings:url="Link" href="#">
+                                                    <div li-settings:text="Text">Tag</div>
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                            <div class="predictive-search_topic">
+                                              <div class="predictive-search_headline">
+                                                <div class="lh_search_sheet_heading" li-settings:text="Suche Bereich Bestseller">Kürzlich angesehen</div>
+                                              </div>
+                                              <ul class="predictive-search_product-list w-list-unstyled lh_search_sheet_product_grid" role="list">
+                                                <li class="predictive-search_produt-item" li-settings:collection="Search - Bestseller">
+                                                  <a class="predictive-search_line-item lh_search_sheet_product_card w-inline-block" li-object:href="product.url" href="#">
+                                                    <div class="predictive-search_image-wrapper lh_search_sheet_product_visual">
+                                                      <img class="predictive-search_image" li-object:src="product.featured_image | img_url: 'master'" li-object:alt="product.featured_image.alt" alt src="images/platzhalter.svg" loading="lazy">
+                                                    </div>
+                                                    <div class="lh_search_sheet_rating" aria-hidden="true">
+                                                      <span class="lh_search_sheet_rating_stars">★★★★★</span>
+                                                      <span class="lh_search_sheet_rating_val">4.9</span>
+                                                    </div>
+                                                    <div class="predictive-search_product-info lh_search_sheet_product_copy">
+                                                      <div class="lh_search_sheet_product_titles">
+                                                        <div class="text-size-regular text-weight-bold lh_search_sheet_product_title">
+                                                          <span li-object="product.title">Product Title</span>
+                                                        </div>
+                                                        <div class="lh_search_sheet_product_sub" li-if="product.type != blank" li-object="product.type">Typ</div>
+                                                      </div>
+                                                      <div class="text-size-small lh_search_sheet_product_price">
+                                                        <span li-object="product.price | money">18.00$</span>
+                                                      </div>
+                                                    </div>
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </form>
+                                <div class="hide w-form-done">
+                                  <div>Thank you! Your submission has been received!</div>
+                                </div>
+                                <div class="hide w-form-fail">
+                                  <div>Oops! Something went wrong while submitting the form.</div>
+                                </div>
+                              </div>
+                            </div>
+                          </predictive-search>
+                        </div>
+                        <div class="nav_predictive-search-close" @click="closeModals()" aria-hidden="true"></div>
+                      </nav>
+                    </div>
+                  </div>
