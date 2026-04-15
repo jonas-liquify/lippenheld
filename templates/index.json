@@ -1,216 +1,261 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "hero_start": {
-            "type": "hero_start",
-            "blocks": {
-                "hero-titel": {
-                    "type": "_hero-titel",
-                    "name": "Hero Titel"
-                },
-                "hero-unterzeile": {
-                    "type": "_hero-unterzeile",
-                    "name": "Hero Unterzeile"
-                },
-                "hero-button": {
-                    "type": "_hero-button",
-                    "name": "Hero Button"
-                }
-            },
-            "block_order": [
-                "hero-titel",
-                "hero-unterzeile",
-                "hero-button"
-            ]
+  "sections": {
+    "hero_start": {
+      "type": "hero_start",
+      "blocks": {
+        "hero-titel": {
+          "type": "_hero-titel",
+          "name": "Hero Titel",
+          "settings": {}
         },
-        "intro_und_produkte": {
-            "type": "intro_und_produkte",
-            "blocks": {
-                "intro-spalte": {
-                    "type": "_intro-spalte",
-                    "name": "Intro Spalte"
-                },
-                "produkt-karte": {
-                    "type": "_produkt-karte",
-                    "name": "Produkt Karte"
-                }
-            },
-            "block_order": [
-                "intro-spalte",
-                "produkt-karte"
-            ]
+        "hero-unterzeile": {
+          "type": "_hero-unterzeile",
+          "name": "Hero Unterzeile",
+          "settings": {}
         },
-        "lippen_problem": {
-            "type": "lippen_problem",
-            "blocks": {
-                "lip-kachel": {
-                    "type": "_lip-kachel",
-                    "name": "Lip Kachel"
-                }
-            },
-            "block_order": [
-                "lip-kachel"
-            ]
-        },
-        "reviews_bereich": {
-            "type": "reviews_bereich",
-            "blocks": {
-                "reviews-kopf": {
-                    "type": "_reviews-kopf",
-                    "name": "Reviews Kopf"
-                },
-                "review-karussell": {
-                    "type": "_review-karussell",
-                    "name": "Review Karussell",
-                    "blocks": {
-                        "review-kachel": {
-                            "type": "_review-kachel",
-                            "name": "Review Kachel"
-                        }
-                    }
-                },
-                "reviews-statistik": {
-                    "type": "_reviews-statistik",
-                    "name": "Reviews Statistik"
-                },
-                "reviews-hinweis": {
-                    "type": "_reviews-hinweis",
-                    "name": "Reviews Hinweis"
-                }
-            },
-            "block_order": [
-                "reviews-kopf",
-                "review-karussell",
-                "reviews-statistik",
-                "reviews-hinweis"
-            ]
-        },
-        "warum_lippenheld": {
-            "type": "warum_lippenheld",
-            "blocks": {
-                "warum-kopf": {
-                    "type": "_warum-kopf",
-                    "name": "Warum Kopf"
-                },
-                "warum-akkordeon": {
-                    "type": "_warum-akkordeon",
-                    "name": "Warum Akkordeon"
-                }
-            },
-            "block_order": [
-                "warum-kopf",
-                "warum-akkordeon"
-            ]
-        },
-        "founder_story": {
-            "type": "founder_story",
-            "blocks": {
-                "founder-bild": {
-                    "type": "_founder-bild",
-                    "name": "Founder Bild"
-                },
-                "founder-zitat": {
-                    "type": "_founder-zitat",
-                    "name": "Founder Zitat"
-                }
-            },
-            "block_order": [
-                "founder-bild",
-                "founder-zitat"
-            ]
-        },
-        "trusted_kunden": {
-            "type": "trusted_kunden",
-            "blocks": {
-                "trusted-intro": {
-                    "type": "_trusted-intro",
-                    "name": "Trusted Intro"
-                },
-                "trusted-vorher-nachher": {
-                    "type": "_trusted-vorher-nachher",
-                    "name": "Trusted Vorher Nachher",
-                    "blocks": {
-                        "ba-foto": {
-                            "type": "_ba-foto",
-                            "name": "BA Foto"
-                        }
-                    }
-                }
-            },
-            "block_order": [
-                "trusted-intro",
-                "trusted-vorher-nachher"
-            ]
-        },
-        "trustpilot": {
-            "type": "trustpilot"
-        },
-        "aqua_mora_story": {
-            "type": "aqua_mora_story",
-            "blocks": {
-                "aqua-siegel": {
-                    "type": "_aqua-siegel",
-                    "name": "Aqua Siegel"
-                },
-                "aqua-titel": {
-                    "type": "_aqua-titel",
-                    "name": "Aqua Titel"
-                },
-                "aqua-text": {
-                    "type": "_aqua-text",
-                    "name": "Aqua Text"
-                },
-                "aqua-button": {
-                    "type": "_aqua-button",
-                    "name": "Aqua Button"
-                }
-            },
-            "block_order": [
-                "aqua-siegel",
-                "aqua-titel",
-                "aqua-text",
-                "aqua-button"
-            ]
-        },
-        "instagram": {
-            "type": "instagram",
-            "blocks": {
-                "insta-kopf": {
-                    "type": "_insta-kopf",
-                    "name": "Insta Kopf"
-                },
-                "insta-galerie": {
-                    "type": "_insta-galerie",
-                    "name": "Insta Galerie",
-                    "blocks": {
-                        "insta-kachel": {
-                            "type": "_insta-kachel",
-                            "name": "Insta Kachel"
-                        }
-                    }
-                }
-            },
-            "block_order": [
-                "insta-kopf",
-                "insta-galerie"
-            ]
-        },
-        "custom_liquid": {
-            "type": "custom_liquid"
+        "hero-button": {
+          "type": "_hero-button",
+          "name": "Hero Button",
+          "settings": {}
         }
+      },
+      "block_order": [
+        "hero-titel",
+        "hero-unterzeile",
+        "hero-button"
+      ],
+      "settings": {}
     },
-    "layout": "theme",
-    "wrapper": "main.main-wrapper",
-    "order": [
-        "hero_start",
-        "intro_und_produkte",
-        "lippen_problem",
-        "reviews_bereich",
-        "warum_lippenheld",
-        "founder_story",
-        "trusted_kunden",
-        "trustpilot",
-        "aqua_mora_story",
-        "instagram",
-        "custom_liquid"
-    ]
+    "intro_und_produkte": {
+      "type": "intro_und_produkte",
+      "blocks": {
+        "intro-spalte": {
+          "type": "_intro-spalte",
+          "name": "Intro Spalte",
+          "settings": {}
+        },
+        "produkt-karte": {
+          "type": "_produkt-karte",
+          "name": "Produkt Karte",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "intro-spalte",
+        "produkt-karte"
+      ],
+      "settings": {}
+    },
+    "lippen_problem": {
+      "type": "lippen_problem",
+      "blocks": {
+        "lip-kachel": {
+          "type": "_lip-kachel",
+          "name": "Lip Kachel",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "lip-kachel"
+      ],
+      "settings": {}
+    },
+    "reviews_bereich": {
+      "type": "reviews_bereich",
+      "blocks": {
+        "reviews-kopf": {
+          "type": "_reviews-kopf",
+          "name": "Reviews Kopf",
+          "settings": {}
+        },
+        "review-karussell": {
+          "type": "_review-karussell",
+          "name": "Review Karussell",
+          "settings": {},
+          "blocks": {
+            "review-kachel": {
+              "type": "_review-kachel",
+              "name": "Review Kachel",
+              "settings": {}
+            }
+          }
+        },
+        "reviews-statistik": {
+          "type": "_reviews-statistik",
+          "name": "Reviews Statistik",
+          "settings": {}
+        },
+        "reviews-hinweis": {
+          "type": "_reviews-hinweis",
+          "name": "Reviews Hinweis",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "reviews-kopf",
+        "review-karussell",
+        "reviews-statistik",
+        "reviews-hinweis"
+      ],
+      "settings": {}
+    },
+    "warum_lippenheld": {
+      "type": "warum_lippenheld",
+      "blocks": {
+        "warum-kopf": {
+          "type": "_warum-kopf",
+          "name": "Warum Kopf",
+          "settings": {}
+        },
+        "warum-akkordeon": {
+          "type": "_warum-akkordeon",
+          "name": "Warum Akkordeon",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "warum-kopf",
+        "warum-akkordeon"
+      ],
+      "settings": {}
+    },
+    "founder_story": {
+      "type": "founder_story",
+      "blocks": {
+        "founder-bild": {
+          "type": "_founder-bild",
+          "name": "Founder Bild",
+          "settings": {}
+        },
+        "founder-zitat": {
+          "type": "_founder-zitat",
+          "name": "Founder Zitat",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "founder-bild",
+        "founder-zitat"
+      ],
+      "settings": {}
+    },
+    "trusted_kunden": {
+      "type": "trusted_kunden",
+      "blocks": {
+        "trusted-intro": {
+          "type": "_trusted-intro",
+          "name": "Trusted Intro",
+          "settings": {}
+        },
+        "trusted-vorher-nachher": {
+          "type": "_trusted-vorher-nachher",
+          "name": "Trusted Vorher Nachher",
+          "settings": {},
+          "blocks": {
+            "ba-foto": {
+              "type": "_ba-foto",
+              "name": "BA Foto",
+              "settings": {}
+            }
+          }
+        }
+      },
+      "block_order": [
+        "trusted-intro",
+        "trusted-vorher-nachher"
+      ],
+      "settings": {}
+    },
+    "trustpilot": {
+      "type": "trustpilot",
+      "settings": {}
+    },
+    "aqua_mora_story": {
+      "type": "aqua_mora_story",
+      "blocks": {
+        "aqua-siegel": {
+          "type": "_aqua-siegel",
+          "name": "Aqua Siegel",
+          "settings": {}
+        },
+        "aqua-titel": {
+          "type": "_aqua-titel",
+          "name": "Aqua Titel",
+          "settings": {}
+        },
+        "aqua-text": {
+          "type": "_aqua-text",
+          "name": "Aqua Text",
+          "settings": {}
+        },
+        "aqua-button": {
+          "type": "_aqua-button",
+          "name": "Aqua Button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "aqua-siegel",
+        "aqua-titel",
+        "aqua-text",
+        "aqua-button"
+      ],
+      "settings": {}
+    },
+    "instagram": {
+      "type": "instagram",
+      "blocks": {
+        "insta-kopf": {
+          "type": "_insta-kopf",
+          "name": "Insta Kopf",
+          "settings": {}
+        },
+        "insta-galerie": {
+          "type": "_insta-galerie",
+          "name": "Insta Galerie",
+          "settings": {},
+          "blocks": {
+            "insta-kachel": {
+              "type": "_insta-kachel",
+              "name": "Insta Kachel",
+              "settings": {}
+            }
+          }
+        }
+      },
+      "block_order": [
+        "insta-kopf",
+        "insta-galerie"
+      ],
+      "settings": {}
+    },
+    "custom_liquid": {
+      "type": "custom_liquid",
+      "settings": {}
+    }
+  },
+  "layout": "theme",
+  "wrapper": "main.main-wrapper",
+  "order": [
+    "hero_start",
+    "intro_und_produkte",
+    "lippen_problem",
+    "reviews_bereich",
+    "warum_lippenheld",
+    "founder_story",
+    "trusted_kunden",
+    "trustpilot",
+    "aqua_mora_story",
+    "instagram",
+    "custom_liquid"
+  ]
 }
