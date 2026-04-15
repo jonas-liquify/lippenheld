@@ -1,0 +1,25 @@
+<div li-block="Lead" li-block:category="Kopfbereich" {{ block.shopify_attributes }}>
+                    
+                    
+                    <div class="lh_pdp_lead"> {{ block.settings.richtext_kurzbeschreibung }} </div>
+                    
+                  
+                </div> {% schema %} {
+    "name": "Lead",
+    "settings": [
+        {
+            "id": "richtext_kurzbeschreibung",
+            "type": "richtext",
+            "label": "Kurzbeschreibung",
+            "default": "<p>Sag trockenen, gereizten Lippen Lebewohl \u2013 mit der Kraft von Hydroxytyrosol. Lippenheld sch\u00fctzt, beruhigt und regeneriert \u2013 ganz ohne Chemie.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Lead",
+            "category": "Kopfbereich",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

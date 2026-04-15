@@ -1,0 +1,21 @@
+<div class="lh_product_card lh_product_card--atc-hover" li-block="_Produkt Karte" li-block:category="Produkte" {{ block.shopify_attributes }}>
+                    
+                    {% render 'lh_card_cart', block: block, product: block.settings.card_product %}
+                </div> {% schema %} {
+    "name": "Produkt Karte",
+    "settings": [
+        {
+            "type": "product",
+            "id": "card_product",
+            "label": "Produkt aus dem Shop"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Produkt Karte",
+            "category": "Produkte",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

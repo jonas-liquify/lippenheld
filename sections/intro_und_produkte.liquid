@@ -1,0 +1,85 @@
+<div class="padding-global lh_section_layout" style="{% if section.settings.bg_color != blank %}--lh-sec-bg: {{ section.settings.bg_color }};{% endif %}--lh-sec-pt: {{ section.settings.padding_top }}px;--lh-sec-pb: {{ section.settings.padding_bottom }}px;--lh-sec-px: {{ section.settings.padding_x }}px;"><div class="container-large"><div class="lh_intro_products_grid" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Intro und Produkte",
+    "class": "lh_intro_products",
+    "blocks": [
+        {
+            "type": "_intro-spalte"
+        },
+        {
+            "type": "_produkt-karte"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Hintergrundfarbe",
+            "default": "#ffffff"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_x",
+            "min": 0,
+            "max": 120,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand links\/rechts",
+            "default": 60
+        },
+        {
+            "type": "collection",
+            "id": "intro_highlight_collection",
+            "label": "Hervorgehobene Kollektion",
+            "info": "Optional: Wenn gesetzt, verlinkt der Intro-Button zuerst hierher."
+        },
+        {
+            "type": "url",
+            "id": "intro_button_url",
+            "label": "Intro Button Link"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Intro und Produkte",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "_intro-spalte"
+                },
+                {
+                    "type": "_produkt-karte"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

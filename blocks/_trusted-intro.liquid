@@ -1,0 +1,33 @@
+<div class="lh_trusted_intro swiper-slide" li-block="_Trusted Intro" li-block:category="Intro" {{ block.shopify_attributes }}>
+                    {% if block.settings.image_hintergrund %}
+{{ block.settings.image_hintergrund | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'lh-hero-bg.jpg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                    <h2>
+{{ block.settings.text_uberschrift }}
+</h2>
+                </div> {% schema %} {
+    "name": "Trusted Intro",
+    "settings": [
+        {
+            "id": "image_hintergrund",
+            "type": "image_picker",
+            "label": "Hintergrund"
+        },
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Trusted by 100.000 Kunden"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Trusted Intro",
+            "category": "Intro",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

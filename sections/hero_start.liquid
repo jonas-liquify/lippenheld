@@ -1,0 +1,89 @@
+<div class="padding-global lh_section_layout" style="{% if section.settings.bg_color != blank %}--lh-sec-bg: {{ section.settings.bg_color }};{% endif %}--lh-sec-pt: {{ section.settings.padding_top }}px;--lh-sec-pb: {{ section.settings.padding_bottom }}px;--lh-sec-px: {{ section.settings.padding_x }}px;"><div class="lh_hero_bg" aria-hidden="true">{% if section.settings.image_hero_hintergrund %}
+{{ section.settings.image_hero_hintergrund | image_url: width: 1000 | image_tag: class: 'lh_hero_bg_img', loading: 'eager' }}
+{% else %}
+<img class="lh_hero_bg_img" src="{{ 'lh-hero-bg.jpg' | asset_url }}" loading="eager" alt="">
+{% endif %}<div class="lh_hero_bg_overlay"></div></div><div class="container-large"><div class="lh_hero_inner" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Hero Start",
+    "class": "lh_hero",
+    "blocks": [
+        {
+            "type": "_hero-titel"
+        },
+        {
+            "type": "_hero-unterzeile"
+        },
+        {
+            "type": "_hero-button"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Hintergrundfarbe",
+            "default": "#26261f"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 60
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 60
+        },
+        {
+            "type": "range",
+            "id": "padding_x",
+            "min": 0,
+            "max": 120,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand links\/rechts",
+            "default": 60
+        },
+        {
+            "id": "image_hero_hintergrund",
+            "type": "image_picker",
+            "label": "Hero Hintergrund"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Start",
+            "category": "Content",
+            "blocks": [
+                {
+                    "type": "_hero-titel"
+                },
+                {
+                    "type": "_hero-unterzeile"
+                },
+                {
+                    "type": "_hero-button"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

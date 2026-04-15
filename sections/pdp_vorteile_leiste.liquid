@@ -1,0 +1,42 @@
+<div class="padding-global padding-section-medium">
+          <div class="container-large">
+            <div class="lh_pdp_benefits_row" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "PDP Vorteile Leiste",
+    "class": "lh_pdp_section lh_pdp_benefits",
+    "blocks": [
+        {
+            "type": "_vorteilsspalte"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "presets": [
+        {
+            "name": "PDP Vorteile Leiste",
+            "category": "Produktseite",
+            "blocks": [
+                {
+                    "type": "_vorteilsspalte"
+                },
+                {
+                    "type": "_vorteilsspalte"
+                },
+                {
+                    "type": "_vorteilsspalte"
+                },
+                {
+                    "type": "_vorteilsspalte"
+                },
+                {
+                    "type": "_vorteilsspalte"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

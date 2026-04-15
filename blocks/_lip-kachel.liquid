@@ -1,0 +1,33 @@
+<div class="lh_lip_cell swiper-slide" li-block="_Lip Kachel" li-block:category="Kacheln" {{ block.shopify_attributes }}>
+                    <div class="lh_lip_img">{% if block.settings.image_bild %}
+{{ block.settings.image_bild | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}</div>
+                    <p class="lh_lip_label">
+{{ block.settings.text_label }}
+</p>
+                </div> {% schema %} {
+    "name": "Lip Kachel",
+    "settings": [
+        {
+            "id": "image_bild",
+            "type": "image_picker",
+            "label": "Bild"
+        },
+        {
+            "id": "text_label",
+            "type": "text",
+            "label": "Label",
+            "default": "Mein t\u00e4gliches Ritual"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Lip Kachel",
+            "category": "Kacheln",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,81 @@
+<div class="lh_pdp_bundle" li-block="Cross-Sell" li-block:category="Empfehlung" {{ block.shopify_attributes }}>
+                    
+                    
+                    {% if block.settings.image_bundle_produkt_bild %}
+{{ block.settings.image_bundle_produkt_bild | image_url: width: 1000 | image_tag: class: 'lh_pdp_bundle_img', loading: 'lazy' }}
+{% else %}
+<img class="lh_pdp_bundle_img" src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                    
+                    
+                    <div class="lh_pdp_bundle_body">
+                      <p class="lh_pdp_bundle_kicker">
+{{ block.settings.text_bundle_kicker }}
+</p>
+                      <div class="lh_pdp_rating" style="margin-bottom:0.25rem;">
+                        <div class="lh_pdp_stars" aria-hidden="true">
+                          <span>★</span>
+                           
+                          <span>★</span>
+                           
+                          <span>★</span>
+                           
+                          <span>★</span>
+                           
+                          <span>★</span>
+                        </div>
+                        <span class="lh_pdp_rating_num">4,9</span>
+                      </div>
+                      <p class="lh_pdp_bundle_title">
+{{ block.settings.text_bundle_titel }}
+</p>
+                      <p class="lh_pdp_bundle_price">
+{{ block.settings.text_bundle_preis }}
+</p>
+                    </div>
+                    
+                    
+                    <a class="lh_pdp_bundle_btn" href="{{ block.settings.url_bundle_link }}" aria-label="Zum Produkt"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path> <line x1="3" y1="6" x2="21" y2="6"></line> <path d="M16 10a4 4 0 01-8 0"></path> </svg> </a>
+                    
+                  
+                </div> {% schema %} {
+    "name": "Cross-Sell",
+    "settings": [
+        {
+            "id": "image_bundle_produkt_bild",
+            "type": "image_picker",
+            "label": "Bundle Produkt Bild"
+        },
+        {
+            "id": "text_bundle_kicker",
+            "type": "text",
+            "label": "Bundle Kicker",
+            "default": "Gemeinsam kaufen"
+        },
+        {
+            "id": "text_bundle_titel",
+            "type": "text",
+            "label": "Bundle Titel",
+            "default": "Kosmetikspatel"
+        },
+        {
+            "id": "text_bundle_preis",
+            "type": "text",
+            "label": "Bundle Preis",
+            "default": "14,99 \u20ac"
+        },
+        {
+            "id": "url_bundle_link",
+            "type": "url",
+            "label": "Bundle Link"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Cross-Sell",
+            "category": "Empfehlung",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

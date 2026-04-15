@@ -1,0 +1,21 @@
+<div li-block="_Reviews Hinweis" li-block:category="Fuss" {{ block.shopify_attributes }}>
+                    <div class="lh_disclaimer"> {{ block.settings.richtext_disclaimer }} </div>
+                </div> {% schema %} {
+    "name": "Reviews Hinweis",
+    "settings": [
+        {
+            "id": "richtext_disclaimer",
+            "type": "richtext",
+            "label": "Disclaimer",
+            "default": "<p>**Dauer der Verminderung von R\u00f6tungen: Klinische Tests an 26 Frauen, innerhalb von 60 Minuten nach Produktanwendung im Vergleich zur unbehandelten Kontrollgruppe.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Reviews Hinweis",
+            "category": "Fuss",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,35 @@
+<li li-block="_USP Punkt" li-block:category="USP Liste" {{ block.shopify_attributes }}>
+                    
+                        
+                    <span class="lh_pdp_check" aria-hidden="true">
+                          <svg viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </span>
+                    
+                         
+                        
+                    <span>
+{{ block.settings.text_text }}
+</span>
+                    
+                      
+                </li> {% schema %} {
+    "name": "USP Punkt",
+    "settings": [
+        {
+            "id": "text_text",
+            "type": "text",
+            "label": "Text",
+            "default": "Starkes Oliven-Antioxidans"
+        }
+    ],
+    "presets": [
+        {
+            "name": "USP Punkt",
+            "category": "USP Liste",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

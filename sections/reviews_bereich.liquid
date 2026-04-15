@@ -1,0 +1,91 @@
+<div class="padding-global lh_section_layout" style="{% if section.settings.bg_color != blank %}--lh-sec-bg: {{ section.settings.bg_color }};{% endif %}--lh-sec-pt: {{ section.settings.padding_top }}px;--lh-sec-pb: {{ section.settings.padding_bottom }}px;--lh-sec-px: {{ section.settings.padding_x }}px;"><div class="container-large"><div class="lh_reviews_inner" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Reviews Bereich",
+    "class": "lh_reviews",
+    "blocks": [
+        {
+            "type": "_reviews-kopf"
+        },
+        {
+            "type": "_review-karussell"
+        },
+        {
+            "type": "_reviews-statistik"
+        },
+        {
+            "type": "_reviews-hinweis"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Hintergrundfarbe",
+            "default": "#ffffff"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_x",
+            "min": 0,
+            "max": 120,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand links\/rechts",
+            "default": 60
+        }
+    ],
+    "presets": [
+        {
+            "name": "Reviews Bereich",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "_reviews-kopf"
+                },
+                {
+                    "type": "_review-karussell",
+                    "blocks": [
+                        {
+                            "type": "_review-kachel"
+                        }
+                    ]
+                },
+                {
+                    "type": "_reviews-statistik"
+                },
+                {
+                    "type": "_reviews-hinweis"
+                }
+            ]
+        }
+    ]
+} {% endschema %}
