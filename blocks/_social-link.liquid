@@ -1,0 +1,30 @@
+<div class="lh_pdp_social_link_wrap" li-block="_Social Link" li-block:category="Social Kanäle" {{ block.shopify_attributes }}>
+                    
+                
+                    <a class="lh_pdp_social_link" href="{{ block.settings.url_url }}" target="_blank" rel="noopener"> {{ block.settings.text_label }} </a>
+                    
+              
+                </div> {% schema %} {
+    "name": "Social Link",
+    "settings": [
+        {
+            "id": "url_url",
+            "type": "url",
+            "label": "URL"
+        },
+        {
+            "id": "text_label",
+            "type": "text",
+            "label": "Label",
+            "default": "Instagram"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Social Link",
+            "category": "Social Kan\u00e4le",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

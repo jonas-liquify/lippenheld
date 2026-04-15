@@ -1,0 +1,32 @@
+<div class="padding-global padding-section-medium">
+          <div class="container-large">
+            <div class="hide w-embed li-custom">{{ section.settings.html_reviews_app_embed }} </div>
+            <p class="lh_pdp_reviews_fallback text-align-center text-size-small">
+{{ section.settings.text_reviews_hinweis }}
+</p>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "PDP Kundenstimmen",
+    "class": "lh_pdp_section lh_pdp_reviews_app",
+    "settings": [
+        {
+            "id": "html_reviews_app_embed",
+            "type": "html",
+            "label": "Reviews App Embed"
+        },
+        {
+            "id": "text_reviews_hinweis",
+            "type": "text",
+            "label": "Reviews Hinweis",
+            "default": "Bewertungswidget: Code im Theme-Embed einf\u00fcgen (Judge.me, Loox, \u2026)."
+        }
+    ],
+    "presets": [
+        {
+            "name": "PDP Kundenstimmen",
+            "category": "Produktseite",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

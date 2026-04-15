@@ -1,0 +1,23 @@
+<div class="lh_hero_block" li-block="_Hero Unterzeile" li-block:category="Hero" {{ block.shopify_attributes }}>
+                    <p class="lh_subhero">
+{{ block.settings.text_hero_unterzeile }}
+</p>
+                </div> {% schema %} {
+    "name": "Hero Unterzeile",
+    "settings": [
+        {
+            "id": "text_hero_unterzeile",
+            "type": "text",
+            "label": "Hero Unterzeile",
+            "default": "Mit Laborgepr\u00fcfter Rezeptur. Gewonnen aus AQUA Mora dem Olivenpresswasser. Sch\u00fctzt, Pflegt &amp; regeneriert, 100% nat\u00fcrlich."
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Unterzeile",
+            "category": "Hero",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,56 @@
+<div class="padding-global padding-section-medium">
+          <div class="container-large lh_pdp_faq_layout">
+            <div class="lh_pdp_faq_intro">
+              <h2 class="lh_pdp_faq_heading">
+{{ section.settings.text_faq_uberschrift }}
+</h2>
+              <div class="lh_pdp_faq_lead lh_text_playfair"> {{ section.settings.richtext_faq_einleitung }} </div>
+            </div>
+            <div class="lh_pdp_faq_list" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "PDP FAQ",
+    "class": "lh_pdp_section lh_pdp_faq",
+    "blocks": [
+        {
+            "type": "_faq"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_faq_uberschrift",
+            "type": "text",
+            "label": "FAQ \u00dcberschrift",
+            "default": "H\u00e4ufige Fragen"
+        },
+        {
+            "id": "richtext_faq_einleitung",
+            "type": "richtext",
+            "label": "FAQ Einleitung",
+            "default": "<p>Antworten zu Lieferung, Anwendung und Inhaltsstoffen.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "PDP FAQ",
+            "category": "Produktseite",
+            "blocks": [
+                {
+                    "type": "_faq"
+                },
+                {
+                    "type": "_faq"
+                },
+                {
+                    "type": "_faq"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

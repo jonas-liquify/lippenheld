@@ -1,0 +1,26 @@
+<div li-block="_Aqua Button" li-block:category="Story" {{ block.shopify_attributes }}>
+                    <a class="lh_btn lh_btn--black" href="{{ block.settings.url_button_link }}"> {{ block.settings.text_button }} </a>
+                </div> {% schema %} {
+    "name": "Aqua Button",
+    "settings": [
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button Link"
+        },
+        {
+            "id": "text_button",
+            "type": "text",
+            "label": "Button",
+            "default": "Jetzt entdecken"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Aqua Button",
+            "category": "Story",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

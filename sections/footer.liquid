@@ -1,0 +1,1101 @@
+<div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="footer_main-wrapper lh_footer_main">
+              <div class="footer_promo_row">
+                <a class="footer_promo_box" href="{{ section.settings.url_promo_box_1_link }}"> {{ section.settings.text_promo_box_1_text }} </a>
+                 
+                <a class="footer_promo_box" href="{{ section.settings.url_promo_box_2_link }}"> {{ section.settings.text_promo_box_2_text }} </a>
+              </div>
+              <div class="footer_body_row">
+                <div class="footer_club">
+                  <h2 class="footer_club_heading">
+{{ section.settings.text_club_uberschrift }}
+</h2>
+                  <div class="footer_club_list w-richtext"> {{ section.settings.richtext_club_vorteile }} </div>
+                  <a class="footer_club_cta" href="{{ section.settings.url_club_button_link }}"> {{ section.settings.text_club_button }} </a>
+                </div>
+                <div class="footer_link-grid">
+                  {% for link in linklists[section.settings.footer_menu].links %}    <div class="footer_link-column" li-for="link in linklists[section.settings.footer_menu].links">
+                                    
+                    
+                            <div class="text-weight-semibold" li-object="link.title">{{ link.title }}</div>
+                            
+                    
+                            <div class="footer_link-list" li-for:inside="child_link in link.links">
+        {% for child_link in link.links %}                            
+                      
+                            <a class="footer_link" li-object:href="child_link.url" li-object="child_link.title" href="{{ child_link.url }}">{{ child_link.title }}</a>
+                            
+                    
+                    {% endfor %}    </div>
+                            
+                  
+                        </div>
+{% endfor %}
+                </div>
+              </div>
+              <div class="footer_newsletter" id="lh_footer_newsletter">
+                <h2 class="heading-style-h2">
+{{ section.settings.text_uberschrift }}
+</h2>
+                <div class="footer_form-block w-form">
+                  {% form 'customer', return_to: '/', class: 'footer_form' %}
+<div class="form_field-wrapper">
+                      <label class="form_hidden-label" for="Email">E-Mail-Adresse</label>
+                      <input class="form_input w-input" maxlength="256" name="contact[email]" data-name="Email" type="email" id="Email" required="" placeholder="{{ section.settings.placeholder_text }}">
+                    </div>
+                    <div class="text-size-tiny text-color-red" li-object="form.errors | default_errors">{{ form.errors | default_errors }}</div>
+                    <div class="hide w-embed" id="w-node-_5eccf730-c887-5204-0e0c-693f99a732a5-99a7328f">
+                      <input type="hidden" name="contact[accepts_marketing]" value="false">
+                    </div>
+                    <label class="w-checkbox form_checkbox" id="w-node-_5eccf730-c887-5204-0e0c-693f99a732a6-99a7328f" name="contact[accepts_marketing]">
+                      <input class="w-checkbox-input form_checkbox-icon" type="checkbox" name="Accepts-Marketing-2" id="Accepts-Marketing-2" data-name="Accepts Marketing 2">
+                      <span class="form_checkbox-label text-size-tiny w-form-label" for="Accepts-Marketing-2">
+{{ section.settings.text_checkbox_hinweis }}
+</span>
+                    </label>
+                    <input class="button w-button" type="submit" data-wait="Bitte warten …" id="w-node-_5eccf730-c887-5204-0e0c-693f99a732ae-99a7328f" value="Jetzt abonnieren">
+                  {% endform %}
+                  <div class="hide w-form-done">
+                    <div>Thank you! Your submission has been received!</div>
+                  </div>
+                  <div class="hide w-form-fail">
+                    <div>Oops! Something went wrong while submitting the form.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer_divider"></div>
+        <div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="footer_icon-grid">
+              <div class="footer_icon-block">
+                <div class="text-size-regular">
+{{ section.settings.text_versand_label }}
+</div>
+                <div class="footer_icon-row">
+                  {% for block in section.blocks %}
+    {% if block.type == "shipping" %}
+                    <div class="footer_icon-item" li-block="Shipping">
+                                    
+                    
+                                    {% if block.settings.image_icon %}
+{{ block.settings.image_icon | image_url: width: 1000 | image_tag: class: 'footer_shipping-icon', loading: 'lazy' }}
+{% else %}
+<img class="footer_shipping-icon" src="{{ 'payment.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}
+                                    
+                  
+                            </div>
+            {% endif %}
+{% endfor %}
+                </div>
+              </div>
+              {% if enabled_payment_types.length > 0 %}    <div class="footer_icon-block" li-if="enabled_payment_types.length > 0" id="w-node-_5eccf730-c887-5204-0e0c-693f99a732bf-99a7328f">
+    
+                <div class="text-size-regular">
+{{ section.settings.text_zahlarten_label }}
+</div>
+                <ul class="footer_payment-list w-list-unstyled" role="list">
+                  {% for type in shop.enabled_payment_types %}    <li class="footer_payment-item" li-for="type in shop.enabled_payment_types">
+                                    
+                    
+                            <div class="footer_payment-svg" li-object="type | payment_type_svg_tag: class: 'footer_payment-img icon--full-color'">{{ type | payment_type_svg_tag: class: 'footer_payment-img icon--full-color' }}</div>
+                            
+                  
+                        </li>
+{% endfor %}
+                </ul>
+                  </div>
+{% endif %}
+              <div class="footer_icon-block">
+                <div class="text-size-regular">
+{{ section.settings.text_social_label }}
+</div>
+                <div class="footer_icon-row">
+                  {% for block in section.blocks %}
+    {% if block.type == "social-media" %}
+                    <div class="footer_icon-item" li-block="Social-Media">
+                                    
+                    
+                                    <a class="footer_social-link w-inline-block" href="{{ block.settings.url_link }}" target="_blank"> {% if block.settings.image_icon %} {{ block.settings.image_icon | image_url: width: 1000 | image_tag: class: 'footer_social-icon', loading: 'lazy' }} {% else %} <img class="footer_social-icon" src="{{ 'Social-Icon.svg' | asset_url }}" loading="lazy" alt=""> {% endif %} </a>
+                                    
+                  
+                            </div>
+            {% endif %}
+{% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer_divider"></div>
+        <div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="footer_sub-footer">
+              <a class="footer_logo-link w-inline-block" href="{{ routes.root_url }}" li-object:href="routes.root_url">
+                {% if section.settings.image_logo %}
+{{ section.settings.image_logo | image_url: width: 1000 | image_tag: class: 'footer_logo', loading: 'lazy' }}
+{% else %}
+<img class="footer_logo" src="{{ 'liquify-logo-white.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}
+              </a>
+              <p class="footer_copyright">
+{{ section.settings.text_copyright }}
+</p>
+              <div class="footer_legal-links" li-for:inside="link in linklists['footer'].links" id="w-node-_5eccf730-c887-5204-0e0c-693f99a732d3-99a7328f">
+        {% for link in linklists['footer'].links %}                            
+                
+                            <a class="footer_legal-link" li-object="link.title" li-object:href="link.url" href="{{ link.url }}">{{ link.title }}</a>
+                            
+              
+                    {% endfor %}    </div>
+              {% if localization.available_languages.size > 1 %}    <localization-form class="li-lang_wrapper" li-if="localization.available_languages.size > 1">
+    
+                {% form 'localization', class: 'li-lang_form' %}
+<div class="li-lang_dropdown w-dropdown" data-hover="true" data-delay="500">
+                    <div class="li-lang_dd-toggle w-dropdown-toggle" lang="{{ localization.language.iso_code }}">
+                      <div li-object="localization.language.endonym_name | capitalize">{{ localization.language.endonym_name | capitalize }}</div>
+                      <div class="li-lang_dd-toggle-icon w-embed">
+                        <svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <nav class="li-lang_dd-list w-dropdown-list" li-for:inside="language in localization.available_languages">
+        {% for language in localization.available_languages %}                            
+                      
+                            {% unless localization.language.iso_code == language.iso_code %}    <div class="li-lang_dd-list-item" li-unless="localization.language.iso_code == language.iso_code">
+    
+                        <a class="li-lang_dd-link w-dropdown-link" href="#" li-object="language.endonym_name | capitalize" lang="{{ language.iso_code }}" hreflang="{{ language.iso_code }}" data-value="{{ language.iso_code }}">{{ language.endonym_name | capitalize }}</a>
+                          </div>
+{% endunless %}
+                            
+                    
+                    {% endfor %}    </nav>
+                  </div>
+                  <input class="li-lang_hidden-input" type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
+                {% endform %}
+                <div class="li-lang_script w-embed w-script">
+                  <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      class LocalizationForm extends HTMLElement {
+                        constructor() {
+                          super();
+                          this.input = this.querySelector('input[name="language_code"], input[name="country_code"]');
+                          this.querySelectorAll('a').forEach(item =>
+                            item.addEventListener('click', this.onItemClick.bind(this))
+                          );
+                        }
+                        onItemClick(event) {
+                          event.preventDefault();
+                          const form = this.querySelector('form');
+                          this.input.value = event.currentTarget.dataset.value;
+                          if (form) form.submit();
+                        }
+                      }
+                      customElements.define('localization-form', LocalizationForm);
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+                  </script>
+                </div>
+                  </localization-form>
+{% endif %}
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "footer",
+    "name": "Footer",
+    "class": "section_footer",
+    "blocks": [
+        {
+            "name": "Shipping",
+            "type": "shipping",
+            "settings": [
+                {
+                    "id": "image_icon",
+                    "type": "image_picker",
+                    "label": "Icon"
+                }
+            ]
+        },
+        {
+            "name": "Social-Media",
+            "type": "social-media",
+            "settings": [
+                {
+                    "id": "url_link",
+                    "type": "url",
+                    "label": "Link"
+                },
+                {
+                    "id": "image_icon",
+                    "type": "image_picker",
+                    "label": "Icon"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "url_promo_box_1_link",
+            "type": "url",
+            "label": "Promo Box 1 Link"
+        },
+        {
+            "id": "text_promo_box_1_text",
+            "type": "text",
+            "label": "Promo Box 1 Text",
+            "default": "Newsletter beitreten und 10% Rabatt sichern"
+        },
+        {
+            "id": "url_promo_box_2_link",
+            "type": "url",
+            "label": "Promo Box 2 Link"
+        },
+        {
+            "id": "text_promo_box_2_text",
+            "type": "text",
+            "label": "Promo Box 2 Text",
+            "default": "Tell a Friend, get 10% off"
+        },
+        {
+            "id": "text_club_uberschrift",
+            "type": "text",
+            "label": "Club \u00dcberschrift",
+            "default": "Club beitreten und tolle Pr\u00e4mien sichern!"
+        },
+        {
+            "id": "richtext_club_vorteile",
+            "type": "richtext",
+            "label": "Club Vorteile",
+            "default": "<p>Mit jedem Einkauf Punkte sammeln Tolle Pr\u00e4mien &amp; Willkommensbonus Gratisprodukte Geburtstags\u00fcberraschungen<\/p>"
+        },
+        {
+            "id": "url_club_button_link",
+            "type": "url",
+            "label": "Club Button Link"
+        },
+        {
+            "id": "text_club_button",
+            "type": "text",
+            "label": "Club Button",
+            "default": "Jetzt beitreten"
+        },
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Newsletter abonnieren"
+        },
+        {
+            "id": "text_checkbox_hinweis",
+            "type": "text",
+            "label": "Checkbox Hinweis",
+            "default": "\n                         Mit deiner Anmeldung stimmst du unserer \n                        <a href=\"#\">\n                           \n                          <span>Datenschutzerkl\u00e4rung<\/span>\n                           \n                        <\/a>\n                         zu und willigst ein, Updates von uns zu erhalten. \n                      "
+        },
+        {
+            "id": "text_versand_label",
+            "type": "text",
+            "label": "Versand Label",
+            "default": "Versand"
+        },
+        {
+            "id": "text_zahlarten_label",
+            "type": "text",
+            "label": "Zahlarten Label",
+            "default": "Zahlarten"
+        },
+        {
+            "id": "text_social_label",
+            "type": "text",
+            "label": "Social Label",
+            "default": "Social Media"
+        },
+        {
+            "id": "image_logo",
+            "type": "image_picker",
+            "label": "Logo"
+        },
+        {
+            "id": "text_copyright",
+            "type": "text",
+            "label": "Copyright",
+            "default": "\u00a92025 Lippenheld GmbH"
+        },
+        {
+            "type": "text",
+            "id": "placeholder_text",
+            "label": "Newsletter Platzhalter",
+            "default": "Deine E-Mail-Adresse"
+        },
+        {
+            "type": "header",
+            "content": "Navigation"
+        },
+        {
+            "type": "link_list",
+            "id": "footer_menu",
+            "label": "Footer Menu",
+            "default": "footer"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Footer",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "shipping"
+                },
+                {
+                    "type": "social-media"
+                }
+            ]
+        }
+    ],
+    "enabled_on": {
+        "groups": [
+            "*"
+        ]
+    }
+} {% endschema %}

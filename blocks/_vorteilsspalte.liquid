@@ -1,0 +1,41 @@
+<div class="lh_pdp_benefit" li-block="_Vorteilsspalte" li-block:category="Vorteile Leiste" {{ block.shopify_attributes }}>
+                    
+                
+                    <div class="lh_pdp_benefit_icon_wrap">
+                  {% if block.settings.image_icon %}
+{{ block.settings.image_icon | image_url: width: 1000 | image_tag: class: 'lh_pdp_benefit_icon', loading: 'lazy' }}
+{% else %}
+<img class="lh_pdp_benefit_icon" src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                </div>
+                    
+                
+                    <p class="lh_pdp_benefit_title">
+{{ block.settings.text_titel }}
+</p>
+                    
+              
+                </div> {% schema %} {
+    "name": "Vorteilsspalte",
+    "settings": [
+        {
+            "id": "image_icon",
+            "type": "image_picker",
+            "label": "Icon"
+        },
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "Nat\u00fcrliche Regeneration"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Vorteilsspalte",
+            "category": "Vorteile Leiste",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,57 @@
+<div li-block="_Reviews Statistik" li-block:category="Zahlen" {{ block.shopify_attributes }}>
+                    <div class="lh_stats"><div><p class="lh_stat_num">
+{{ block.settings.text_zahl_1 }}
+</p><div class="lh_stat_txt"> {{ block.settings.richtext_text_1 }} </div></div><div><p class="lh_stat_num">
+{{ block.settings.text_zahl_2 }}
+</p><div class="lh_stat_txt"> {{ block.settings.richtext_text_2 }} </div></div><div><p class="lh_stat_num">
+{{ block.settings.text_zahl_3 }}
+</p><div class="lh_stat_txt"> {{ block.settings.richtext_text_3 }} </div></div></div>
+                </div> {% schema %} {
+    "name": "Reviews Statistik",
+    "settings": [
+        {
+            "id": "text_zahl_1",
+            "type": "text",
+            "label": "Zahl 1",
+            "default": "94%"
+        },
+        {
+            "id": "richtext_text_1",
+            "type": "richtext",
+            "label": "Text 1",
+            "default": "<p>sagten, ihre Lippen f\u00fchlten sich sofort glatter &amp; geschmeidiger an*<\/p>"
+        },
+        {
+            "id": "text_zahl_2",
+            "type": "text",
+            "label": "Zahl 2",
+            "default": "13%"
+        },
+        {
+            "id": "richtext_text_2",
+            "type": "richtext",
+            "label": "Text 2",
+            "default": "<p>effektiver als Aciclovir, also Zovirax<\/p>"
+        },
+        {
+            "id": "text_zahl_3",
+            "type": "text",
+            "label": "Zahl 3",
+            "default": "19%"
+        },
+        {
+            "id": "richtext_text_3",
+            "type": "richtext",
+            "label": "Text 3",
+            "default": "<p>sagten, ihre Lippen f\u00fchlten sich sofort glatter &amp; geschmeidiger an***<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Reviews Statistik",
+            "category": "Zahlen",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

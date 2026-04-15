@@ -1,0 +1,95 @@
+<div class="padding-global lh_section_layout" style="{% if section.settings.bg_color != blank %}--lh-sec-bg: {{ section.settings.bg_color }};{% endif %}--lh-sec-pt: {{ section.settings.padding_top }}px;--lh-sec-pb: {{ section.settings.padding_bottom }}px;--lh-sec-px: {{ section.settings.padding_x }}px;"><div class="lh_aqua_bg" aria-hidden="true">{% if section.settings.image_aqua_hintergrund %}
+{{ section.settings.image_aqua_hintergrund | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'lh-hero-bg.jpg' | asset_url }}" alt="" loading="lazy">
+{% endif %}</div><div class="container-large"><div class="lh_aqua_inner" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Aqua Mora Story",
+    "class": "lh_aqua",
+    "blocks": [
+        {
+            "type": "_aqua-siegel"
+        },
+        {
+            "type": "_aqua-titel"
+        },
+        {
+            "type": "_aqua-text"
+        },
+        {
+            "type": "_aqua-button"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Hintergrundfarbe (sichtbar ohne Bild)",
+            "default": "#f6f6f0"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 60
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 60
+        },
+        {
+            "type": "range",
+            "id": "padding_x",
+            "min": 0,
+            "max": 120,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand links\/rechts",
+            "default": 60
+        },
+        {
+            "id": "image_aqua_hintergrund",
+            "type": "image_picker",
+            "label": "Aqua Hintergrund"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Aqua Mora Story",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "_aqua-siegel"
+                },
+                {
+                    "type": "_aqua-titel"
+                },
+                {
+                    "type": "_aqua-text"
+                },
+                {
+                    "type": "_aqua-button"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

@@ -1,0 +1,28 @@
+<div li-block="_Review Karussell" li-block:category="Kacheln" {{ block.shopify_attributes }}>
+                    <div class="lh_review_swiper swiper lh_swiper lh_swiper_reviews"><div class="swiper-wrapper" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div></div>
+                </div> {% schema %} {
+    "name": "Review Karussell",
+    "blocks": [
+        {
+            "type": "_review-kachel"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [],
+    "presets": [
+        {
+            "name": "Review Karussell",
+            "category": "Kacheln",
+            "blocks": [
+                {
+                    "type": "_review-kachel"
+                }
+            ]
+        }
+    ],
+    "tag": null
+} {% endschema %}

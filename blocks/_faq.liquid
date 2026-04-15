@@ -1,0 +1,40 @@
+<details class="lh_accordion_item lh_pdp_faq_item" name="lh_pdp_faq_acc" li-block="_FAQ" li-block:category="FAQ" {{ block.shopify_attributes }}>
+                    
+                
+                    <summary class="lh_accordion_head">
+                  <span>
+{{ block.settings.text_frage }}
+</span>
+                   
+                  <span aria-hidden="true">⌄</span>
+                </summary>
+                    
+                
+                    <div class="lh_accordion_body lh_text_playfair"> {{ block.settings.richtext_antwort }} </div>
+                    
+              
+                </details> {% schema %} {
+    "name": "FAQ",
+    "settings": [
+        {
+            "id": "text_frage",
+            "type": "text",
+            "label": "Frage",
+            "default": "Versand &amp; Lieferzeit"
+        },
+        {
+            "id": "richtext_antwort",
+            "type": "richtext",
+            "label": "Antwort",
+            "default": "<p><\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "FAQ",
+            "category": "FAQ",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

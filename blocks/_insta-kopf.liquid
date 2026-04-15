@@ -1,0 +1,28 @@
+<div class="lh_insta_head" li-block="_Insta Kopf" li-block:category="Kopf" {{ block.shopify_attributes }}>
+                    <p class="lh_kicker"><span>
+{{ block.settings.text_titel }}
+</span> <a href="{{ block.settings.url_profil_url }}" target="_blank" rel="noopener"> @LIPPENHELD_DE </a></p>
+                </div> {% schema %} {
+    "name": "Insta Kopf",
+    "settings": [
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "lippenheld AUF INSTAGRAM: "
+        },
+        {
+            "id": "url_profil_url",
+            "type": "url",
+            "label": "Profil URL"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Insta Kopf",
+            "category": "Kopf",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}
