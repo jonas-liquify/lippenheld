@@ -1,13 +1,31 @@
-<div class="padding-global padding-section-medium"><div class="container-large">{% assign currentArticle = article.title %}<h2 class="heading-style-h2">
+<div class="padding-global">
+          <div class="lh_blog-shell lh_article-related container-large">
+            {% assign currentArticle = article.title %}
+            <h2 class="lh_blog-list_title">
 {{ section.settings.text_heading }}
-</h2><div class="spacer-medium"></div><div class="blog_list-wrapper w-dyn-list"><div class="blog_list w-dyn-items" li-for:inside="article in blog.articles limit: 3" role="list">
-        {% for article in blog.articles limit: 3 %}                            {% if article.title != currentArticle %}    <div class="blog_list-item w-dyn-item" li-if="article.title != currentArticle" role="listitem">
-    <a class="blog_item-grid w-inline-block" li-object:href="article.url" href="{{ article.url }}"><div class="blog_tags-wrapper" id="w-node-c45bff24-6242-fee4-5061-f2f14b06a7be-4b06a7bd"><img class="blog_img" src="{{ article.image | image_url: width: 450 }}" loading="lazy" id="w-node-c45bff24-6242-fee4-5061-f2f14b06a7bf-4b06a7bd" li-object:src="article.image | image_url: width: 450" alt="{{ article.image.alt }}" li-object:alt="article.image.alt"><div class="blog_tag-row">{% for tag in article.tags %}    <div class="blog_tag" li-for="tag in article.tags">
-                                    <div li-object="tag">{{ tag }}</div>
-                        </div>
-{% endfor %}</div></div><div class="spacer-small" id="w-node-_6b97875b-5fce-9f5a-43fd-5792b69faf23-4b06a7bd"></div><div class="blog_info-wrapper"><h3 class="heading-style-h3" li-object="article.title">{{ article.title }}</h3></div></a>    </div>
+</h2>
+            <div class="lh_blog-grid" li-for:inside="related_article in blog.articles limit: 4" role="list">
+        {% for related_article in blog.articles limit: 4 %}                            
+              
+                            {% if related_article.title != currentArticle %}    <article class="lh_blog-card" li-if="related_article.title != currentArticle" role="listitem">
+    
+                <a class="lh_blog-card_link" href="{{ related_article.url }}" li-object:href="related_article.url">
+                  <img class="lh_blog-card_image" src="{{ related_article.image | image_url: width: 900 }}" loading="lazy" alt="{{ related_article.image.alt }}" li-object:src="related_article.image | image_url: width: 900" li-object:alt="related_article.image.alt">
+                  <div class="lh_blog-card_copy">
+                    {% if related_article.tags.size > 0 %}    <div class="lh_blog-chip is-small" li-if="related_article.tags.size > 0" li-object:content="related_article.tags.first" content="related_article.tags.first">
+    Category 1    </div>
 {% endif %}
-                    {% endfor %}    </div><div class="hide w-dyn-empty"></div></div></div></div> {% schema %} {
+                    <h3 class="lh_blog-card_title" li-object:content="related_article.title" content="{{ related_article.title }}">Haut ab 40: Darum ist Hydroxytyrosol der neue Wunder-Wirkstoff</h3>
+                    <p class="lh_blog-card_excerpt" li-object:content="related_article.excerpt | strip_html | truncate: 160" content="{{ related_article.excerpt | strip_html | truncate: 160 }}">Du bist auf der Suche nach einem Anti-Aging-Wirkstoff, der natuerlich und effektiv funktioniert?</p>
+                  </div>
+                </a>
+                  </article>
+{% endif %}
+                            
+            
+                    {% endfor %}    </div>
+          </div>
+        </div> {% schema %} {
     "tag": "section",
     "name": "Related Articles",
     "class": "section_related-articles",
@@ -16,7 +34,7 @@
             "id": "text_heading",
             "type": "text",
             "label": "Heading",
-            "default": "Other Articles"
+            "default": "Weitere Artikel"
         }
     ],
     "presets": [

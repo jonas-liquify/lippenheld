@@ -1,7 +1,55 @@
-<div class="padding-global padding-section-medium"><div class="container-large"><div class="article_wrapper"><div class="text-rich-text w-richtext" li-object="article.content">{{ article.content }}</div></div></div></div> {% schema %} {
+<div class="padding-global">
+          <div class="lh_article-shell container-large">
+            <article class="lh_article-content">
+              <div class="lh_article-top">
+                <div class="lh_blog-hero_chips">
+                  <div class="lh_blog-chip">NEU</div>
+                  {% if article.tags.size > 0 %}    <div class="lh_blog-chip" li-if="article.tags.size > 0" li-object:content="article.tags.first" content="article.tags.first">
+    Kategorie    </div>
+{% endif %}
+                </div>
+                <h1 class="lh_article-title" li-object:content="article.title" content="{{ article.title }}">Haut ab 40: Darum ist Hydroxytyrosol der neue Wunder-Wirkstoff</h1>
+                <p class="lh_article-excerpt" li-object:content="article.excerpt | strip_html" content="{{ article.excerpt | strip_html }}">Du bist auf der Suche nach einem Anti-Aging-Wirkstoff, der natuerlich und effektiv funktioniert?</p>
+                <div class="lh_blog-hero_meta">
+                  <span class="lh_blog-meta_text" li-object:content="article.published_at | date: '%d. %B %Y'" content="{{ article.published_at | date: '%d. %B %Y' }}">23. Oktober 2024</span>
+                   
+                  <span class="lh_blog-meta_dot"></span>
+                   
+                  <span class="lh_blog-meta_text" li-object:content="article.content | strip_html | size | divided_by: 850 | at_least: 1 | append: ' min'" content="{{ article.content | strip_html | size | divided_by: 850 | at_least: 1 | append: ' min' }}">5 min</span>
+                </div>
+                <img class="lh_article-cover" src="{{ article.image | image_url: width: 1200 }}" loading="eager" alt="{{ article.image.alt }}" li-object:src="article.image | image_url: width: 1200" li-object:alt="article.image.alt">
+              </div>
+              <div class="lh_article-richtext w-richtext" id="article-content" li-object:content="article.content" content="{{ article.content }}">
+                <h2>Hydroxytyrosol ist DER aufstrebende Anti-Aging-Wirkstoff 2025</h2>
+                <p>Neben bekannten Wirkstoffen rueckt Hydroxytyrosol immer staerker in den Fokus einer wirksamen Hautpflege.</p>
+              </div>
+              <div class="lh_article-share">
+                <p class="lh_article-share_label">Diesen Artikel jetzt teilen</p>
+                <div class="lh_article-share_actions">
+                  <a class="lh_article-share_icon w-inline-block" href="{{ article.url }}" li-object:href="article.url" aria-label="Bei Facebook teilen">f</a>
+                   
+                  <a class="lh_article-share_icon w-inline-block" href="{{ article.url }}" li-object:href="article.url" aria-label="Bei LinkedIn teilen">in</a>
+                   
+                  <a class="lh_article-share_icon w-inline-block" href="{{ article.url }}" li-object:href="article.url" aria-label="Bei X teilen">x</a>
+                   
+                  <a class="lh_article-share_copy w-inline-block" li-object:href="article.url" href="{{ article.url }}">
+                     
+                    <span>Kopieren</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <aside class="lh_article-toc">
+              <div class="lh_article-toc_inner">
+                <p class="lh_article-toc_kicker">Inhaltsverzeichnis</p>
+                <ol class="lh_article-toc_list" data-lh-article-toc=""></ol>
+              </div>
+            </aside>
+          </div>
+        </div> {% schema %} {
     "tag": "section",
     "name": "Article Content",
-    "class": "section_article",
+    "class": "lh_article-main",
     "presets": [
         {
             "name": "Article Content",
