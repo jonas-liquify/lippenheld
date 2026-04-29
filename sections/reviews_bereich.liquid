@@ -1,6 +1,10 @@
-<div class="padding-global lh_section_layout" style="{% if section.settings.bg_color != blank %}--lh-sec-bg: {{ section.settings.bg_color }};{% endif %}--lh-sec-pt: {{ section.settings.padding_top }}px;--lh-sec-pb: {{ section.settings.padding_bottom }}px;--lh-sec-px: {{ section.settings.padding_x }}px;"><div class="container-large"><div class="lh_reviews_inner" li-content-for-theme-blocks="">
+<div class="padding-global lh_section_layout" style="{% if section.settings.bg_color != blank %}--lh-sec-bg: {{ section.settings.bg_color }};{% endif %}--lh-sec-pt: {{ section.settings.padding_top }}px;--lh-sec-pb: {{ section.settings.padding_bottom }}px;--lh-sec-px: {{ section.settings.padding_x }}px;">
+          <div class="container-large">
+            <div class="lh_reviews_inner" li-content-for-theme-blocks="">
 {% content_for 'blocks' %}
-</div></div></div> {% schema %} {
+</div>
+          </div>
+        </div> {% schema %} {
     "tag": "section",
     "name": "Reviews Bereich",
     "class": "lh_reviews",
