@@ -1,0 +1,24 @@
+<div class="lh_about_founders_media" li-block="_Gründer Hauptbild" li-block:category="Gründer" {{ block.shopify_attributes }}>
+                    {% if block.settings.image_hauptbild %}
+{{ block.settings.image_hauptbild | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                </div> {% schema %} {
+    "name": "Gr\u00fcnder Hauptbild",
+    "settings": [
+        {
+            "id": "image_hauptbild",
+            "type": "image_picker",
+            "label": "Hauptbild"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Gr\u00fcnder Hauptbild",
+            "category": "Gr\u00fcnder",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

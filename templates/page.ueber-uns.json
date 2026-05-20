@@ -1,0 +1,122 @@
+{
+    "sections": {
+        "uber_uns_vision": {
+            "type": "uber_uns_vision",
+            "blocks": {
+                "_vision-stat": {
+                    "type": "_vision-stat",
+                    "name": "Vision Stat"
+                }
+            },
+            "block_order": [
+                "_vision-stat"
+            ]
+        },
+        "uber_uns_grunder": {
+            "type": "uber_uns_grunder",
+            "blocks": {
+                "_grunder-text": {
+                    "type": "_grunder-text",
+                    "name": "Gr\u00fcnder Text"
+                },
+                "_grunder-hauptbild": {
+                    "type": "_grunder-hauptbild",
+                    "name": "Gr\u00fcnder Hauptbild"
+                }
+            },
+            "block_order": [
+                "_grunder-text",
+                "_grunder-hauptbild"
+            ]
+        },
+        "uber_uns_warum": {
+            "type": "uber_uns_warum",
+            "blocks": {
+                "_warum-kopf": {
+                    "type": "_warum-kopf",
+                    "name": "Warum Kopf"
+                },
+                "_warum-kachel": {
+                    "type": "_warum-kachel",
+                    "name": "Warum Kachel"
+                }
+            },
+            "block_order": [
+                "_warum-kopf",
+                "_warum-kachel"
+            ]
+        },
+        "uber_uns_reviews": {
+            "type": "uber_uns_reviews",
+            "blocks": {
+                "_reviews-kopf": {
+                    "type": "_reviews-kopf",
+                    "name": "Reviews Kopf"
+                },
+                "_review-karussell": {
+                    "type": "_review-karussell",
+                    "name": "Review Karussell",
+                    "blocks": {
+                        "review-kachel": {
+                            "type": "_review-kachel",
+                            "name": "Review Kachel"
+                        }
+                    }
+                },
+                "_reviews-statistik": {
+                    "type": "_reviews-statistik",
+                    "name": "Reviews Statistik"
+                },
+                "_reviews-hinweis": {
+                    "type": "_reviews-hinweis",
+                    "name": "Reviews Hinweis"
+                }
+            },
+            "block_order": [
+                "_reviews-kopf",
+                "_review-karussell",
+                "_reviews-statistik",
+                "_reviews-hinweis"
+            ]
+        },
+        "uber_uns_trustpilot": {
+            "type": "uber_uns_trustpilot"
+        },
+        "uber_uns_blog": {
+            "type": "uber_uns_blog"
+        },
+        "uber_uns_produkte": {
+            "type": "uber_uns_produkte",
+            "blocks": {
+                "_produkte-intro": {
+                    "type": "_produkte-intro",
+                    "name": "Produkte Intro"
+                },
+                "_produkt-karte": {
+                    "type": "_produkt-karte",
+                    "name": "Produkt Karte"
+                },
+                "_produkt-karte-atc": {
+                    "type": "_produkt-karte-atc",
+                    "name": "Produkt Karte ATC"
+                }
+            },
+            "block_order": [
+                "_produkte-intro",
+                "_produkt-karte",
+                "_produkt-karte-atc"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "uber_uns_vision",
+        "uber_uns_grunder",
+        "uber_uns_warum",
+        "uber_uns_reviews",
+        "uber_uns_trustpilot",
+        "uber_uns_blog",
+        "uber_uns_produkte"
+    ]
+}

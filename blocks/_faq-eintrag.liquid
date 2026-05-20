@@ -1,0 +1,40 @@
+<details class="lh_faq_item lh_accordion_item" open="" li-block="_FAQ Eintrag" li-block:category="Zum Produkt" {{ block.shopify_attributes }}>
+                    
+                    
+                    <summary class="lh_accordion_head lh_faq_summary">
+                      <span class="lh_faq_question">
+{{ block.settings.text_frage }}
+</span>
+                       
+                      <span class="lh_faq_toggle" aria-hidden="true"></span>
+                    </summary>
+                    
+                    
+                    <div class="lh_accordion_body lh_faq_answer lh_text_playfair"> {{ block.settings.richtext_antwort }} </div>
+                    
+                  
+                </details> {% schema %} {
+    "name": "FAQ Eintrag",
+    "settings": [
+        {
+            "id": "text_frage",
+            "type": "text",
+            "label": "Frage",
+            "default": "warum brauchen deine Lippen besonderen Schutz?"
+        },
+        {
+            "id": "richtext_antwort",
+            "type": "richtext",
+            "label": "Antwort",
+            "default": "<p>Die Lippenhaut ist zehnmal d\u00fcnner als normale Gesichtshaut. Sie besitzen keine Talgdr\u00fcsen, kaum Melanin und verlieren sehr schnell an Feuchtigkeit. K\u00e4lte, Sonne, Wind, Heizungsluft f\u00fchren sofort zu Trockenheit, Spannungsgef\u00fchlen und kleinen Einrissen. Dies wiederum nutzen die kleinen Herpesviren und werden aktiv. Manchmal gen\u00fcgt f\u00fcr deren Aktivierung schon ein schmutziges Glas oder nur der Gedanke daran, und schon greifen sie die vorgesch\u00e4digten Lippen an. Der Lippenh<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "FAQ Eintrag",
+            "category": "Zum Produkt",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,80 @@
+<div class="padding-global lh_section_layout" style="{% if section.settings.bg_color != blank %}--lh-sec-bg: {{ section.settings.bg_color }};{% endif %}--lh-sec-pt: {{ section.settings.padding_top }}px;--lh-sec-pb: {{ section.settings.padding_bottom }}px;--lh-sec-px: {{ section.settings.padding_x }}px;"><div class="container-large"><div class="lh_about_blog_head"><p class="lh_about_eyebrow">
+{{ section.settings.text_kicker }}
+</p><h2 class="lh_kicker lh_about_blog_title">
+{{ section.settings.text_uberschrift }}
+</h2></div><div class="lh_about_blog_carousel"><div class="lh_about_blog_swiper swiper lh_swiper lh_swiper_about_blog">{% for article in section.settings.featured_blog.articles %}    <div class="swiper-wrapper" li-for="article in section.settings.featured_blog.articles" limit:="">
+                                    <article class="swiper-slide lh_about_blog_slide"><a class="lh_blog-card_link" href="{{ article.url }}" li-object:href="article.url"><img class="lh_blog-card_image" src="{{ article.image | image_url: width: 900 }}" loading="lazy" alt="{{ article.image.alt }}" li-object:src="article.image | image_url: width: 900" li-object:alt="article.image.alt"><div class="lh_blog-card_copy">{% if article.tags.size > 0 %}    <div class="lh_blog-chip is-small" li-if="article.tags.size > 0" li-object:content="article.tags.first" content="article.tags.first">
+    Category 1    </div>
+{% endif %}<h3 class="lh_blog-card_title" li-object:content="article.title" content="{{ article.title }}">Haut ab 40: Darum ist Hydroxytyrosol der neue Wunder-Wirkstoff</h3><p class="lh_blog-card_excerpt" li-object:content="article.excerpt | strip_html | truncate: 160" content="{{ article.excerpt | strip_html | truncate: 160 }}">Du bist auf der Suche nach einem Anti-Aging-Wirkstoff, der natürlich und effektiv funktioniert?</p></div></a></article>
+                        </div>
+{% endfor %}</div><button class="lh_carousel_arrow lh_carousel_arrow--next" type="button" data-lh-carousel-next="about-blog" aria-label="Weitere Artikel"><span aria-hidden="true"></span></button></div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "\u00dcber uns Blog",
+    "class": "lh_about_blog",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Hintergrundfarbe",
+            "default": "#ffffff"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_x",
+            "min": 0,
+            "max": 120,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand links\/rechts",
+            "default": 60
+        },
+        {
+            "type": "blog",
+            "id": "featured_blog",
+            "label": "Blog"
+        },
+        {
+            "id": "text_kicker",
+            "type": "text",
+            "label": "Kicker",
+            "default": "Blog"
+        },
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Das k\u00f6nnte dich auch interessieren"
+        }
+    ],
+    "presets": [
+        {
+            "name": "\u00dcber uns Blog",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}
