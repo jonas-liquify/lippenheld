@@ -1,0 +1,190 @@
+<div class="padding-global">
+          <div class="container-large lh_faq_layout">
+            <div class="lh_faq_content">
+              {% for block in section.blocks %}
+    {% if block.type == "faq-kategorie" %}
+                    <div class="lh_faq_group" id="faq-produkt" data-lh-faq-group="" li-block="_FAQ Kategorie" li-block:category="FAQ">
+                                    
+                
+                                    <h2 class="lh_faq_group_title">
+{{ block.settings.text_kategorie_titel }}
+</h2>
+                                    
+                
+                                    <div class="lh_faq_list" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div>
+                                    
+              
+                            </div>
+            {% endif %}
+{% endfor %}
+              {% for block in section.blocks %}
+    {% if block.type == "faq-kategorie" %}
+                    <div class="lh_faq_group" id="faq-bestellungen" data-lh-faq-group="" li-block="_FAQ Kategorie" li-block:category="FAQ">
+                                    
+                
+                                    <h2 class="lh_faq_group_title">
+{{ block.settings.text_kategorie_titel }}
+</h2>
+                                    
+                
+                                    <div class="lh_faq_list" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div>
+                                    
+              
+                            </div>
+            {% endif %}
+{% endfor %}
+              {% for block in section.blocks %}
+    {% if block.type == "faq-kategorie" %}
+                    <div class="lh_faq_group" id="faq-versand" data-lh-faq-group="" li-block="_FAQ Kategorie" li-block:category="FAQ">
+                                    
+                
+                                    <h2 class="lh_faq_group_title">
+{{ block.settings.text_kategorie_titel }}
+</h2>
+                                    
+                
+                                    <div class="lh_faq_list" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div>
+                                    
+              
+                            </div>
+            {% endif %}
+{% endfor %}
+              {% for block in section.blocks %}
+    {% if block.type == "faq-kategorie" %}
+                    <div class="lh_faq_group" id="faq-ruecksendung" data-lh-faq-group="" li-block="_FAQ Kategorie" li-block:category="FAQ">
+                                    
+                
+                                    <h2 class="lh_faq_group_title">
+{{ block.settings.text_kategorie_titel }}
+</h2>
+                                    
+                
+                                    <div class="lh_faq_list" li-content-for-theme-blocks="">
+{% content_for 'blocks' %}
+</div>
+                                    
+              
+                            </div>
+            {% endif %}
+{% endfor %}
+            </div>
+            <aside class="lh_faq_nav" data-lh-faq-nav="">
+              <div class="lh_faq_nav_inner">
+                <p class="lh_faq_nav_kicker">FAQ</p>
+                <ol class="lh_faq_nav_list" data-lh-faq-toc="" aria-label="FAQ Kategorien"></ol>
+              </div>
+            </aside>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "FAQ Inhalt",
+    "class": "lh_faq_main",
+    "blocks": [
+        {
+            "type": "_faq-eintrag"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "presets": [
+        {
+            "name": "FAQ Inhalt",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "_faq-kategorie",
+                    "blocks": [
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        }
+                    ]
+                },
+                {
+                    "type": "_faq-kategorie",
+                    "blocks": [
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        }
+                    ]
+                },
+                {
+                    "type": "_faq-kategorie",
+                    "blocks": [
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        }
+                    ]
+                },
+                {
+                    "type": "_faq-kategorie",
+                    "blocks": [
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        },
+                        {
+                            "type": "_faq-eintrag"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+} {% endschema %}

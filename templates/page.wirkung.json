@@ -1,0 +1,133 @@
+{
+    "sections": {
+        "wirkung_hero": {
+            "type": "wirkung_hero"
+        },
+        "wirkung_reviews": {
+            "type": "wirkung_reviews",
+            "blocks": {
+                "_reviews-kopf": {
+                    "type": "_reviews-kopf",
+                    "name": "Reviews Kopf"
+                },
+                "_review-karussell": {
+                    "type": "_review-karussell",
+                    "name": "Review Karussell",
+                    "blocks": {
+                        "review-kachel": {
+                            "type": "_review-kachel",
+                            "name": "Review Kachel"
+                        }
+                    }
+                },
+                "_reviews-statistik": {
+                    "type": "_reviews-statistik",
+                    "name": "Reviews Statistik"
+                },
+                "_reviews-hinweis": {
+                    "type": "_reviews-hinweis",
+                    "name": "Reviews Hinweis"
+                }
+            },
+            "block_order": [
+                "_reviews-kopf",
+                "_review-karussell",
+                "_reviews-statistik",
+                "_reviews-hinweis"
+            ]
+        },
+        "wirkung_olivenkraft_": {
+            "type": "wirkung_olivenkraft_",
+            "blocks": {
+                "_split-text": {
+                    "type": "_split-text",
+                    "name": "Split Text"
+                },
+                "_split-bild": {
+                    "type": "_split-bild",
+                    "name": "Split Bild"
+                }
+            },
+            "block_order": [
+                "_split-text",
+                "_split-bild"
+            ]
+        },
+        "wirkung_aciclovir": {
+            "type": "wirkung_aciclovir",
+            "blocks": {
+                "_split-text": {
+                    "type": "_split-text",
+                    "name": "Split Text"
+                },
+                "_split-bild": {
+                    "type": "_split-bild",
+                    "name": "Split Bild"
+                }
+            },
+            "block_order": [
+                "_split-text",
+                "_split-bild"
+            ]
+        },
+        "wirkung_trusted": {
+            "type": "wirkung_trusted",
+            "blocks": {
+                "_trusted-intro": {
+                    "type": "_trusted-intro",
+                    "name": "Trusted Intro"
+                },
+                "_trusted-vorher-nachher": {
+                    "type": "_trusted-vorher-nachher",
+                    "name": "Trusted Vorher Nachher",
+                    "blocks": {
+                        "ba-foto": {
+                            "type": "_ba-foto",
+                            "name": "BA Foto"
+                        }
+                    }
+                }
+            },
+            "block_order": [
+                "_trusted-intro",
+                "_trusted-vorher-nachher"
+            ]
+        },
+        "wirkung_trustpilot": {
+            "type": "wirkung_trustpilot"
+        },
+        "wirkung_produkte": {
+            "type": "wirkung_produkte",
+            "blocks": {
+                "_produkte-intro": {
+                    "type": "_produkte-intro",
+                    "name": "Produkte Intro"
+                },
+                "_produkt-karte": {
+                    "type": "_produkt-karte",
+                    "name": "Produkt Karte"
+                },
+                "_produkt-karte-atc": {
+                    "type": "_produkt-karte-atc",
+                    "name": "Produkt Karte ATC"
+                }
+            },
+            "block_order": [
+                "_produkte-intro",
+                "_produkt-karte",
+                "_produkt-karte-atc"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "wirkung_hero",
+        "wirkung_reviews",
+        "wirkung_olivenkraft_",
+        "wirkung_aciclovir",
+        "wirkung_trusted",
+        "wirkung_trustpilot",
+        "wirkung_produkte"
+    ]
+}

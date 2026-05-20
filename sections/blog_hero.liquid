@@ -3,12 +3,13 @@
           
                             <div class="lh_blog-hero_media">
             <img class="lh_blog-hero_image" src="{{ article.image | image_url: width: 1200 }}" loading="lazy" alt="{{ article.image.alt }}" li-object:src="article.image | image_url: width: 1200" li-object:alt="article.image.alt">
+            <div class="lh_blog-hero_overlay" aria-hidden="true"></div>
           </div>
                             
           
                             <div class="lh_blog-hero_content">
             <div class="lh_blog-hero_chips">
-              <div class="lh_blog-chip">NEU</div>
+              <div class="lh_blog-chip">neu</div>
               {% if article.tags.size > 0 %}    <div class="lh_blog-chip" li-if="article.tags.size > 0" li-object:content="article.tags.first" content="article.tags.first">
     Kategorie    </div>
 {% endif %}
@@ -23,7 +24,7 @@
               <span class="lh_blog-meta_text" li-object:content="article.content | strip_html | size | divided_by: 850 | at_least: 1 | append: ' min'" content="{{ article.content | strip_html | size | divided_by: 850 | at_least: 1 | append: ' min' }}">5 min</span>
             </div>
             <a class="lh_blog-hero_cta" href="{{ article.url }}" li-object:href="article.url">
-              <span>JETZT LESEN</span>
+              <span>jetzt lesen</span>
             </a>
           </div>
                             
@@ -32,7 +33,7 @@
 {% endfor %} {% schema %} {
     "tag": "header",
     "name": "Blog-Hero",
-    "class": "lh_blog-hero",
+    "class": "lh_blog-hero lh_light-hero",
     "presets": [
         {
             "name": "Blog-Hero",

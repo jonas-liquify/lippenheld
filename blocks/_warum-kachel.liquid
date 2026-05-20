@@ -1,0 +1,24 @@
+<div class="lh_about_why_tile" li-block="_Warum Kachel" li-block:category="Kacheln" {{ block.shopify_attributes }}>
+                    {% if block.settings.image_bild %}
+{{ block.settings.image_bild | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'platzhalter.svg' | asset_url }}" alt="" loading="lazy">
+{% endif %}
+                </div> {% schema %} {
+    "name": "Warum Kachel",
+    "settings": [
+        {
+            "id": "image_bild",
+            "type": "image_picker",
+            "label": "Bild"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Warum Kachel",
+            "category": "Kacheln",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

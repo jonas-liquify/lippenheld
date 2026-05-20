@@ -473,14 +473,30 @@ textarea.w-select {
 }
 
 .lh_blog-hero_media {
+  position: relative;
   min-height: 669px;
+  overflow: hidden;
+  background: #58644c;
 }
 
 .lh_blog-hero_image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  z-index: 0;
+}
+
+.lh_blog-hero_overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background: rgba(16, 39, 8, 0.3);
 }
 
 .lh_blog-hero_content {
@@ -511,12 +527,13 @@ textarea.w-select {
 .lh_blog-hero_title {
   color: #26261f;
   font-family: "Cormorant Infant", serif;
-  font-size: 52px;
+  font-size: 1.625rem;
   font-weight: 600;
-  letter-spacing: 1.56px;
+  letter-spacing: 0.0975rem;
   line-height: 1.11;
   margin: 0;
   text-transform: uppercase;
+  max-width: 23.875rem;
 }
 
 .lh_blog-hero_excerpt {
@@ -717,7 +734,11 @@ textarea.w-select {
 
 @media screen and (max-width: 767px) {
   .lh_blog-hero_title {
-    font-size: 34px;
+    font-size: 1.375rem;
+  }
+
+  .lh_blog-hero_media {
+    min-height: 20rem;
   }
 
   .lh_blog-list_head {
@@ -735,10 +756,16 @@ textarea.w-select {
   }
 }
 
+/* Blog hero overlay (Figma 10562:22262) — siehe .lh_blog-hero_overlay oben */
+
 /* Blog article page (Figma 10526:8463) */
 .lh_article-main {
   background: #f7f7f7;
   padding: 80px 0 70px;
+}
+
+.lh_article-main .lh_blog-chip {
+  background: #f7f7f7;
 }
 
 .lh_article-shell {
@@ -962,6 +989,769 @@ textarea.w-select {
   }
 
   .lh_article-related .lh_blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FAQ page (Figma 10526:9002) */
+.lh_faq_hero {
+  position: relative;
+  min-height: 20.4375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lh_faq_hero_bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.lh_faq_hero_bg_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lh_faq_hero_bg_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(175, 186, 171, 0.92) 0%, rgba(183, 195, 179, 0.88) 100%);
+}
+
+.lh_faq_hero_inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.lh_faq_hero_copy {
+  max-width: 20.5rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lh_faq_hero_kicker {
+  font-family: Outfit, sans-serif;
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.09rem;
+  line-height: 1.26;
+  margin: 0;
+  text-transform: uppercase;
+  color: #26261f;
+}
+
+.lh_faq_hero_title {
+  font-family: "Cormorant Infant", serif;
+  font-size: 1.625rem;
+  font-weight: 600;
+  letter-spacing: 0.0975rem;
+  line-height: 1.11;
+  margin: 0;
+  text-transform: uppercase;
+  color: #26261f;
+}
+
+.lh_faq_hero_lead {
+  margin: 0;
+}
+
+.lh_faq_main {
+  background: #fff;
+  padding: 5rem 0;
+}
+
+.lh_faq_layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20.5rem;
+  gap: 5rem;
+  align-items: start;
+}
+
+.lh_faq_content {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  min-width: 0;
+}
+
+.lh_faq_group_title {
+  font-family: "Cormorant Infant", serif;
+  font-size: 1.625rem;
+  font-weight: 600;
+  letter-spacing: 0.0975rem;
+  line-height: 1.11;
+  margin: 0 0 2.5rem;
+  text-transform: uppercase;
+  color: #26261f;
+}
+
+.lh_faq_list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.lh_faq_item {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.lh_faq_item .lh_faq_summary {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lh_faq_item .lh_faq_summary::-webkit-details-marker {
+  display: none;
+}
+
+.lh_faq_question {
+  flex: 1;
+  min-width: 0;
+  font-family: Outfit, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.105rem;
+  line-height: 1.26;
+  text-transform: uppercase;
+  color: #26261f;
+}
+
+.lh_faq_toggle {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  position: relative;
+}
+
+.lh_faq_toggle::before,
+.lh_faq_toggle::after {
+  content: "";
+  position: absolute;
+  background: #26261f;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lh_faq_toggle::before {
+  width: 1.125rem;
+  height: 1px;
+}
+
+.lh_faq_toggle::after {
+  width: 1px;
+  height: 1.125rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.lh_faq_item[open] .lh_faq_toggle::after {
+  transform: translate(-50%, -50%) scaleY(0);
+  opacity: 0;
+}
+
+.lh_faq_answer {
+  max-width: 37.6875rem;
+  padding-top: 0.75rem;
+}
+
+.lh_faq_answer p {
+  margin: 0;
+}
+
+.lh_faq_nav {
+  position: relative;
+}
+
+.lh_faq_nav_inner {
+  background: #f7f7f7;
+  padding: 1.75rem 1.75rem 2.4375rem;
+  position: sticky;
+  top: 7.5rem;
+}
+
+.lh_faq_nav_kicker {
+  font-family: Outfit, sans-serif;
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.09rem;
+  line-height: 1.26;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  color: #26261f;
+}
+
+.lh_faq_nav_list {
+  margin: 0;
+  padding-left: 1.3125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: #11223d;
+  font-family: "Playfair Display", serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.02625rem;
+  line-height: 1.5;
+}
+
+.lh_faq_nav_link {
+  color: #11223d;
+  text-decoration: none;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+.lh_faq_nav_link.is-active,
+.lh_faq_nav_link:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 991px) {
+  .lh_faq_layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .lh_faq_nav {
+    order: -1;
+  }
+
+  .lh_faq_nav_inner {
+    position: static;
+  }
+
+  .lh_faq_main {
+    padding: 3.5rem 0;
+  }
+
+  .lh_faq_hero_inner {
+    padding: 3.5rem 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .lh_faq_content {
+    gap: 3.5rem;
+  }
+
+  .lh_faq_list {
+    gap: 2.5rem;
+  }
+
+  .lh_faq_group_title {
+    font-size: 1.375rem;
+  }
+}
+
+/* Wirkung page (Figma 10526:9180) */
+.lh_wirkung_hero {
+  position: relative;
+  min-height: 35.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lh_wirkung_hero_bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.lh_wirkung_hero_bg_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lh_wirkung_hero_bg_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(175, 186, 171, 0.92) 0%, rgba(183, 195, 179, 0.88) 100%);
+}
+
+.lh_wirkung_hero_inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.lh_wirkung_hero_copy {
+  max-width: 29.5rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lh_wirkung_hero_title {
+  font-family: "Cormorant Infant", serif;
+  font-size: 1.625rem;
+  font-weight: 600;
+  letter-spacing: 0.0975rem;
+  line-height: 1.11;
+  margin: 0;
+  text-transform: uppercase;
+  color: #26261f;
+}
+
+.lh_wirkung_hero_lead {
+  margin: 0;
+}
+
+.lh_split_panel {
+  width: 100%;
+}
+
+.lh_split_panel_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 41.8125rem;
+}
+
+.lh_split_panel_media {
+  position: relative;
+  min-height: 20rem;
+  background: #afbaab;
+}
+
+.lh_split_panel_media.is-green {
+  background: #58644c;
+}
+
+.lh_split_panel_media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lh_split_panel_copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem clamp(1.5rem, 8vw, 10rem);
+  box-sizing: border-box;
+}
+
+.lh_split_panel_copy.is-ocean {
+  background: #abbaba;
+}
+
+.lh_split_panel_copy.is-white {
+  background: #ffffff;
+}
+
+.lh_split_panel_copy .lh_kicker {
+  max-width: 23rem;
+  margin: 0 0 1.5rem;
+}
+
+.lh_split_panel_copy .lh_text_playfair {
+  max-width: 21.875rem;
+  margin: 0;
+}
+
+.lh_wirkung_products > .padding-global.lh_section_layout {
+  box-sizing: border-box;
+}
+
+.lh_wirkung_products_grid {
+  display: grid;
+  grid-template-columns: minmax(0, 21.25rem) repeat(2, minmax(0, 24.6875rem));
+  gap: 0.75rem;
+  align-items: start;
+  justify-content: space-between;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.lh_wirkung_products_intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+.lh_wirkung_products_intro .lh_kicker {
+  margin-bottom: 0.75rem;
+}
+
+.lh_wirkung_products_intro .lh_text_playfair + .lh_text_playfair {
+  margin-top: 0.75rem;
+}
+
+.lh_wirkung_products_intro .lh_btn {
+  margin-top: 1.5rem;
+}
+
+.lh_reviews_inner .lh_disclaimer + .lh_disclaimer {
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 991px) {
+  .lh_wirkung_hero {
+    min-height: 24rem;
+  }
+
+  .lh_wirkung_hero_inner {
+    padding: 3.5rem 0;
+  }
+
+  .lh_split_panel_row {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .lh_split_panel_copy {
+    min-height: 0;
+    padding: 3rem 1.5rem;
+    order: 2;
+  }
+
+  .lh_split_panel_media {
+    min-height: 18rem;
+    order: 1;
+  }
+
+  .lh_wirkung_products_grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .lh_wirkung_products_intro {
+    max-width: 21.25rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .lh_wirkung_hero_title {
+    font-size: 1.375rem;
+  }
+}
+
+/* Über uns page (Figma 10562:21825 — About us) */
+.lh_about_eyebrow {
+  font-family: Outfit, sans-serif;
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.09rem;
+  line-height: 1.26;
+  margin: 0 0 0.75rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #26261f;
+}
+
+.lh_about_vision {
+  position: relative;
+  min-height: 49.5rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.lh_about_vision_bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.lh_about_vision_bg_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lh_about_vision_bg_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(175, 186, 171, 0.92) 0%, rgba(183, 195, 179, 0.88) 100%);
+}
+
+.lh_about_vision_inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.lh_about_vision_copy {
+  max-width: 40.375rem;
+  margin: 0 auto 3.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lh_about_vision_quote {
+  font-family: "Cormorant Infant", serif;
+  font-size: 1.625rem;
+  font-weight: 600;
+  letter-spacing: 0.0975rem;
+  line-height: 1.11;
+  margin: 0;
+  text-transform: uppercase;
+  color: #26261f;
+}
+
+.lh_about_vision_lead {
+  margin: 0;
+}
+
+.lh_about_vision_stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.625rem 3.5rem;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.lh_about_vision_stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  flex: 0 1 auto;
+  max-width: 11.875rem;
+}
+
+.lh_about_vision_stat_icon {
+  width: 3.25rem;
+  height: 4.5rem;
+  object-fit: contain;
+}
+
+.lh_about_vision_stat_label {
+  font-family: Playfair Display, serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.02625rem;
+  line-height: 1.26;
+  margin: 0;
+  color: #26261f;
+}
+
+.lh_about_founders_row {
+  display: grid;
+  grid-template-columns: minmax(0, 38.125rem) minmax(0, 1fr);
+  min-height: 48.5rem;
+}
+
+.lh_about_founders_copy {
+  background: #afbaab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 3.75rem;
+  box-sizing: border-box;
+}
+
+.lh_about_founders_copy .lh_kicker {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.lh_about_founders_copy .lh_text_playfair {
+  text-align: center;
+  max-width: 22.4375rem;
+  margin: 0 auto;
+}
+
+.lh_about_founders_thumbs {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.lh_about_founders_thumbs img {
+  width: 8.125rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 0.125rem;
+}
+
+.lh_about_founders_media {
+  position: relative;
+  min-height: 20rem;
+  background: #58644c;
+}
+
+.lh_about_founders_media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lh_about_why_head {
+  max-width: 26.125rem;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.lh_about_why_head .lh_kicker {
+  margin-bottom: 1rem;
+}
+
+.lh_about_why_head .lh_text_playfair {
+  margin: 0;
+}
+
+.lh_about_why_grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.lh_about_why_tile {
+  position: relative;
+  min-height: 34.3125rem;
+  background: #ddd;
+  overflow: hidden;
+}
+
+.lh_about_why_tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lh_about_blog_head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.lh_about_blog_title {
+  margin: 0;
+}
+
+.lh_about_reviews_carousel,
+.lh_about_blog_carousel {
+  position: relative;
+  padding-right: 4.5rem;
+}
+
+.lh_carousel_arrow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 2;
+  transform: translateY(-50%);
+  width: 3.75rem;
+  height: 3.75rem;
+  border: 0;
+  border-radius: 0;
+  background: #26261f;
+  cursor: pointer;
+  padding: 0;
+}
+
+.lh_carousel_arrow span {
+  display: block;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin: 0 auto;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg) translate(-2px, -2px);
+}
+
+.lh_about_products > .padding-global.lh_section_layout {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.lh_about_products_grid {
+  align-items: center;
+}
+
+.lh_about_products_grid .lh_wirkung_products_intro {
+  max-width: 27.875rem;
+  flex: 0 1 27.875rem;
+}
+
+.lh_about_blog_swiper.swiper {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 0.5rem;
+}
+
+.lh_about_blog_swiper .swiper-slide.lh_about_blog_slide {
+  width: 27.166875rem;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.lh_about_blog_swiper .lh_blog-card_link {
+  gap: 1.75rem;
+}
+
+.lh_about_blog_swiper .lh_blog-card_copy {
+  padding-right: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .lh_about_vision {
+    min-height: auto;
+  }
+
+  .lh_about_founders_row {
+    grid-template-columns: 1fr;
+  }
+
+  .lh_about_founders_copy {
+    padding: 3rem 1.5rem;
+    order: 2;
+  }
+
+  .lh_about_founders_media {
+    min-height: 18rem;
+    order: 1;
+  }
+
+  .lh_about_why_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lh_about_why_tile {
+    min-height: 16rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .lh_about_vision_quote {
+    font-size: 1.375rem;
+  }
+
+  .lh_about_vision_stats {
+    gap: 2rem;
+  }
+
+  .lh_about_why_grid {
     grid-template-columns: 1fr;
   }
 }
