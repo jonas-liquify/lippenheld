@@ -9,6 +9,12 @@
  */
 {
   "sections": {
+    "header_overlay_jDYyjx": {
+      "type": "header_overlay",
+      "disabled": true,
+      "name": "Header Overlay",
+      "settings": {}
+    },
     "hero": {
       "type": "hero",
       "settings": {
@@ -280,11 +286,6 @@
         "content_width": "large",
         "columns": 4
       }
-    },
-    "header_overlay_jDYyjx": {
-      "type": "header_overlay",
-      "name": "Header Overlay",
-      "settings": {}
     }
   },
   "layout": "theme",

@@ -13,7 +13,6 @@
   "sections": {
     "header": {
       "type": "header",
-      "disabled": true,
       "settings": {
         "text_markenname": "Lippenheld",
         "text_marken_unterzeile": "Lippenbalsam",
