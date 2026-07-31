@@ -7,15 +7,14 @@
                         </label>
 {% endfor %}
                         </div>
-{% endfor %}</div><div class="filter_content"><div class="filter_toolbar"><div class="filter_count"><span li-object="collection.products_count">{{ collection.products_count }}</span> Produkte</div><div class="sort_wrapper"><span class="filter_count">Sortieren</span><select class="form_input is-select" aria-label="Sortierung">{% for option.name %}    <option li-for="option in collection.sort_options" li-object="option.name">
-                                    Empfohlen
-                        </option>
-{% endfor %}</select></div></div><div class="product_list">{% for product in collection.products %}    <div li-for="product in collection.products">
+{% endfor %}</div><div class="filter_content"><div class="filter_toolbar"><div class="filter_count"><span li-object="collection.products_count">{{ collection.products_count }}</span> Produkte</div><div class="sort_wrapper"><span class="filter_count">Sortieren</span><select li-for:inside="option in collection.sort_options" class="form_input is-select" aria-label="Sortierung">
+        {% for option in collection.sort_options %}                            <option li-object="option.name" value="{{ option.value }}">{{ option.name }}</option>
+                    {% endfor %}    </select></div></div><div class="product_list">{% for product in collection.products %}    <div li-for="product in collection.products">
                                     {% render 'product_item', product: product %}
                         </div>
 {% endfor %}</div>{% if paginate.pages > 1 %}    <div li-if="paginate.pages > 1" class="pagination_wrapper">
-    {% for part.title %}    <a li-for="part in paginate.parts" li-object="part.title" li-object:href="part.url" href="#" class="pagination_link">
-                                    1
+    {% for part in paginate.parts %}    <a li-for="part in paginate.parts" li-object:href="part.url" href="#" class="pagination_link">
+                                    <span li-object="part.title">{{ part.title }}</span>
                         </a>
 {% endfor %}    </div>
 {% endif %}</div></div>{% endpaginate %}</div></div> {% schema %} {
