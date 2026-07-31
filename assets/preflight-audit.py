@@ -133,14 +133,37 @@ for f in all_html:
             p("li-for + li-object=\"…\" auf demselben Element in %s (<%s>) — "
               "Textbindung in ein inneres <span> verschieben" % (f, m.group(1)))
 
-# --- 10) max. EIN link_list-Setting pro Section --------------------------
-#      Shopify: "setting link_list type can only be inserted once in the settings"
+# --- 10) jeder Resource-Picker-Typ nur EINMAL pro Section ----------------
+#      Shopify: "setting <typ> type can only be inserted once in the settings"
+#      Gilt fuer link_list, collection, product, blog, article, page —
+#      auch wenn eine Section eine andere Section inline enthaelt (Header +
+#      predictive_search landen in einem Schema).
+PICKERS = ("link_list", "collection", "product", "blog", "article", "page")
 for f in sections:
     s = io.open(f, encoding="utf-8").read()
-    n = s.count('"type": "link_list"')
-    if n > 1:
-        p("%d link_list-Settings in %s — Shopify erlaubt nur eines pro Section "
-          "(Zweitmenü als text-Handle)" % (n, f))
+    cnt = collections.Counter()
+    for t in PICKERS:
+        cnt[t] += len(re.findall(r'\bli-settings:%s(?:=|\s|>)' % t, s))
+    for m in re.finditer(r'<div li-settings:custom(?:="[^"]*")? class="li-custom">(.*?)</div>', s, re.S):
+        try:
+            data = json.loads(m.group(1).strip())
+        except Exception:
+            continue
+        for e in (data if isinstance(data, list) else [data]):
+            if isinstance(e, dict) and e.get("type") in PICKERS:
+                cnt[e["type"]] += 1
+    for t, n in cnt.items():
+        if n > 1:
+            p("%d %s-Settings in %s — Shopify erlaubt nur eines pro Section" % (n, t, f))
+
+# --- 10b) "default": "" ist ungueltig -----------------------------------
+#      Shopify: "default can't be blank" — den default-Key stattdessen weglassen
+for f in sections:
+    s = io.open(f, encoding="utf-8").read()
+    for m in re.finditer(r'\{[^{}]*"default":\s*""[^{}]*\}', s):
+        idm = re.search(r'"id":\s*"([^"]+)"', m.group(0))
+        p("leerer default in %s (id=%s) — Key ganz weglassen"
+          % (f, idm.group(1) if idm else "?"))
 
 # --- 11) range-Default muss auf dem Step-Raster liegen -------------------
 #      Shopify: "default must be a step in the range"

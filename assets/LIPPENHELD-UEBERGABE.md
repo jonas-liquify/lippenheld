@@ -283,18 +283,37 @@ und `predictive_search` — insgesamt 8 Stellen.
 Behoben: Textbindung in ein inneres `<span>` verschoben. Beim `<option>` geht das
 nicht (ungültiges HTML), dort sitzt jetzt `li-for:inside` auf dem `<select>`.
 
-### 2. Zwei `link_list`-Settings pro Section
+### 2. Resource-Picker mehrfach pro Section
 ```
 Invalid schema: setting link_list type can only be inserted once in the settings.
+Invalid schema: setting collection type can only be inserted once in the settings.
 ```
-`Header` (Menü links + rechts) und `Footer` (Spalten + Rechtliches) hatten je
-zwei Picker. Behoben: erstes Menü bleibt `link_list`-Picker, das zweite ist jetzt
-ein `text`-Setting mit dem Linklisten-Handle. Die Liquid-Referenz
-`linklists[section.settings.x].links` ist identisch geblieben, am Markup war
-nichts zu ändern.
+Die Regel gilt für **alle** Picker-Typen: `link_list`, `collection`, `product`,
+`blog`, `article`, `page`.
 
-**Für dich heißt das:** in Shopify die Handles eintragen —
-Header „Menü rechts" z. B. `main-menu-right`, Footer „Rechtliches" z. B. `legal`.
+- **`Header`** (Menü links + rechts) und **`Footer`** (Spalten + Rechtliches)
+  hatten je zwei `link_list`-Picker. Behoben: erstes Menü bleibt Picker, das
+  zweite ist ein `text`-Setting mit dem Linklisten-Handle. Die Liquid-Referenz
+  `linklists[section.settings.x].links` ist identisch geblieben.
+- **`Header`** hatte außerdem zwei `collection`-Settings — eines im Mini-Cart-
+  Upsell, eines im eingebetteten `predictive_search`. Weil die Suche inline im
+  Header liegt, landen beide in **einem** Schema. Behoben: der Upsell ist jetzt
+  ein `product`-Setting (`upsell_product`) — semantisch richtig, es ist ein
+  einzelnes Produkt — und wird deterministisch über
+  `section.settings.upsell_product.…` referenziert. `product` und `collection`
+  sind verschiedene Typen und dürfen nebeneinander je einmal auftreten.
+
+**Für dich heißt das:** in Shopify eintragen — Header „Menü rechts" z. B.
+`main-menu-right`, Footer „Rechtliches" z. B. `legal`, und im Header unter
+„Warenkorb" das Upsell-Produkt wählen.
+
+### 2b. `"default": ""` ist ungültig
+```
+Invalid schema: setting with id="legal_menu" default can't be blank
+```
+Ich hatte die beiden neuen text-Settings mit `"default": ""` angelegt. Shopify
+lehnt einen leeren String ab — der `default`-Key muss **ganz weg**, dann ist das
+Feld im Editor einfach leer. Behoben.
 
 ### 3. `range`-Default nicht auf dem Step-Raster
 ```
@@ -318,14 +337,16 @@ Diese drei Klassen bestehen den Builder-Lint **fehlerfrei** — der Lint prüft
 cd "/Users/jonas/Ablage/Liquiflow Projects/lippenheld-20" && python3 preflight-audit.py
 ```
 
-Es prüft 11 Regeln: die drei Shopify-Klassen plus Blocknamen-Eindeutigkeit und
--Länge, `li-attribute` auf `li-section`, `li-if` + `li-attribute`, Theme-Block-
-Struktur, JSON-Validität, CSS-Klassen ohne Regel, `min-width`-Queries und
-falsch platzierte `li-for:inside`.
+Es prüft 12 Regeln: die vier Shopify-Klassen (For-Loop-Kollision, Picker-Dopplung,
+leerer Default, range-Step) plus Blocknamen-Eindeutigkeit und -Länge,
+`li-attribute` auf `li-section`, `li-if` + `li-attribute`, Theme-Block-Struktur,
+JSON-Validität, CSS-Klassen ohne Regel, `min-width`-Queries und falsch platzierte
+`li-for:inside`.
 
-Beachte außerdem: **Shopify bricht pro Section beim ersten Fehler ab.** Nach
-einer Korrekturrunde also erneut konvertieren — in derselben Datei kann ein
-weiteres Problem auftauchen, das vorher verdeckt war.
+**Shopify bricht pro Section beim ersten Fehler ab.** Genau das ist hier passiert:
+Runde 1 meldete neun Fehler, nach dem Fix kamen in Runde 2 zwei weitere zum
+Vorschein, die vorher verdeckt waren. Also nach jeder Korrekturrunde erneut
+konvertieren, bis der Log leer bleibt.
 
 Die vier Fehlerklassen sind zusätzlich im `liquiflow-builder`-Skill verankert
 (neuer Abschnitt „Shopify-Validation" plus Invarianten in
