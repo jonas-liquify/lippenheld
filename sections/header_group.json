@@ -1,1 +1,35 @@
-{"type":"header","name":"Header Group","sections":{"header":{"type":"header","settings":{}}},"order":["header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "header": {
+      "type": "header",
+      "disabled": true,
+      "settings": {
+        "text_markenname": "Lippenheld",
+        "text_marken_unterzeile": "Lippenbalsam",
+        "text_marken_badge": "UN·6",
+        "collection_vorschlags_kollektion": "",
+        "collection_vorschlags_kollektion_limit": 6,
+        "text_warenkorb_hinweis": "Gute Wahl! Nur das Beste für deine Lippen",
+        "text_versand_hinweis": "Kostenlos",
+        "menu": "main-menu",
+        "menu_right": "",
+        "upsell_product": "",
+        "search_placeholder": "Suche nach Artikeln…"
+      }
+    }
+  },
+  "order": [
+    "header"
+  ]
+}
