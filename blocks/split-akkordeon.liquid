@@ -1,0 +1,40 @@
+<div li-block="Split Akkordeon" class="accordion_item is-open" x-data="{ open: false }" x-init="open = $el === $el.parentElement.firstElementChild" x-bind:class="{ 'is-open': open }" {{ block.shopify_attributes }}>
+                    <button type="button" class="accordion_toggle" x-on:click="open = !open"><span>
+{{ block.settings.text_titel }}
+</span><span class="accordion_icon"></span></button>
+                    <div class="accordion_panel"><div class="accordion_panel-inner"><div class="accordion_content"><div class="text-size-regular"> {{ block.settings.richtext_text }} </div><div class="button-group"><a href="{{ block.settings.url_button_link }}" class="button"> <span>{{ block.settings.text_button_text }}</span> </a></div></div></div></div>
+                </div> {% schema %} {
+    "name": "Split Akkordeon",
+    "settings": [
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "Pr\u00e4ventiv &amp; Pflegend"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Lippenheld basiert auf einem der st\u00e4rksten Oliven-Antioxidantien der Welt. Die Formulierung sch\u00fctzt, regeneriert und pflegt \u2013 ganz ohne Chemie, synthetische Zus\u00e4tze oder unn\u00f6tige F\u00fcllstoffe. Pure Natur f\u00fcr gesunde Lippen.<\/p>"
+        },
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button-Link"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button-Text",
+            "default": "Jetzt entdecken"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Split Akkordeon",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

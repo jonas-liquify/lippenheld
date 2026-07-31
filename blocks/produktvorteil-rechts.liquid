@@ -1,0 +1,29 @@
+<div li-block="Produktvorteil rechts" class="benefits_item" {{ block.shopify_attributes }}>
+                    <div class="benefits_item-title">
+{{ block.settings.text_titel }}
+</div>
+                    <div class="text-size-small"> {{ block.settings.richtext_text }} </div>
+                </div> {% schema %} {
+    "name": "Produktvorteil rechts",
+    "settings": [
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "100% nat\u00fcrlich aus Italien"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Lippenheld basiert auf einem der st\u00e4rksten Oliven-Antioxidantien der Welt. Die Formulierung sch\u00fctzt, regeneriert und pflegt \u2013 ganz ohne Chemie.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Produktvorteil rechts",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

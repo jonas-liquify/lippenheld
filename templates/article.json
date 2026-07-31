@@ -1,0 +1,32 @@
+{
+    "sections": {
+        "article_hero": {
+            "type": "article_hero"
+        },
+        "article_content": {
+            "type": "article_content"
+        },
+        "related_articles": {
+            "type": "related_articles"
+        },
+        "featured_products": {
+            "type": "featured_products"
+        },
+        "form": {
+            "type": "form"
+        },
+        "social_media": {
+            "type": "social_media"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "article_hero",
+        "article_content",
+        "related_articles",
+        "featured_products",
+        "form",
+        "social_media"
+    ]
+}

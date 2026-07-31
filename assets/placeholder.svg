@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="dotgrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.1" fill="#dcd8d0"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#f7f6f3"/>
+  <rect width="800" height="600" fill="url(#dotgrid)"/>
+  <g fill="none" stroke="#aca79e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="336" y="248" width="128" height="104" rx="16" stroke-dasharray="7 9"/>
+    <circle cx="374" cy="280" r="10"/>
+    <path d="M354 332 L390 294 L414 318 L428 304 L446 332"/>
+  </g>
+</svg>

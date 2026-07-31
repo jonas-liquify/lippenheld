@@ -1,0 +1,29 @@
+<div li-static-block="Footer Social" class="footer_social-list"><div li-content-for-theme-blocks="" class="footer_social-list">
+{% content_for 'blocks' %}
+</div></div> {% schema %} {
+    "name": "Footer Social",
+    "blocks": [
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "url_link",
+            "type": "url",
+            "label": "Link"
+        },
+        {
+            "id": "image_icon",
+            "type": "image_picker",
+            "label": "Icon"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Footer Social",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

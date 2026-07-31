@@ -1,0 +1,27 @@
+{
+    "sections": {
+        "blog_hero": {
+            "type": "blog_hero"
+        },
+        "blog_articles": {
+            "type": "blog_articles",
+            "blocks": {
+                "blog-filter": {
+                    "name": "Blog Filter",
+                    "type": "blog-filter",
+                    "static": true
+                }
+            }
+        },
+        "social_media": {
+            "type": "social_media"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "blog_hero",
+        "blog_articles",
+        "social_media"
+    ]
+}

@@ -1,0 +1,47 @@
+<div li-block="Trustpilot Review" class="trustpilot_card" {{ block.shopify_attributes }}>
+                    <div class="trustpilot_card-stars"><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg></div>
+                    <div class="trustpilot_card-title">
+{{ block.settings.text_titel }}
+</div>
+                    <div class="text-size-regular"> {{ block.settings.richtext_text }} </div>
+                    <div class="trustpilot_card-author"><span>
+{{ block.settings.text_name }}
+</span><span class="text-style-muted">
+{{ block.settings.text_zeit }}
+</span></div>
+                </div> {% schema %} {
+    "name": "Trustpilot Review",
+    "settings": [
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "Ich liebe das Produkt wirklich"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Ich liebe das Produkt, das ich gekauft habe. Ich hatte au\u00dferdem einen sehr guten Kontakt zum Kundenservice.<\/p>"
+        },
+        {
+            "id": "text_name",
+            "type": "text",
+            "label": "Name",
+            "default": "Louisa Maierhover"
+        },
+        {
+            "id": "text_zeit",
+            "type": "text",
+            "label": "Zeit",
+            "default": "vor 5 Stunden"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Trustpilot Review",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,26 @@
+<div li-static-block="INCI Liste" class="ingredients_full"><span>
+{{ block.settings.text_inci_titel }}
+</span> – <div> {{ block.settings.richtext_inci_liste }} </div></div> {% schema %} {
+    "name": "INCI Liste",
+    "settings": [
+        {
+            "id": "text_inci_titel",
+            "type": "text",
+            "label": "INCI-Titel",
+            "default": "Full Ingredients"
+        },
+        {
+            "id": "richtext_inci_liste",
+            "type": "richtext",
+            "label": "INCI-Liste",
+            "default": "<p>Cera Alba (Beeswax), Theobroma Grandiflorum (Cupuacu) Seed Butter, Polyhydroxystearic Acid, Persea Gratissima (Avocado) Oil, Cannabis Sativa (Hemp) Seed Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Olea Europaea (Olive) Fruit Oil, Tocopherol, Mentha Piperita (Peppermint) Oil.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "INCI Liste",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,92 @@
+<div class="hero_component is-align-{{ section.settings.content_align }}" style="min-height: {{ section.settings.min_height }}px;"><div class="hero_media">{% if section.settings.image_hintergrundbild %}
+{{ section.settings.image_hintergrundbild | image_url: width: 2400 | image_tag: loading: 'eager' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="eager" alt="">
+{% endif %}</div><div class="hero_overlay" style="opacity: {{ section.settings.overlay_strength | divided_by: 100.0 }};"></div><div class="hero_content"><h1 class="heading-style-h1 hero_title">
+{{ section.settings.text_uberschrift }}
+</h1><div class="text-style-link hero_text"> {{ section.settings.richtext_text }} </div><div class="button-group"><a href="{{ section.settings.url_button_link }}" class="button is-white"> <span>{{ section.settings.text_button_text }}</span> </a></div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Hero",
+    "class": "section_hero",
+    "settings": [
+        {
+            "id": "image_hintergrundbild",
+            "type": "image_picker",
+            "label": "Hintergrundbild"
+        },
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Nat\u00fcrliche Lippenpflege, sch\u00fctzt und pflegt, n\u00e4hrt und regeneriert, sanft wirksam"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Mit laborgepr\u00fcfter Rezeptur. Gewonnen aus Aqua Mora, dem Olivenpresswasser. Sch\u00fctzt, pflegt &amp; regeneriert, 100% nat\u00fcrlich.<\/p>"
+        },
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button-Link"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button-Text",
+            "default": "Jetzt entdecken"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "range",
+            "id": "min_height",
+            "min": 400,
+            "max": 1000,
+            "step": 20,
+            "unit": "px",
+            "label": "Mindesth\u00f6he",
+            "default": 800
+        },
+        {
+            "type": "range",
+            "id": "overlay_strength",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "%",
+            "label": "Overlay-St\u00e4rke",
+            "default": 100
+        },
+        {
+            "type": "select",
+            "id": "content_align",
+            "label": "Ausrichtung",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Links"
+                },
+                {
+                    "value": "center",
+                    "label": "Zentriert"
+                },
+                {
+                    "value": "right",
+                    "label": "Rechts"
+                }
+            ],
+            "default": "left"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero",
+            "category": "Content",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

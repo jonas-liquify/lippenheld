@@ -1,0 +1,257 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-left is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"><div class="container"><div class="footer_cta-row"><a href="{{ section.settings.url_cta_1_link }}" class="footer_cta"> <span>{{ section.settings.text_cta_1_text }}</span> </a><a href="{{ section.settings.url_cta_2_link }}" class="footer_cta"> <span>{{ section.settings.text_cta_2_text }}</span> </a></div><div class="footer_main"><div class="footer_club"><h2 class="heading-style-h2">
+{{ section.settings.text_club_uberschrift }}
+</h2><div li-content-for-theme-blocks="" class="footer_club-list">
+{% content_for 'blocks' %}
+</div><div class="button-group"><a href="{{ section.settings.url_club_link }}" class="button"> <span>{{ section.settings.text_club_button }}</span> </a></div></div>{% for link in linklists[section.settings.footer_menu].links %}    <div li-for="link in linklists[section.settings.footer_menu].links" class="footer_link-column">
+                                    <div li-object="link.title" class="footer_column-title">{{ link.title }}</div>
+                            <div li-for:inside="child_link in link.links" class="footer_link-column">
+        {% for child_link in link.links %}                            <a li-object:href="child_link.url" li-object="child_link.title" href="{{ child_link.url }}" class="footer_link">{{ child_link.title }}</a>
+                    {% endfor %}    </div>
+                        </div>
+{% endfor %}</div><div class="footer_utility-row"><localization-form class="li-lang_wrapper">{% form 'localization', class: 'li-lang_form' %}
+<div class="li-lang_dropdown" x-data="{ open: false }" x-on:click.outside="open = false" x-bind:class="{ 'is-open': open }"><div lang="{{ localization.language.iso_code }}" class="li-lang_dd-toggle" role="button" tabindex="0" x-on:click="open = !open" x-on:keydown.enter.prevent="open = !open"><div li-object="localization.language.iso_code | upcase">{{ localization.language.iso_code | upcase }}</div><div class="icon-embed-xxsmall"><svg width="100%" height="100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.2" fill="none"></path></svg></div></div><nav li-for:inside="language in localization.available_languages" class="li-lang_dd-list">
+        {% for language in localization.available_languages %}                            {% unless localization.language.iso_code == language.iso_code %}    <div li-unless="localization.language.iso_code == language.iso_code" class="li-lang_dd-list-item">
+    <a href="#" li-object="language.endonym_name | capitalize" lang="{{ language.iso_code }}" hreflang="{{ language.iso_code }}" data-value="{{ language.iso_code }}" class="li-lang_dd-link">{{ language.endonym_name | capitalize }}</a>    </div>
+{% endunless %}
+                    {% endfor %}    </nav></div><input type="hidden" name="language_code" class="li-lang_hidden-input" value="{{ localization.language.iso_code }}">{% endform %}<div class="li-lang_script"><script>
+                      class LocalizationForm extends HTMLElement {
+                        constructor() {
+                          super();
+                          this.input = this.querySelector('input[name="language_code"], input[name="country_code"]');
+                          this.querySelectorAll('a').forEach(item =>
+                            item.addEventListener('click', this.onItemClick.bind(this))
+                          );
+                        }
+                        onItemClick(event) {
+                          event.preventDefault();
+                          const form = this.querySelector('form');
+                          this.input.value = event.currentTarget.dataset.value;
+                          if (form) form.submit();
+                        }
+                      }
+                      customElements.define('localization-form', LocalizationForm);
+                    </script></div></localization-form><ul role="list" class="footer_payment-list">{% for type in shop.enabled_payment_types %}    <li li-for="type in shop.enabled_payment_types">
+                                    <div li-object="type | payment_type_svg_tag: class: 'footer_payment-img icon--full-color'">{{ type | payment_type_svg_tag: class: 'footer_payment-img icon--full-color' }}</div>
+                        </li>
+{% endfor %}</ul>{% content_for "block", type: "footer-social", id: "footer-social" %}</div><div class="footer_bottom"><div class="footer_copyright">
+{{ section.settings.text_copyright }}
+</div><div li-for:inside="link in linklists[section.settings.legal_menu].links" class="footer_legal-list">
+        {% for link in linklists[section.settings.legal_menu].links %}                            <a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="footer_link">{{ link.title }}</a>
+                    {% endfor %}    </div></div></div></div> {% schema %} {
+    "tag": "footer",
+    "name": "Footer",
+    "class": "section_footer",
+    "blocks": [
+        {
+            "type": "club-vorteil"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "url_cta_1_link",
+            "type": "url",
+            "label": "CTA 1 Link"
+        },
+        {
+            "id": "text_cta_1_text",
+            "type": "text",
+            "label": "CTA 1 Text",
+            "default": "Newsletter beitreten und 10% Rabatt sichern"
+        },
+        {
+            "id": "url_cta_2_link",
+            "type": "url",
+            "label": "CTA 2 Link"
+        },
+        {
+            "id": "text_cta_2_text",
+            "type": "text",
+            "label": "CTA 2 Text",
+            "default": "Tell a friend, get 10% off"
+        },
+        {
+            "id": "text_club_uberschrift",
+            "type": "text",
+            "label": "Club-\u00dcberschrift",
+            "default": "Club beitreten und tolle Pr\u00e4mien sichern!"
+        },
+        {
+            "id": "url_club_link",
+            "type": "url",
+            "label": "Club-Link"
+        },
+        {
+            "id": "text_club_button",
+            "type": "text",
+            "label": "Club-Button",
+            "default": "Jetzt beitreten"
+        },
+        {
+            "id": "url_link",
+            "type": "url",
+            "label": "Link"
+        },
+        {
+            "id": "image_icon",
+            "type": "image_picker",
+            "label": "Icon"
+        },
+        {
+            "id": "text_copyright",
+            "type": "text",
+            "label": "Copyright",
+            "default": "\u00a92025 Lippenheld GmbH"
+        },
+        {
+            "type": "header",
+            "content": "Navigation"
+        },
+        {
+            "type": "link_list",
+            "id": "footer_menu",
+            "label": "Footer-Spalten",
+            "default": "footer"
+        },
+        {
+            "type": "link_list",
+            "id": "legal_menu",
+            "label": "Rechtliches"
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 160,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 160,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "olive"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Footer",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "club-vorteil"
+                },
+                {
+                    "type": "footer-social",
+                    "static": true,
+                    "id": "footer-social"
+                }
+            ]
+        }
+    ],
+    "enabled_on": {
+        "groups": [
+            "*"
+        ]
+    }
+} {% endschema %}

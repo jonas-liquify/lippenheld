@@ -1,0 +1,186 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-center is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"><div class="container"><div class="quote_component{% if section.settings.media_position == 'right' %} is-reversed{% endif %}"><div class="quote_media">{% if section.settings.image_bild %}
+{{ section.settings.image_bild | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div><div class="quote_content"><div class="arc-label_wrapper"><svg class="arc-label" viewbox="0 0 140 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path id="arc-quote-founder-story" d="M4 32 Q70 0 136 32" fill="none" stroke="none"></path><text class="arc-label_text"><textpath href="#arc-quote-founder-story" startoffset="50%" text-anchor="middle" href="#arc-quote-founder-story">
+{{ section.settings.text_subline }}
+</textpath></text></svg></div><div class="quote_text"> {{ section.settings.richtext_zitat }} </div><div class="text-size-regular quote_attribution"> {{ section.settings.richtext_zuordnung }} </div><div class="button-group"><a href="{{ section.settings.url_button_link }}" class="button"> <span>{{ section.settings.text_button_text }}</span> </a></div></div></div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Quote",
+    "class": "section_quote",
+    "settings": [
+        {
+            "id": "image_bild",
+            "type": "image_picker",
+            "label": "Bild"
+        },
+        {
+            "id": "text_subline",
+            "type": "text",
+            "label": "Subline",
+            "default": "Founder Story"
+        },
+        {
+            "id": "richtext_zitat",
+            "type": "richtext",
+            "label": "Zitat",
+            "default": "<p>\u201eAls Naturmediziner mit 35 Jahren Berufserfahrung in meinem Naturheilzentrum Allg\u00e4u entwickle ich auch f\u00fcr die verschiedensten Unternehmen Biokosmetik. Aber was es bis jetzt wirklich nicht gab, war ein wirksamer Lippenbalsam, der wissenschaftlich untersucht ist, auch gegen Herpesviren agiert und dabei pflegt und die Lippen sch\u00fctzt.\u201c<\/p>"
+        },
+        {
+            "id": "richtext_zuordnung",
+            "type": "richtext",
+            "label": "Zuordnung",
+            "default": "<p>Dr. h.c. Progress Universit\u00e4t Gyumri Edmund C. Herzog<br\/>Gr\u00fcnder und Gesch\u00e4ftsf\u00fchrer<\/p>"
+        },
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button-Link"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button-Text",
+            "default": "Jetzt entdecken"
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "white"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        },
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "select",
+            "id": "media_position",
+            "label": "Bildposition",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Links"
+                },
+                {
+                    "value": "right",
+                    "label": "Rechts"
+                }
+            ],
+            "default": "left"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Quote",
+            "category": "Content",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

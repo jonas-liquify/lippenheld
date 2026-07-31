@@ -1,0 +1,161 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-left is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; --product-columns: {{ section.settings.columns }};"><div class="container"><div class="header-block_component"><h1 class="heading-style-h1">
+{{ section.settings.text_uberschrift }}
+</h1><div class="filter_count"><span li-object="search.results_count">{{ search.results_count }}</span> Treffer für <span li-object="search.terms">{{ search.terms }}</span></div></div><div class="spacer-large"></div>{% paginate search.results by 24 %}
+    <div li-paginate="search.results" li-paginate:by="24" by="24"><div class="product_list">{% for product in search.results %}    <div li-for="product in search.results">
+                                    {% render 'product_item', product: product %}
+                        </div>
+{% endfor %}</div>{% if paginate.pages > 1 %}    <div li-if="paginate.pages > 1" class="pagination_wrapper">
+    {% for part.title %}    <a li-for="part in paginate.parts" li-object="part.title" li-object:href="part.url" href="#" class="pagination_link">
+                                    1
+                        </a>
+{% endfor %}    </div>
+{% endif %}</div>{% endpaginate %}</div></div> {% schema %} {
+    "tag": "section",
+    "name": "Search",
+    "class": "section_filter",
+    "settings": [
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Suchergebnisse"
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "white"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        },
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "range",
+            "id": "columns",
+            "min": 2,
+            "max": 5,
+            "step": 1,
+            "label": "Produkte pro Reihe",
+            "default": 4
+        }
+    ],
+    "presets": [
+        {
+            "name": "Search",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "search"
+        ]
+    }
+} {% endschema %}

@@ -1,0 +1,38 @@
+<div li-block="PDP Editorial" class="product-header_editorial" {{ block.shopify_attributes }}>
+                    <div class="product-header_editorial-text"><div class="product-header_editorial-title">
+{{ block.settings.text_titel }}
+</div><div class="text-size-small"> {{ block.settings.richtext_text }} </div></div>
+                    <div class="ratio is-4x5">{% if block.settings.image_bild %}
+{{ block.settings.image_bild | image_url: width: 900 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div>
+                </div> {% schema %} {
+    "name": "PDP Editorial",
+    "settings": [
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "Das morgendliche Ritual"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>So wichtig wie das t\u00e4gliche Z\u00e4hneputzen ist die Pflege, die F\u00fcr- und Vorsorge f\u00fcr deine Lippen. Deswegen mein praktischer Tipp: Nach jedem Z\u00e4hneputzen kommt der Lippenheld.<\/p>"
+        },
+        {
+            "id": "image_bild",
+            "type": "image_picker",
+            "label": "Bild"
+        }
+    ],
+    "presets": [
+        {
+            "name": "PDP Editorial",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

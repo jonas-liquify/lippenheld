@@ -1,0 +1,116 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero"
+        },
+        "featured_products": {
+            "type": "featured_products"
+        },
+        "image_grid": {
+            "type": "image_grid"
+        },
+        "section_header": {
+            "type": "section_header"
+        },
+        "video_slider": {
+            "type": "video_slider",
+            "blocks": {
+                "video-review": {
+                    "type": "video-review",
+                    "name": "Video Review"
+                }
+            },
+            "block_order": [
+                "video-review"
+            ]
+        },
+        "stats": {
+            "type": "stats",
+            "blocks": {
+                "kennzahl": {
+                    "type": "kennzahl",
+                    "name": "Kennzahl"
+                },
+                "stats-fussnote": {
+                    "name": "Stats Fussnote",
+                    "type": "stats-fussnote",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "kennzahl"
+            ]
+        },
+        "split_accordion": {
+            "type": "split_accordion",
+            "blocks": {
+                "split-akkordeon": {
+                    "type": "split-akkordeon",
+                    "name": "Split Akkordeon"
+                }
+            },
+            "block_order": [
+                "split-akkordeon"
+            ]
+        },
+        "quote": {
+            "type": "quote"
+        },
+        "before_after": {
+            "type": "before_after",
+            "blocks": {
+                "vorher-nachher": {
+                    "type": "vorher-nachher",
+                    "name": "Vorher Nachher"
+                },
+                "vorher-nachher-intro": {
+                    "name": "Vorher Nachher Intro",
+                    "type": "vorher-nachher-intro",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "vorher-nachher"
+            ]
+        },
+        "trustpilot": {
+            "type": "trustpilot",
+            "blocks": {
+                "trustpilot-review": {
+                    "type": "trustpilot-review",
+                    "name": "Trustpilot Review"
+                },
+                "trustpilot-score": {
+                    "name": "Trustpilot Score",
+                    "type": "trustpilot-score",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "trustpilot-review"
+            ]
+        },
+        "story": {
+            "type": "story"
+        },
+        "social_media": {
+            "type": "social_media"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero",
+        "featured_products",
+        "image_grid",
+        "section_header",
+        "video_slider",
+        "stats",
+        "split_accordion",
+        "quote",
+        "before_after",
+        "trustpilot",
+        "story",
+        "social_media"
+    ]
+}

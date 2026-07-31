@@ -1,0 +1,143 @@
+{
+    "sections": {
+        "page_hero": {
+            "type": "page_hero"
+        },
+        "review_wall": {
+            "type": "review_wall",
+            "blocks": {
+                "review-kachel": {
+                    "type": "review-kachel",
+                    "name": "Review Kachel"
+                },
+                "review-kennzahl": {
+                    "type": "review-kennzahl",
+                    "name": "Review Kennzahl"
+                },
+                "review-vorher": {
+                    "type": "review-vorher",
+                    "name": "Review Vorher"
+                },
+                "review-cta": {
+                    "name": "Review CTA",
+                    "type": "review-cta",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "review-kachel",
+                "review-kennzahl",
+                "review-vorher"
+            ]
+        },
+        "split_accordion": {
+            "type": "split_accordion",
+            "blocks": {
+                "split-akkordeon": {
+                    "type": "split-akkordeon",
+                    "name": "Split Akkordeon"
+                }
+            },
+            "block_order": [
+                "split-akkordeon"
+            ]
+        },
+        "ingredients": {
+            "type": "ingredients",
+            "blocks": {
+                "inhaltsstoff": {
+                    "type": "inhaltsstoff",
+                    "name": "Inhaltsstoff"
+                },
+                "inci-liste": {
+                    "name": "INCI Liste",
+                    "type": "inci-liste",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "inhaltsstoff"
+            ]
+        },
+        "before_after": {
+            "type": "before_after",
+            "blocks": {
+                "vorher-nachher": {
+                    "type": "vorher-nachher",
+                    "name": "Vorher Nachher"
+                },
+                "vorher-nachher-intro": {
+                    "name": "Vorher Nachher Intro",
+                    "type": "vorher-nachher-intro",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "vorher-nachher"
+            ]
+        },
+        "product_benefits": {
+            "type": "product_benefits",
+            "blocks": {
+                "produktvorteil": {
+                    "type": "produktvorteil",
+                    "name": "Produktvorteil"
+                },
+                "vorteile-rechts": {
+                    "name": "Vorteile Rechts",
+                    "type": "vorteile-rechts",
+                    "static": true,
+                    "blocks": {
+                        "produktvorteil-rechts": {
+                            "type": "produktvorteil-rechts",
+                            "name": "Produktvorteil rechts"
+                        }
+                    },
+                    "block_order": [
+                        "produktvorteil-rechts"
+                    ]
+                },
+                "vorteile-cta": {
+                    "name": "Vorteile CTA",
+                    "type": "vorteile-cta",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "produktvorteil"
+            ]
+        },
+        "trustpilot": {
+            "type": "trustpilot",
+            "blocks": {
+                "trustpilot-review": {
+                    "type": "trustpilot-review",
+                    "name": "Trustpilot Review"
+                },
+                "trustpilot-score": {
+                    "name": "Trustpilot Score",
+                    "type": "trustpilot-score",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "trustpilot-review"
+            ]
+        },
+        "featured_products": {
+            "type": "featured_products"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "page_hero",
+        "review_wall",
+        "split_accordion",
+        "ingredients",
+        "before_after",
+        "product_benefits",
+        "trustpilot",
+        "featured_products"
+    ]
+}

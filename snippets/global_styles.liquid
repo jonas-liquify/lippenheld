@@ -1,0 +1,17 @@
+<style>
+          /* Cloaks: verhindern FOUC bevor Alpine laedt / im Builder */
+          [li-cloak_disabled="hide"],
+          [li-cloak_disabled],
+          [x-cloak] {
+            display: none !important;
+          }
+          /* Fluid Type oberhalb 1440px, Basis 1rem darunter */
+          html {
+            font-size: calc(0.8125rem + 0.20833333vw);
+          }
+          @media (max-width: 1440px) {
+            html {
+              font-size: 1rem;
+            }
+          }
+        </style>

@@ -1,0 +1,37 @@
+<div li-static-block="Vorher Nachher Intro" class="before-after_intro"><div class="before-after_intro-media">{% if block.settings.image_intro_bild %}
+{{ block.settings.image_intro_bild | image_url: width: 800 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div><div class="before-after_intro-content"><div class="arc-label_wrapper"><svg class="arc-label" viewbox="0 0 140 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path id="arc-before-after-testimonials" d="M4 32 Q70 0 136 32" fill="none" stroke="none"></path><text class="arc-label_text"><textpath href="#arc-before-after-testimonials" startoffset="50%" text-anchor="middle" href="#arc-before-after-testimonials">
+{{ block.settings.text_subline }}
+</textpath></text></svg></div><h2 class="heading-style-h2">
+{{ block.settings.text_intro_uberschrift }}
+</h2></div></div> {% schema %} {
+    "name": "Vorher Nachher Intro",
+    "settings": [
+        {
+            "id": "image_intro_bild",
+            "type": "image_picker",
+            "label": "Intro-Bild"
+        },
+        {
+            "id": "text_subline",
+            "type": "text",
+            "label": "Subline",
+            "default": "Testimonials"
+        },
+        {
+            "id": "text_intro_uberschrift",
+            "type": "text",
+            "label": "Intro-\u00dcberschrift",
+            "default": "Trusted by 100.000 Kunden"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Vorher Nachher Intro",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

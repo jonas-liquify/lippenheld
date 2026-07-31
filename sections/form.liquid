@@ -1,0 +1,108 @@
+<div class="form_section-component" style="min-height: {{ section.settings.min_height }}px; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"><div class="form_section-media">{% if section.settings.image_hintergrundbild %}
+{{ section.settings.image_hintergrundbild | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div><div class="form_card"><h2 class="heading-style-h2">
+{{ section.settings.text_uberschrift }}
+</h2>{% form 'customer', return_to: '/', class: 'form_component' %}
+<div class="form_card-fields"><div class="form_field-wrapper"><label for="form-name" class="form_label"><span>
+{{ section.settings.text_label_name }}
+</span></label><input class="form_input" type="text" id="form-name" name="contact[first_name]" placeholder="Name"></div><div class="form_field-wrapper"><label for="form-email" class="form_label"><span>
+{{ section.settings.text_label_e_mail }}
+</span></label><input class="form_input" type="email" id="form-email" name="contact[email]" placeholder="E-Mail" required=""></div></div><div li-object="form.errors | default_errors" class="text-size-tiny text-color-red">{{ form.errors | default_errors }}</div><div class="form_consent"> {{ section.settings.richtext_einwilligung }} </div><div class="hide"><input type="hidden" name="contact[accepts_marketing]" value="true"></div><input type="submit" class="button max-width-full" value="{{ section.settings.submit_text }}">{% endform %}{% if form.posted_successfully? %}    <div li-if="form.posted_successfully?" class="success-message">
+    <span>
+{{ section.settings.text_erfolgstext }}
+</span>    </div>
+{% endif %}</div></div> {% schema %} {
+    "tag": "section",
+    "name": "Form",
+    "class": "section_form",
+    "settings": [
+        {
+            "id": "image_hintergrundbild",
+            "type": "image_picker",
+            "label": "Hintergrundbild"
+        },
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Newsletter beitreten und 10% Rabatt sichern"
+        },
+        {
+            "id": "text_label_name",
+            "type": "text",
+            "label": "Label Name",
+            "default": "Name"
+        },
+        {
+            "id": "text_label_e_mail",
+            "type": "text",
+            "label": "Label E-Mail",
+            "default": "E-Mail"
+        },
+        {
+            "id": "richtext_einwilligung",
+            "type": "richtext",
+            "label": "Einwilligung",
+            "default": "<p>Mit meinem Klick auf die vorstehende Schaltfl\u00e4che sowie dem Ausf\u00fcllen und \u00dcbermitteln des Formulars erteile ich freiwillig meine Einwilligung in die Verarbeitung meiner personenbezogenen Daten zu Zwecken der Kontaktaufnahme und zum Versand von Informationen. Ich kann die Einwilligung jederzeit widerrufen.<\/p>"
+        },
+        {
+            "id": "text_erfolgstext",
+            "type": "text",
+            "label": "Erfolgstext",
+            "default": "Danke! Wir haben dich eingetragen."
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "range",
+            "id": "min_height",
+            "min": 300,
+            "max": 900,
+            "step": 20,
+            "unit": "px",
+            "label": "Mindesth\u00f6he",
+            "default": 637
+        },
+        {
+            "type": "text",
+            "id": "submit_text",
+            "label": "Button-Text",
+            "default": "Absenden"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Form",
+            "category": "Content",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

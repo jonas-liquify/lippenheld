@@ -1,0 +1,50 @@
+{
+    "sections": {
+        "cart": {
+            "type": "cart",
+            "blocks": {
+                "warenkorb-summe": {
+                    "name": "Warenkorb Summe",
+                    "type": "warenkorb-summe",
+                    "static": true
+                }
+            }
+        },
+        "usp_icons": {
+            "type": "usp_icons",
+            "blocks": {
+                "usp-icon": {
+                    "type": "usp-icon",
+                    "name": "USP Icon"
+                }
+            },
+            "block_order": [
+                "usp-icon"
+            ]
+        },
+        "trustpilot": {
+            "type": "trustpilot",
+            "blocks": {
+                "trustpilot-review": {
+                    "type": "trustpilot-review",
+                    "name": "Trustpilot Review"
+                },
+                "trustpilot-score": {
+                    "name": "Trustpilot Score",
+                    "type": "trustpilot-score",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "trustpilot-review"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "cart",
+        "usp_icons",
+        "trustpilot"
+    ]
+}

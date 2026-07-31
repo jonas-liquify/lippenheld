@@ -1,0 +1,23 @@
+<div li-static-block="Review CTA" class="spacer-medium"><a href="{{ block.settings.url_button_link }}" class="button is-secondary max-width-full"> <span>{{ block.settings.text_button_text }}</span> </a></div> {% schema %} {
+    "name": "Review CTA",
+    "settings": [
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button-Link"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button-Text",
+            "default": "Review schreiben"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Review CTA",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

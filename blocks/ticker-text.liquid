@@ -1,0 +1,23 @@
+<div li-block="Ticker Text" class="usp-ticker_item" {{ block.shopify_attributes }}>
+                    <span>
+{{ block.settings.text_text }}
+</span>
+                    <div class="usp-ticker_mark"><svg viewbox="0 0 36 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 4.2C14.6 1 9.4-.4 5.2 1.1 1.9 2.3.3 5 1.5 7.2c1.6 3 6.2 5.3 10.4 6.9 2 .8 4.1 1.4 6.1 1.9 2-.5 4.1-1.1 6.1-1.9 4.2-1.6 8.8-3.9 10.4-6.9 1.2-2.2-.4-4.9-3.7-6.1C26.6-.4 21.4 1 18 4.2z"></path></svg></div>
+                </div> {% schema %} {
+    "name": "Ticker Text",
+    "settings": [
+        {
+            "id": "text_text",
+            "type": "text",
+            "label": "Text",
+            "default": "100% nat\u00fcrliche Inhaltsstoffe"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Ticker Text",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,32 @@
+<div li-block="USP Icon" class="usp-icons_item" {{ block.shopify_attributes }}>
+                    <div class="icon-circle">{% if block.settings.image_icon %}
+{{ block.settings.image_icon | image_url: width: 120 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div>
+                    <div class="usp-icons_label">
+{{ block.settings.text_label }}
+</div>
+                </div> {% schema %} {
+    "name": "USP Icon",
+    "settings": [
+        {
+            "id": "image_icon",
+            "type": "image_picker",
+            "label": "Icon"
+        },
+        {
+            "id": "text_label",
+            "type": "text",
+            "label": "Label",
+            "default": "Nat\u00fcrliche Regeneration"
+        }
+    ],
+    "presets": [
+        {
+            "name": "USP Icon",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

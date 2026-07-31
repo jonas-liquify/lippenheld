@@ -1,0 +1,29 @@
+<div li-block="FAQ Eintrag" class="accordion_item is-open" x-data="{ open: false }" x-init="open = $el === $el.parentElement.firstElementChild" x-bind:class="{ 'is-open': open }" {{ block.shopify_attributes }}>
+                    <button type="button" class="accordion_toggle" x-on:click="open = !open"><span>
+{{ block.settings.text_titel }}
+</span><span class="accordion_icon"></span></button>
+                    <div class="accordion_panel"><div class="accordion_panel-inner"><div class="accordion_content"><div class="text-size-regular"> {{ block.settings.richtext_text }} </div></div></div></div>
+                </div> {% schema %} {
+    "name": "FAQ Eintrag",
+    "settings": [
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "Wie oft sollte ich Lippenheld anwenden?"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>So oft du magst. Als Ritual empfehlen wir morgens nach dem Z\u00e4hneputzen und abends vor dem Schlafengehen.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "FAQ Eintrag",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

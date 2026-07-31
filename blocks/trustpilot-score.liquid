@@ -1,0 +1,39 @@
+<div li-static-block="Trustpilot Score" class="trustpilot_score"><div class="trustpilot_score-title">
+{{ block.settings.text_bewertung }}
+</div><div class="trustpilot_stars"><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg><svg viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 1l3 7.2h7.5l-6 4.6 2.3 7.2L12 15.6 5.2 20l2.3-7.2-6-4.6H9L12 1z"></path></svg></div><div class="text-size-small">
+{{ block.settings.text_anzahl }}
+</div><a href="{{ block.settings.url_link }}" class="text-style-link text-style-underline"> <span>{{ block.settings.text_quelle }}</span> </a></div> {% schema %} {
+    "name": "Trustpilot Score",
+    "settings": [
+        {
+            "id": "text_bewertung",
+            "type": "text",
+            "label": "Bewertung",
+            "default": "Excellent"
+        },
+        {
+            "id": "text_anzahl",
+            "type": "text",
+            "label": "Anzahl",
+            "default": "Basierend auf 5.620 Bewertungen"
+        },
+        {
+            "id": "url_link",
+            "type": "url",
+            "label": "Link"
+        },
+        {
+            "id": "text_quelle",
+            "type": "text",
+            "label": "Quelle",
+            "default": "Trustpilot"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Trustpilot Score",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

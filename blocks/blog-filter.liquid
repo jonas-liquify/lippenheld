@@ -1,0 +1,23 @@
+<div li-static-block="Blog Filter" class="blog_filter-list"><a li-object:href="blog.url" href="{{ blog.url }}" class="blog_filter is-active"><span>
+{{ block.settings.text_alle_label }}
+</span><span li-object="blog.articles_count" class="blog_filter-count">{{ blog.articles_count }}</span></a>{% for tag in blog.all_tags %}    <a li-for="tag in blog.all_tags" li-object:href="tag.url" href="#" class="blog_filter">
+                                    <span li-object="tag">{{ tag }}</span>
+                        </a>
+{% endfor %}</div> {% schema %} {
+    "name": "Blog Filter",
+    "settings": [
+        {
+            "id": "text_alle_label",
+            "type": "text",
+            "label": "Alle-Label",
+            "default": "Show all"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Blog Filter",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

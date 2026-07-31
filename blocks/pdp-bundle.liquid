@@ -1,0 +1,25 @@
+<div li-static-block="PDP Bundle" class="product-header_bundle"><div class="product-header_editorial-title">
+{{ block.settings.text_bundle_titel }}
+</div><div class="spacer-xsmall"></div><div class="product-header_bundle-item">{% assign product = all_products[block.settings.product_bundle_produkt] %} <div class="product-header_bundle-media"><img src="{{ product.featured_image | image_url: width: 300 }}" loading="lazy" alt="" li-object:src="product.featured_image | image_url: width: 300"></div><div class="product-header_bundle-info"><div class="stars_wrapper"><div class="stars_list"><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg></div><div class="stars_value">4,9</div></div><div li-object="product.title" class="product-item_title">{{ product.title }}</div><div li-object="product.vendor" class="product-item_vendor">{{ product.vendor }}</div><div li-object="product.price | money" class="product-item_price">{{ product.price | money }}</div></div><a li-element="add-to-cart" href="#" class="button-round is-dark" aria-label="Zum Warenkorb hinzufügen" @click="addToCart($event, true)" :disabled="!addToCartButton"><svg viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 8.5h16l-1.4 15H7.4L6 8.5z" stroke="currentColor" stroke-width="1.3"></path><path d="M10.5 11V7.5a3.5 3.5 0 017 0V11" stroke="currentColor" stroke-width="1.3"></path></svg></a></div></div> {% schema %} {
+    "name": "PDP Bundle",
+    "settings": [
+        {
+            "id": "text_bundle_titel",
+            "type": "text",
+            "label": "Bundle-Titel",
+            "default": "Gemeinsam kaufen"
+        },
+        {
+            "id": "product_bundle_produkt",
+            "type": "product",
+            "label": "Bundle-Produkt"
+        }
+    ],
+    "presets": [
+        {
+            "name": "PDP Bundle",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

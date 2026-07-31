@@ -1,0 +1,29 @@
+<div li-block="Produktvorteil" class="benefits_item" {{ block.shopify_attributes }}>
+                    <div class="benefits_item-title">
+{{ block.settings.text_titel }}
+</div>
+                    <div class="text-size-small"> {{ block.settings.richtext_text }} </div>
+                </div> {% schema %} {
+    "name": "Produktvorteil",
+    "settings": [
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "Wissenschaftlich best\u00e4tigt"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Mit Oliphenolia\u00ae, einem patentierten Wirkstoff auf Basis von Hydroxytyrosol aus Oliven, sch\u00fctzt Lippenheld die Lippen effektiv und st\u00e4rkt sie nachhaltig.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Produktvorteil",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

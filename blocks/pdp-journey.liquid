@@ -1,0 +1,55 @@
+<div li-static-block="PDP Journey" class="product-header_journey"><div class="product-header_editorial-title">
+{{ block.settings.text_journey_titel }}
+</div><div class="spacer-xsmall"></div><div class="product-header_journey-list"><div class="product-header_journey-item">{% if block.settings.image_journey_1 %}
+{{ block.settings.image_journey_1 | image_url: width: 400 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div><div class="product-header_journey-item">{% if block.settings.image_journey_2 %}
+{{ block.settings.image_journey_2 | image_url: width: 400 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div><div class="product-header_journey-item">{% if block.settings.image_journey_3 %}
+{{ block.settings.image_journey_3 | image_url: width: 400 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div><div class="product-header_journey-item product-header_journey-more"><span>
+{{ block.settings.text_journey_zahler }}
+</span></div></div></div> {% schema %} {
+    "name": "PDP Journey",
+    "settings": [
+        {
+            "id": "text_journey_titel",
+            "type": "text",
+            "label": "Journey-Titel",
+            "default": "Your journeys, your results"
+        },
+        {
+            "id": "image_journey_1",
+            "type": "image_picker",
+            "label": "Journey 1"
+        },
+        {
+            "id": "image_journey_2",
+            "type": "image_picker",
+            "label": "Journey 2"
+        },
+        {
+            "id": "image_journey_3",
+            "type": "image_picker",
+            "label": "Journey 3"
+        },
+        {
+            "id": "text_journey_zahler",
+            "type": "text",
+            "label": "Journey-Z\u00e4hler",
+            "default": "12+"
+        }
+    ],
+    "presets": [
+        {
+            "name": "PDP Journey",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}
