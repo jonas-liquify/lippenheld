@@ -5,8 +5,8 @@
                                     {% render 'product_item', product: product %}
                         </div>
 {% endfor %}</div>{% if paginate.pages > 1 %}    <div li-if="paginate.pages > 1" class="pagination_wrapper">
-    {% for part.title %}    <a li-for="part in paginate.parts" li-object="part.title" li-object:href="part.url" href="#" class="pagination_link">
-                                    1
+    {% for part in paginate.parts %}    <a li-for="part in paginate.parts" li-object:href="part.url" href="#" class="pagination_link">
+                                    <span li-object="part.title">{{ part.title }}</span>
                         </a>
 {% endfor %}    </div>
 {% endif %}</div>{% endpaginate %}</div></div> {% schema %} {

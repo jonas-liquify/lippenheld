@@ -5,8 +5,8 @@
                     {% endfor %}    </div><h2 li-object="article.title" class="blog_title">{{ article.title }}</h2><div li-object="article.excerpt_or_content | strip_html | truncate: 160" class="text-size-regular blog_excerpt">{{ article.excerpt_or_content | strip_html | truncate: 160 }}</div></div></a>
                         </div>
 {% endfor %}</div>{% if paginate.pages > 1 %}    <div li-if="paginate.pages > 1" class="pagination_wrapper">
-    {% for part.title %}    <a li-for="part in paginate.parts" li-object="part.title" li-object:href="part.url" href="#" class="pagination_link">
-                                    1
+    {% for part in paginate.parts %}    <a li-for="part in paginate.parts" li-object:href="part.url" href="#" class="pagination_link">
+                                    <span li-object="part.title">{{ part.title }}</span>
                         </a>
 {% endfor %}    </div>
 {% endif %}</div>{% endpaginate %}</div></div> {% schema %} {

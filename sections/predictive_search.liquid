@@ -1,11 +1,11 @@
 {% if predictive_search.performed %}    <div li-if="predictive_search.performed" class="predictive-search_state">
     {% assign result_count = predictive_search.resources.queries.size | plus: predictive_search.resources.collections.size | plus: predictive_search.resources.pages.size | plus: predictive_search.resources.articles.size | plus: predictive_search.resources.products.size %}{% if result_count > 0 %}    <div li-if="result_count > 0" class="predictive-search_state">
     {% if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 %}    <div li-if="predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0" class="predictive-search_block">
-    <div class="predictive-search_label">Beliebte Suchanfragen</div><div class="predictive-search_tags">{% for query.styled_text %}    <a li-for="query in predictive_search.resources.queries" li-object:href="query.url" li-object="query.styled_text" href="#" class="predictive-search_tag">
-                                    Wirkung
+    <div class="predictive-search_label">Beliebte Suchanfragen</div><div class="predictive-search_tags">{% for query in predictive_search.resources.queries %}    <a li-for="query in predictive_search.resources.queries" li-object:href="query.url" href="#" class="predictive-search_tag">
+                                    <span li-object="query.styled_text">{{ query.styled_text }}</span>
                         </a>
-{% endfor %}{% for collection.title %}    <a li-for="collection in predictive_search.resources.collections" li-object:href="collection.url" li-object="collection.title" href="#" class="predictive-search_tag">
-                                    Ergebnisse
+{% endfor %}{% for collection in predictive_search.resources.collections %}    <a li-for="collection in predictive_search.resources.collections" li-object:href="collection.url" href="#" class="predictive-search_tag">
+                                    <span li-object="collection.title">{{ collection.title }}</span>
                         </a>
 {% endfor %}</div>    </div>
 {% endif %}{% if predictive_search.resources.products.size > 0 %}    <div li-if="predictive_search.resources.products.size > 0" class="predictive-search_block">
@@ -14,11 +14,11 @@
                         </div>
 {% endfor %}</div>    </div>
 {% endif %}{% if predictive_search.resources.pages.size > 0 or predictive_search.resources.articles.size > 0 %}    <div li-if="predictive_search.resources.pages.size > 0 or predictive_search.resources.articles.size > 0" class="predictive-search_block">
-    <div class="predictive-search_label">Seiten und Artikel</div><div class="predictive-search_tags">{% for page.title %}    <a li-for="page in predictive_search.resources.pages" li-object:href="page.url" li-object="page.title" href="#" class="predictive-search_tag">
-                                    Seite
+    <div class="predictive-search_label">Seiten und Artikel</div><div class="predictive-search_tags">{% for page in predictive_search.resources.pages %}    <a li-for="page in predictive_search.resources.pages" li-object:href="page.url" href="#" class="predictive-search_tag">
+                                    <span li-object="page.title">{{ page.title }}</span>
                         </a>
-{% endfor %}{% for article.title %}    <a li-for="article in predictive_search.resources.articles" li-object:href="article.url" li-object="article.title" href="#" class="predictive-search_tag">
-                                    Artikel
+{% endfor %}{% for article in predictive_search.resources.articles %}    <a li-for="article in predictive_search.resources.articles" li-object:href="article.url" href="#" class="predictive-search_tag">
+                                    <span li-object="article.title">{{ article.title }}</span>
                         </a>
 {% endfor %}</div>    </div>
 {% endif %}    </div>

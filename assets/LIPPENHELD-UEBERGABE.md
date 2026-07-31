@@ -265,7 +265,76 @@ dann brauchst du aber eine Swipe-Galerie als Ersatz.
 
 ---
 
-## 9. Vor der Shopify-Konvertierung
+## 9. Shopify-Konvertierung: behobene Validation-Fehler
+
+Der erste Upload hat neun Fehler gemeldet. Alle gehen auf **drei** Ursachen
+zurück, die vierte Meldung war ein Folgefehler. Alle sind behoben.
+
+### 1. `li-for` + textbindendes `li-object` auf demselben Element
+```
+Liquid syntax error (line 8): For loops require an 'in' clause in "part.title"
+```
+Der Converter nimmt den `li-object`-Wert als For-Ausdruck. Entscheidend ist die
+**Form**: `li-object="pfad"` (Textausgabe) bricht, `li-object:href` / `:src` /
+`:alt` nicht. Betroffen waren Pagination (`Blog-Articles`, `Search`,
+`Collection Products`), das Sortier-Dropdown und die Suchvorschläge in `Header`
+und `predictive_search` — insgesamt 8 Stellen.
+
+Behoben: Textbindung in ein inneres `<span>` verschoben. Beim `<option>` geht das
+nicht (ungültiges HTML), dort sitzt jetzt `li-for:inside` auf dem `<select>`.
+
+### 2. Zwei `link_list`-Settings pro Section
+```
+Invalid schema: setting link_list type can only be inserted once in the settings.
+```
+`Header` (Menü links + rechts) und `Footer` (Spalten + Rechtliches) hatten je
+zwei Picker. Behoben: erstes Menü bleibt `link_list`-Picker, das zweite ist jetzt
+ein `text`-Setting mit dem Linklisten-Handle. Die Liquid-Referenz
+`linklists[section.settings.x].links` ist identisch geblieben, am Markup war
+nichts zu ändern.
+
+**Für dich heißt das:** in Shopify die Handles eintragen —
+Header „Menü rechts" z. B. `main-menu-right`, Footer „Rechtliches" z. B. `legal`.
+
+### 3. `range`-Default nicht auf dem Step-Raster
+```
+Invalid schema: setting with id="min_height" default must be a step in the range
+```
+`Form`: `min 300, step 20, default 637` → `(637−300) % 20 = 17`. Shopify verlangt
+`(default − min) % step == 0`. Behoben: 640. Alle anderen 40+ range-Settings
+wurden geprüft und sind korrekt.
+
+### 4. `Section type '…' does not refer to an existing section file`
+Folgefehler: `header.liquid`/`footer.liquid` hatten die Validation nicht
+bestanden und wurden nie geschrieben, die Section-Gruppen verwiesen deshalb ins
+Leere. Erledigt sich mit 1–3.
+
+### Pre-Flight-Audit
+Diese drei Klassen bestehen den Builder-Lint **fehlerfrei** — der Lint prüft
+`li-*`-Syntax, nicht das Shopify-Schema. Deshalb liegt jetzt
+[`preflight-audit.py`](preflight-audit.py) im Projekt. Vor jeder Konvertierung:
+
+```bash
+cd "/Users/jonas/Ablage/Liquiflow Projects/lippenheld-20" && python3 preflight-audit.py
+```
+
+Es prüft 11 Regeln: die drei Shopify-Klassen plus Blocknamen-Eindeutigkeit und
+-Länge, `li-attribute` auf `li-section`, `li-if` + `li-attribute`, Theme-Block-
+Struktur, JSON-Validität, CSS-Klassen ohne Regel, `min-width`-Queries und
+falsch platzierte `li-for:inside`.
+
+Beachte außerdem: **Shopify bricht pro Section beim ersten Fehler ab.** Nach
+einer Korrekturrunde also erneut konvertieren — in derselben Datei kann ein
+weiteres Problem auftauchen, das vorher verdeckt war.
+
+Die vier Fehlerklassen sind zusätzlich im `liquiflow-builder`-Skill verankert
+(neuer Abschnitt „Shopify-Validation" plus Invarianten in
+`references/liquiflow-docs.md`), damit sie beim nächsten Projekt nicht wieder
+auftreten.
+
+---
+
+## 10. Vor der Shopify-Konvertierung
 
 1. Bilder in den Sections austauschen (Theme-Editor oder direkt die
    `li-settings:image`-Platzhalter).
@@ -279,7 +348,7 @@ dann brauchst du aber eine Swipe-Galerie als Ersatz.
 
 ---
 
-## 10. Vorschau
+## 11. Vorschau
 
 Für einen schnellen Blick ohne Builder:
 
