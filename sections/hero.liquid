@@ -4,7 +4,9 @@
 <img src="{{ 'placeholder.svg' | asset_url }}" loading="eager" alt="">
 {% endif %}</div><div class="hero_overlay" style="opacity: {{ section.settings.overlay_strength | divided_by: 100.0 }};"></div><div class="hero_content"><h1 class="heading-style-h1 hero_title">
 {{ section.settings.text_uberschrift }}
-</h1><div class="text-style-link hero_text"> {{ section.settings.richtext_text }} </div><div class="button-group"><a href="{{ section.settings.url_button_link }}" class="button is-white"> <span>{{ section.settings.text_button_text }}</span> </a></div></div></div> {% schema %} {
+</h1><div class="text-style-link hero_text"> {{ section.settings.richtext_text }} </div><div class="button-group"><a href="{{ section.settings.url_button_link }}" class="button is-white"> <span>{{ section.settings.text_button_text }}</span> </a></div></div></div>{% if section.settings.header_overlay %}    <div li-if="section.settings.header_overlay" class="header-overlay">
+    {% render 'header_overlay' %}    </div>
+{% endif %} {% schema %} {
     "tag": "section",
     "name": "Hero",
     "class": "section_hero",
@@ -40,6 +42,13 @@
         {
             "type": "header",
             "content": "Darstellung"
+        },
+        {
+            "type": "checkbox",
+            "id": "header_overlay",
+            "label": "Header transparent dar\u00fcberlegen",
+            "info": "Legt die Navigation ohne Hintergrund \u00fcber diesen Bereich. Beim Scrollen wird sie automatisch wei\u00df.",
+            "default": true
         },
         {
             "type": "range",

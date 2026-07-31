@@ -10,6 +10,9 @@
     "class": "section_social",
     "blocks": [
         {
+            "type": "social-post"
+        },
+        {
             "type": "@app"
         }
     ],
@@ -36,16 +39,6 @@
             "type": "text",
             "label": "Handle",
             "default": "@lippenheld_de"
-        },
-        {
-            "id": "url_link",
-            "type": "url",
-            "label": "Link"
-        },
-        {
-            "id": "image_bild",
-            "type": "image_picker",
-            "label": "Bild"
         },
         {
             "type": "header",
@@ -177,7 +170,11 @@
         {
             "name": "Social Media",
             "category": "Content",
-            "blocks": []
+            "blocks": [
+                {
+                    "type": "social-post"
+                }
+            ]
         }
     ]
 } {% endschema %}

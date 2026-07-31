@@ -186,6 +186,20 @@ for f in sections:
             if mx is not None and not (mn <= d <= mx):
                 p("range-Default ausserhalb min/max in %s: id=%s" % (f, e.get("id")))
 
+# --- 12) li-block / li-static-block NICHT mit li-settings:* kombinieren ---
+#      Der Builder markiert beide Attribute als exklusiv (Inspector: rot).
+#      li-block auf einen Wrapper, li-settings:* auf ein inneres Element.
+for f in sections + sorted(glob.glob("_snippets/*.html")):
+    s = io.open(f, encoding="utf-8").read()
+    for m in TAG.finditer(s):
+        attrs = m.group(2)
+        blk = re.search(r'\bli-(?:static-)?block="([^"]+)"', attrs)
+        if blk and re.search(r'\bli-settings:', attrs):
+            found = ", ".join(re.findall(r'li-settings:[\w-]+', attrs))
+            p("li-block=\"%s\" + %s auf demselben Element in %s (<%s>) — "
+              "li-settings auf ein inneres Element verschieben"
+              % (blk.group(1), found, f, m.group(1)))
+
 print("=" * 60)
 if problems:
     print("%d Befund(e):" % len(problems))

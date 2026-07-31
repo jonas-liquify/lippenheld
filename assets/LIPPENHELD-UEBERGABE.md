@@ -121,19 +121,54 @@ Converter sie korrekt als `templates/page.<name>.json`.
 
 ---
 
-## 4. Header-Verhalten
+## 4. Header-Verhalten — transparent oder weiß
 
-Der Header ist **ohne Liquid** gelöst, damit Builder-Vorschau und Live-Seite
-identisch sind:
+Zwei Zustände: **solide** (Standard, klebend, weiß mit Hairline) und
+**transparent** (fixiert, weiße Schrift, über dem Inhalt liegend).
 
-- Startet eine Seite mit einer `Hero`-Section, wird der Header über
-  `.page-wrapper:has(.main-wrapper > .section_hero:first-child)` automatisch
-  fixiert und transparent mit weißer Schrift.
-- Auf allen anderen Seiten ist er klebend, weiß und mit Hairline.
-- Beim Scrollen (>40px) setzt Alpine `is-scrolled` und der Header wird in jedem
-  Fall solide.
-- Mobil: Burger + Suche links, Marke zentriert, Konto + Warenkorb rechts —
-  wie im Figma-Mobile-Frame.
+### Wie eine Seite den transparenten Header bekommt
+
+Nicht über eine Template-Liste und nicht über die DOM-Struktur, sondern: **die
+Section, die oben steht, meldet den Wunsch an.** Das Basis-CSS liest vier
+Custom Properties mit Fallback auf „solide":
+
+```css
+.section_header-group { position: var(--header-position, sticky); … }
+.section_navbar { background-color: var(--header-bg, var(--color--white));
+                  color: var(--header-fg, var(--color--black)); … }
+```
+
+Das Snippet `header-overlay` setzt sie um. Eingebunden ist es in drei Sections:
+
+| Section | Verhalten |
+|---|---|
+| `Hero` | Checkbox „Header transparent darüberlegen", **Standard: an** |
+| `Story` | dieselbe Checkbox, **Standard: aus** |
+| `Header Overlay` | eigenständige Section, rendert nichts Sichtbares (0px hoch) |
+
+**Für dich heißt das:**
+- Seite startet mit einem Hero → transparent, automatisch.
+- Seite startet mit einer anderen randlosen Section → entweder die Story-Checkbox
+  aktivieren oder `Header Overlay` als erste Section einsetzen (so gelöst auf
+  `pages/newsletter.html`, das mit dem randlosen Formularbild beginnt).
+- Alles andere → weiß, ohne dass du etwas tun musst.
+- Einzelfall umschalten → Checkbox in der Section, kein Code.
+
+Beim Scrollen (>40px) setzt Alpine `is-scrolled`; der Header wird dann **immer**
+solide — die Regel hat höhere Spezifität und gewinnt über die Variablen.
+
+### Warum nicht der naheliegende Weg
+
+Der erste Ansatz war ein struktureller Selektor
+(`.page-wrapper:has(.main-wrapper > .section_hero:first-child)`). Der funktioniert
+in der Builder-Vorschau, aber **nie in Shopify**: dort steckt um jede Section ein
+`<div class="shopify-section">`, der Hero ist also kein direktes Kind von `main`
+mehr. Genau das war der Grund, warum die Navigation nach der Konvertierung überall
+weiß blieb. Nachgeprüft mit simulierten `shopify-section`-Wrappern: der alte
+Selektor greift ins Leere, die Variablen-Lösung hält.
+
+Mobil: Burger + Suche links, Marke zentriert, Konto + Warenkorb rechts — wie im
+Figma-Mobile-Frame.
 
 ---
 

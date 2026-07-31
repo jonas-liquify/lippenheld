@@ -46,6 +46,9 @@
             "type": "club-vorteil"
         },
         {
+            "type": "social-link"
+        },
+        {
             "type": "@app"
         }
     ],
@@ -88,16 +91,6 @@
             "type": "text",
             "label": "Club-Button",
             "default": "Jetzt beitreten"
-        },
-        {
-            "id": "url_link",
-            "type": "url",
-            "label": "Link"
-        },
-        {
-            "id": "image_icon",
-            "type": "image_picker",
-            "label": "Icon"
         },
         {
             "id": "text_copyright",
@@ -245,7 +238,12 @@
                 {
                     "type": "footer-social",
                     "static": true,
-                    "id": "footer-social"
+                    "id": "footer-social",
+                    "blocks": [
+                        {
+                            "type": "social-link"
+                        }
+                    ]
                 }
             ]
         }

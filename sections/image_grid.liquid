@@ -10,6 +10,9 @@
     "class": "section_image-grid",
     "blocks": [
         {
+            "type": "bildkachel"
+        },
+        {
             "type": "@app"
         }
     ],
@@ -31,22 +34,6 @@
             "type": "richtext",
             "label": "Text",
             "default": "<p>Nicht sicher, welcher Lippenheld f\u00fcr dich passt? W\u00e4hle einfach den Zustand deiner Lippen aus.<\/p>"
-        },
-        {
-            "id": "url_link",
-            "type": "url",
-            "label": "Link"
-        },
-        {
-            "id": "image_bild",
-            "type": "image_picker",
-            "label": "Bild"
-        },
-        {
-            "id": "text_label",
-            "type": "text",
-            "label": "Label",
-            "default": "Mein t\u00e4gliches Ritual"
         },
         {
             "type": "header",
@@ -178,7 +165,11 @@
         {
             "name": "Image Grid",
             "category": "Content",
-            "blocks": []
+            "blocks": [
+                {
+                    "type": "bildkachel"
+                }
+            ]
         }
     ]
 } {% endschema %}

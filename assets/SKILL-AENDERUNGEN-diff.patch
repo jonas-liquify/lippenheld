@@ -1,0 +1,397 @@
+--- /tmp/SKILL.md.bak	2026-07-31 13:11:31
++++ /Users/jonas/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/badf2e97-702b-43bc-897a-80d9739ee76e/f3b140eb-4d0f-4323-9f79-7d56d69687ee/skills/liquiflow-builder/SKILL.md	2026-07-31 15:57:05
+@@ -24,6 +24,13 @@
+ - Invarianten die nie gebrochen werden dürfen
+ - Vollständige Checkliste für die Konvertierung
+ 
++**Bevor du konvertierst:** führe das Pre-Flight-Audit aus dem Abschnitt
++„Shopify-Validation — die Fehler, die erst beim Konvertieren auffallen" aus. Diese
++vier Fehlerklassen bestehen den Builder-Lint fehlerfrei und schlagen erst beim
++Theme-Upload zu (`For loops require an 'in' clause`, `link_list type can only be
++inserted once`, `default must be a step in the range`, `does not refer to an
++existing section file`).
++
+ ---
+ 
+ ## Single Source of Truth — IMMER `_sections/X.html` editieren, NIE die Consumer-Seiten
+@@ -385,7 +392,65 @@
+ for h in hits: print(' ', h)
+ "
+ ```
++
++### `li-block` und `li-settings:*` dürfen nicht auf demselben Element stehen
++
++Der Builder markiert beide Attribute im Inspector **rot** (exklusiv) — sie lassen
++sich nicht kombinieren. Betrifft `li-block` genauso wie `li-static-block`.
+ 
++```html
++<!-- ❌ FALSCH: Block-Marker und Setting auf demselben <a> -->
++<div li-cf-theme-blocks class="image-grid_list">
++  <a li-block="Bildkachel" li-settings:url="Link" href="#" class="image-grid_item">
++    <div class="image-grid_media"><img li-settings:image="Bild" src="/assets/ph.svg" alt=""></div>
++    <div li-settings:text="Label" class="image-grid_label">Label</div>
++  </a>
++</div>
++
++<!-- ✅ RICHTIG: li-block auf den Wrapper, li-settings auf ein inneres Element -->
++<div li-cf-theme-blocks class="image-grid_list">
++  <div li-block="Bildkachel" class="image-grid_item">
++    <a li-settings:url="Link" href="#" class="image-grid_link">
++      <div class="image-grid_media"><img li-settings:image="Bild" src="/assets/ph.svg" alt=""></div>
++      <div li-settings:text="Label" class="image-grid_label">Label</div>
++    </a>
++  </div>
++</div>
++```
++
++Nur die **Kombination auf einem Element** ist das Problem — `li-settings:*` auf
++Kindern des Blocks ist der Normalfall und völlig in Ordnung (im Beispiel oben
++`li-settings:image` und `li-settings:text`).
++
++**Wichtig beim Umbau:** der neue Wrapper wird zum direkten Kind des
++theme-blocks-Wrappers und muss deshalb das `li-block` tragen (sonst löscht der
++Converter ihn, siehe „Nur `li-block` als direkte Kinder…"). Und das Layout-CSS
++wandert vom Block-Wrapper auf das innere Element mit:
++
++```css
++.image-grid_item { position: relative; display: block; }   /* traegt li-block */
++.image-grid_link { display: flex; flex-direction: column; gap: 1rem; height: 100%; }
++```
++
++Typische Fundstellen: verlinkte Karten und Kacheln (Bildraster, Social-Grid,
++Footer-Social-Icons) — überall, wo der Block selbst ein `<a>` ist.
++
++**Audit-Snippet:**
++```bash
++python3 -c "
++import re, glob, io
++TAG = re.compile(r'<(\w+)((?:\s+[\w:.\-]+(?:=\"[^\"]*\")?)*)\s*/?>')
++for f in glob.glob('_sections/*.html') + glob.glob('_snippets/*.html'):
++    s = io.open(f, encoding='utf-8').read()
++    for m in TAG.finditer(s):
++        a = m.group(2)
++        blk = re.search(r'\bli-(?:static-)?block=\"([^\"]+)\"', a)
++        if blk and re.search(r'\bli-settings:', a):
++            print('%s: li-block=%r + %s auf <%s>' % (f, blk.group(1),
++                  ', '.join(re.findall(r'li-settings:[\w-]+', a)), m.group(1)))
++"
++```
++
+ ### Niemals `li-*` Attribute als CSS-Selector zum Ausblenden nutzen
+ 
+ **Anti-Pattern, das echte Production-Content versteckt:**
+@@ -456,7 +521,75 @@
+ 3. Verwende Inline-Liquid nur für das Override
+ 
+ Diese Spiegelung gilt für **alle Settings**, die das Layout/Aussehen beeinflussen: Padding, Margin, Background-Color, Text-Color, Text-Align, Min-Height, Image-Position-Toggles, etc.
++
++### Keine strukturellen CSS-Selektoren über Section-Grenzen — Shopify wrappt jede Section
++
++Shopify rendert **jede** Section in einen eigenen Container:
++
++```html
++<main class="main-wrapper">
++  <div id="shopify-section-template--123__hero" class="shopify-section">
++    <section class="section_hero">…</section>
++  </div>
++  …
++</main>
++```
++
++Im Builder-HTML fehlt dieser Wrapper. Selektoren, die auf die Verwandtschaft
++zwischen Sections bauen, funktionieren deshalb in der Vorschau, aber **nicht
++live**:
++
++```css
++/* ❌ Greift live ins Leere: der Hero ist kein direktes Kind mehr */
++.page-wrapper:has(.main-wrapper > .section_hero:first-child) .section_navbar { … }
++
++/* ❌ Ebenso betroffen: Nachbar-Selektoren zwischen Sections */
++.section_hero + .section_product { … }
++.section_header-group + .main-wrapper > .section_hero { … }
++```
++
++Innerhalb einer Section ist alles erlaubt — die Grenze ist der Section-Rand.
+ 
++**Lösung: die Section deklariert ihren Wunsch über CSS-Variablen**, statt dass
++das CSS die DOM-Struktur abfragt. Das Basis-CSS liest die Variablen mit Fallback,
++die Section setzt sie per `<style>` auf `:root` um:
++
++```css
++/* css/main.css — Fallback = Standardzustand */
++.section_header-group { position: var(--header-position, sticky); top: 0;
++  left: var(--header-inset, auto); right: var(--header-inset, auto); }
++.section_navbar { background-color: var(--header-bg, var(--color--white));
++  color: var(--header-fg, var(--color--black)); }
++```
++
++```html
++<!-- _snippets/header-overlay.html — von jeder Section eingebunden,
++     die den Header ueber sich legen will -->
++<div li-snippet="header-overlay" class="header-overlay"><style>
++  :root { --header-position: fixed; --header-inset: 0;
++          --header-bg: transparent; --header-fg: #ffffff; }
++</style></div>
++```
++
++Eigenschaften dieses Musters:
++
++- **strukturunabhängig** — Builder und Shopify verhalten sich identisch
++- **kein Liquid, keine Template-Listen** — kein `{% if template.name == 'index' %}`,
++  das man bei jeder neuen Seite nachpflegen müsste
++- **händlersteuerbar** — als `li-if="section.settings.header_overlay"` um die
++  Snippet-Instanz plus Checkbox-Setting, pro Section-Instanz an/aus
++- **kombinierbar** — zusätzlich eine winzige eigene Section (nur das Snippet, kein
++  sichtbarer Inhalt) für Seiten, die den Zustand ohne passende Leitsection wollen
++- **Zustandswechsel bleiben möglich** — eine Regel mit höherer Spezifität
++  gewinnt weiter, z. B. `.section_navbar:has(.nav_component.is-scrolled)` für den
++  soliden Header beim Scrollen
++
++**Beim Testen im Browser beachten:** hat das Element eine `transition` auf der
++geprüften Eigenschaft, liefert `getComputedStyle` den Zwischenwert — in einem
++nicht sichtbaren Tab laufen Transitions gar nicht weiter und man liest dauerhaft
++den Startwert. Vor der Messung `el.style.transition = 'none'` setzen, sonst
++diagnostiziert man Phantom-Bugs.
++
+ ### Schritt 6 — Fehlende CSS-Klassen direkt ins Projekt-CSS schreiben
+ 
+ **Pflicht, nicht optional:** Sobald du im HTML neue CSS-Klassen verwendest, die noch nicht im Projekt-CSS existieren, **schreibe sie sofort selbst in die passende CSS-Datei** (z. B. `css/liquify-2-0.webflow.css` im Webflow-Starter). Nie nur "Hinweis: musst du noch ergänzen" zurückgeben — der Nutzer erwartet, dass die Seite nach dem Build direkt verwendbar ist.
+@@ -762,7 +895,238 @@
+ ```
+ 
+ Faustregel: Nur die Defaults `main-menu` und `footer` sind in jedem Shop garantiert vorhanden. Alle anderen Handles müssen weg.
++
++---
++
++## Shopify-Validation — die Fehler, die erst beim Konvertieren auffallen
++
++Diese Fehlerklassen bestehen den Builder-Lint **fehlerfrei** und schlagen erst
++beim Theme-Upload in Shopify zu. Sie sind in einem echten Projekt (Lippenheld,
++Juli 2026) alle gleichzeitig aufgetreten — prüfe sie mit dem Pre-Flight-Audit am
++Ende dieses Abschnitts, bevor du konvertierst.
++
++### 1. `li-for` + textbindendes `li-object` auf demselben Element
++
++```
++Error: sections/blog_articles.liquid, Validation failed:
++Liquid syntax error (line 8): For loops require an 'in' clause in "part.title"
++```
++
++Der Converter liest bei zwei konkurrierenden Bindungen den **`li-object`-Wert als
++For-Ausdruck** — `{% for part.title %}` statt `{% for part in paginate.parts %}`.
++
++**Entscheidend ist die Form von `li-object`:**
++- `li-object="pfad"` (Textausgabe) + `li-for` auf demselben Element → **bricht**
++- `li-object:href="pfad"` / `:src` / `:alt` (Attribut-Modifier) + `li-for` → **unproblematisch**
++
++```html
++<!-- ❌ FALSCH: li-for und Textbindung auf dem gleichen <a> -->
++<a li-for="part in paginate.parts" li-object="part.title"
++   li-object:href="part.url" href="#" class="pagination_link">1</a>
++
++<!-- ✅ RICHTIG: Textbindung in ein inneres <span> -->
++<a li-for="part in paginate.parts" li-object:href="part.url" href="#"
++   class="pagination_link"><span li-object="part.title">1</span></a>
++```
++
++**Sonderfall `<option>`:** dort kann kein `<span>` hinein (ungültiges HTML). Nutze
++stattdessen `li-for:inside` auf dem `<select>`:
++
++```html
++<!-- ❌ FALSCH -->
++<select class="form_input">
++  <option li-for="option in collection.sort_options" li-object="option.name"
++          li-attribute:value="{{ option.value }}">Empfohlen</option>
++</select>
++
++<!-- ✅ RICHTIG: :inside auf dem Wrapper, li-object auf dem <option> -->
++<select li-for:inside="option in collection.sort_options" class="form_input">
++  <option li-object="option.name" li-attribute:value="{{ option.value }}">Empfohlen</option>
++</select>
++```
++
++Typische Fundstellen: Pagination (`paginate.parts`), Sortier-Dropdowns
++(`collection.sort_options`), Predictive-Search-Vorschläge
++(`predictive_search.resources.*`), Tag-Listen.
+ 
++### 2. Jeder Resource-Picker-Typ nur EINMAL pro Section
++
++```
++Invalid schema: setting link_list type can only be inserted once in the settings.
++Invalid schema: setting collection type can only be inserted once in the settings.
++```
++
++Das gilt für **alle** Resource-Picker: `link_list`, `collection`, `product`,
++`blog`, `article`, `page`. Zwei Menüs, zwei Kollektionen oder zwei Produkte in
++einer Section sind nicht möglich.
++
++**Achtung bei verschachtelten Sections:** enthält eine Section eine andere inline
++(klassisch `Header` + `predictive_search`), landen **beide Schemas in einer
++Datei**. Ein `collection`-Setting im Header plus eines im eingebetteten
++predictive_search verletzt die Regel, obwohl beide Quelldateien je nur eines
++haben. Immer das kompilierte Ziel im Blick behalten.
++
++**Auflösungen, je nach Fall:**
++
++*a) Zweitmenü als `text`-Handle* — die Liquid-Referenz bleibt identisch:
++
++```html
++<!-- ❌ zwei link_list-Picker -->
++<div li-settings:custom="Navigation" class="li-custom">[
++  { "type": "link_list", "id": "menu",       "label": "Menü links", "default": "main-menu" },
++  { "type": "link_list", "id": "menu_right", "label": "Menü rechts" }
++]</div>
++
++<!-- ✅ einer als Picker, der zweite als Handle -->
++<div li-settings:custom="Navigation" class="li-custom">[
++  { "type": "link_list", "id": "menu", "label": "Menü links", "default": "main-menu" },
++  { "type": "text", "id": "menu_right", "label": "Menü rechts (Linklisten-Handle)",
++    "info": "Handle der Linkliste, z. B. main-menu-right" }
++]</div>
++```
++
++`linklists[section.settings.menu_right].links` funktioniert mit beiden Typen. Ein
++leerer Handle liefert `nil`, die `li-for`-Schleife rendert dann nichts.
++
++*b) Anderen Picker-Typ wählen, wenn er semantisch besser passt* — ein
++Mini-Cart-Upsell ist EIN Produkt, keine Kollektion. `product` und `collection`
++sind verschiedene Typen, dürfen also nebeneinander je einmal vorkommen:
++
++```html
++<!-- ❌ zweites collection-Setting -->
++<div li-settings:collection="Warenkorb-Empfehlung" class="mini-cart_upsell">
++  <div li-object="product.title">…</div>
++</div>
++
++<!-- ✅ product-Setting, deterministisch über section.settings referenziert -->
++<div li-if="section.settings.upsell_product != blank" class="mini-cart_upsell">
++  <div li-object="section.settings.upsell_product.title">…</div>
++</div>
++<div li-settings:custom="Warenkorb" class="li-custom">
++{ "type": "product", "id": "upsell_product", "label": "Warenkorb-Empfehlung" }
++</div>
++```
++
++Bei `li-settings:custom` bestimmst du die id selbst und referenzierst explizit
++`section.settings.<id>.…` — verlässlicher als sich darauf zu stützen, welchen
++Variablennamen ein Kurz-Attribut in den Scope legt.
++
++*c) Auf zwei Sections aufteilen*, wenn beide Picker-UX gebraucht wird.
++
++### 2b. `"default": ""` ist ungültig
++
++```
++Invalid schema: setting with id="menu_right" default can't be blank
++```
++
++Ein leerer String als Default wird abgelehnt. **Den `default`-Key ganz
++weglassen**, dann ist das Feld im Editor einfach leer:
++
++```json
++❌ { "type": "text", "id": "menu_right", "label": "Menü rechts", "default": "" }
++✅ { "type": "text", "id": "menu_right", "label": "Menü rechts" }
++```
++
++Das ergänzt die Regel aus „Setting-Defaults — Shopify-Validation beachten":
++Handles ohne garantierte Existenz gehören weg — aber eben als **fehlender Key**,
++nicht als leerer String.
++
++### 3. `range`-Default muss auf dem Step-Raster liegen
++
++```
++Error: sections/form.liquid, Validation failed:
++Invalid schema: setting with id="min_height" default must be a step in the range
++```
++
++Shopify verlangt `(default − min) % step == 0`. Ein aus Figma übernommener
++Pixelwert trifft das oft nicht:
++
++```json
++{ "type": "range", "id": "min_height", "min": 300, "max": 900, "step": 20, "default": 637 }
++```
++`(637 − 300) % 20 = 17` → ungültig. Entweder auf **640** runden oder `step` so
++wählen, dass der Figma-Wert erreichbar ist (`step: 1`).
++
++Prüfe das bei **jedem** `range`-Setting, besonders bei aus dem Design
++übernommenen Höhen und Abständen.
++
++### 4. `Section type '…' does not refer to an existing section file`
++
++```
++Error: sections/footer_group.json, Validation failed:
++Section type 'footer' does not refer to an existing section file
++```
++
++Das ist **kein eigener Fehler**, sondern Folgefehler: die Section
++(`footer.liquid`) hat die Validation nicht bestanden und wurde deshalb nicht
++geschrieben — die Section-Gruppe verweist dann auf eine fehlende Datei.
++**Nicht die Gruppen-JSON debuggen.** Erst die gemeldeten Section-Fehler beheben,
++dann verschwindet die Meldung von selbst.
++
++Gleiches Muster: Shopify bricht die Validation einer Section beim **ersten**
++Fehler ab. Eine Section mit zwei Problemen zeigt nur eines — nach dem Fix kann
++also ein neuer Fehler in derselben Datei auftauchen. Nach jeder Korrekturrunde
++erneut konvertieren, bis der Log leer ist.
++
++### Pre-Flight-Audit (vor jeder Konvertierung ausführen)
++
++```bash
++python3 - <<'EOF'
++import re, glob, io, json, collections
++TAG = re.compile(r'<(\w+)((?:\s+[\w:.\-]+(?:="[^"]*"|=\'[^\']*\'|=[^\s"\'>]+)?)*)\s*/?>')
++problems = []
++
++for f in sorted(glob.glob("_sections/*.html")):
++    s = io.open(f, encoding="utf-8").read()
++
++    # 1) li-for + textbindendes li-object
++    for m in TAG.finditer(s):
++        a = m.group(2)
++        if re.search(r'\bli-for=', a) and re.search(r'\bli-object="', a):
++            problems.append("%s: li-for + li-object=\"…\" auf <%s> — Text in inneres <span>"
++                            % (f, m.group(1)))
++
++    # 2) Resource-Picker mehr als einmal + leere Defaults
++    PICKERS = ("link_list", "collection", "product", "blog", "article", "page")
++    cnt = collections.Counter()
++    for t in PICKERS:
++        cnt[t] += len(re.findall(r'\bli-settings:%s(?:=|\s|>)' % t, s))
++    for m in re.finditer(r'class="li-custom">(.*?)</div>', s, re.S):
++        try:
++            for e in (lambda d: d if isinstance(d, list) else [d])(json.loads(m.group(1).strip())):
++                if isinstance(e, dict) and e.get("type") in PICKERS:
++                    cnt[e["type"]] += 1
++        except Exception:
++            pass
++    for t, n in cnt.items():
++        if n > 1:
++            problems.append("%s: %d %s-Settings — nur eines pro Section erlaubt" % (f, n, t))
++    for m in re.finditer(r'\{[^{}]*"default":\s*""[^{}]*\}', s):
++        problems.append("%s: leerer default — Key ganz weglassen (%s)" % (f, m.group(0)[:60]))
++
++    # 3) range-Default off-grid + JSON-Validitaet
++    for m in re.finditer(r'<div li-settings:custom(?:="[^"]*")? class="li-custom">(.*?)</div>', s, re.S):
++        raw = m.group(1).strip()
++        try:
++            data = json.loads(raw)
++        except Exception as e:
++            problems.append("%s: ungueltiges Setting-JSON (%s)" % (f, e)); continue
++        for e in (data if isinstance(data, list) else [data]):
++            if not isinstance(e, dict) or e.get("type") != "range":
++                continue
++            mn, mx, st, d = e.get("min", 0), e.get("max"), e.get("step", 1), e.get("default")
++            if d is None:
++                continue
++            if (d - mn) % st != 0:
++                problems.append("%s: range id=%s default=%s nicht auf Step-Raster (min=%s step=%s)"
++                                % (f, e.get("id"), d, mn, st))
++            if mx is not None and not (mn <= d <= mx):
++                problems.append("%s: range id=%s default ausserhalb min/max" % (f, e.get("id")))
++
++print("\n".join(problems) if problems else "Pre-Flight sauber.")
++EOF
++```
++
+ ---
+ 
+ ## Custom Settings — Pflicht für jede Section

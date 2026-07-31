@@ -1,0 +1,24 @@
+<div li-block="Social Post" class="social_item" {{ block.shopify_attributes }}>
+                    <a href="{{ block.settings.url_link }}" target="_blank" rel="noopener" aria-label="Instagram-Beitrag ansehen" class="social_link"> {% if block.settings.image_bild %} {{ block.settings.image_bild | image_url: width: 700 | image_tag: loading: 'lazy' }} {% else %} <img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt=""> {% endif %} </a>
+                </div> {% schema %} {
+    "name": "Social Post",
+    "settings": [
+        {
+            "id": "url_link",
+            "type": "url",
+            "label": "Link"
+        },
+        {
+            "id": "image_bild",
+            "type": "image_picker",
+            "label": "Bild"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Social Post",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}
