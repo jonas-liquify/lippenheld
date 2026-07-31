@@ -1,0 +1,181 @@
+<div class="padding-global padding-section-large is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-{{ section.settings.content_align }} is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"><div class="container"><div class="page-hero_component"><div class="arc-label_wrapper"><svg class="arc-label" viewbox="0 0 140 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path id="arc-404-fehler-404" d="M4 32 Q70 0 136 32" fill="none" stroke="none"></path><text class="arc-label_text"><textpath href="#arc-404-fehler-404" startoffset="50%" text-anchor="middle" href="#arc-404-fehler-404">
+{{ section.settings.text_subline }}
+</textpath></text></svg></div><h1 class="heading-style-h1">
+{{ section.settings.text_uberschrift }}
+</h1><div class="text-size-regular"> {{ section.settings.richtext_text }} </div><div class="button-group is-center"><a li-object:href="routes.root_url" href="{{ routes.root_url }}" class="button"><span>
+{{ section.settings.text_button_text }}
+</span></a></div></div></div></div> {% schema %} {
+    "tag": "header",
+    "name": "404",
+    "class": "section_page-hero",
+    "settings": [
+        {
+            "id": "text_subline",
+            "type": "text",
+            "label": "Subline",
+            "default": "Fehler 404"
+        },
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Diese Seite gibt es nicht"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Vielleicht findest du hier, wonach du suchst.<\/p>"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button-Text",
+            "default": "Zur Startseite"
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 120
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 120
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "paper"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "small"
+        },
+        {
+            "type": "select",
+            "id": "content_align",
+            "label": "Ausrichtung",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Links"
+                },
+                {
+                    "value": "center",
+                    "label": "Zentriert"
+                },
+                {
+                    "value": "right",
+                    "label": "Rechts"
+                }
+            ],
+            "default": "center"
+        }
+    ],
+    "presets": [
+        {
+            "name": "404",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "404"
+        ]
+    }
+} {% endschema %}

@@ -1,0 +1,42 @@
+<div li-static-block="Warenkorb Summe" class="cart_summary"><div class="cart_summary-row"><span>Zwischensumme</span><span li-object="cart.total_price | money">{{ cart.total_price | money }}</span></div><div class="cart_summary-row"><span>
+{{ block.settings.text_versand_label }}
+</span><span class="text-color-green">
+{{ block.settings.text_versand_wert }}
+</span></div><div class="cart_summary-row is-total"><span>Gesamt</span><span li-object="cart.total_price | money">{{ cart.total_price | money }}</span></div><div class="spacer-small"></div><a href="/checkout" class="button max-width-full"><span>
+{{ block.settings.text_checkout_button }}
+</span></a><div class="text-style-disclaimer"> {{ block.settings.richtext_hinweis }} </div></div> {% schema %} {
+    "name": "Warenkorb Summe",
+    "settings": [
+        {
+            "id": "text_versand_label",
+            "type": "text",
+            "label": "Versand-Label",
+            "default": "Versand"
+        },
+        {
+            "id": "text_versand_wert",
+            "type": "text",
+            "label": "Versand-Wert",
+            "default": "Kostenlos"
+        },
+        {
+            "id": "text_checkout_button",
+            "type": "text",
+            "label": "Checkout-Button",
+            "default": "Sicher zur Kasse"
+        },
+        {
+            "id": "richtext_hinweis",
+            "type": "richtext",
+            "label": "Hinweis",
+            "default": "<p>Versandkosten und Rabatte werden im n\u00e4chsten Schritt berechnet.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Warenkorb Summe",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

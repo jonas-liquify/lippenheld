@@ -1,0 +1,34 @@
+{
+    "sections": {
+        "collection_hero": {
+            "type": "collection_hero"
+        },
+        "collection_products": {
+            "type": "collection_products"
+        },
+        "trustpilot": {
+            "type": "trustpilot",
+            "blocks": {
+                "trustpilot-review": {
+                    "type": "trustpilot-review",
+                    "name": "Trustpilot Review"
+                },
+                "trustpilot-score": {
+                    "name": "Trustpilot Score",
+                    "type": "trustpilot-score",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "trustpilot-review"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "collection_hero",
+        "collection_products",
+        "trustpilot"
+    ]
+}

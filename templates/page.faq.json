@@ -1,0 +1,43 @@
+{
+    "sections": {
+        "page_hero": {
+            "type": "page_hero"
+        },
+        "faq": {
+            "type": "faq",
+            "blocks": {
+                "faq-eintrag": {
+                    "type": "faq-eintrag",
+                    "name": "FAQ Eintrag"
+                }
+            },
+            "block_order": [
+                "faq-eintrag"
+            ]
+        },
+        "trustpilot": {
+            "type": "trustpilot",
+            "blocks": {
+                "trustpilot-review": {
+                    "type": "trustpilot-review",
+                    "name": "Trustpilot Review"
+                },
+                "trustpilot-score": {
+                    "name": "Trustpilot Score",
+                    "type": "trustpilot-score",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "trustpilot-review"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "page_hero",
+        "faq",
+        "trustpilot"
+    ]
+}

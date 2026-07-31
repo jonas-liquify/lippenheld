@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "404": {
+            "type": "404"
+        },
+        "featured_products": {
+            "type": "featured_products"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "404",
+        "featured_products"
+    ]
+}

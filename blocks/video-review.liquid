@@ -1,0 +1,40 @@
+<div li-block="Video Review" class="video-slider_item" {{ block.shopify_attributes }}>
+                    {% if block.settings.image_bild %}
+{{ block.settings.image_bild | image_url: width: 700 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}
+                    <div class="video-slider_overlay"></div>
+                    <div class="video-slider_controls"><div class="video-slider_control"><svg viewbox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="1.5" width="2.5" height="9"></rect><rect x="7.5" y="1.5" width="2.5" height="9"></rect></svg></div><div class="video-slider_control"><svg viewbox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 4.5h2.2L6 2v8L3.2 7.5H1v-3z"></path><path d="M8 4.2a2.6 2.6 0 010 3.6" stroke="currentColor" stroke-width="1" fill="none"></path></svg></div></div>
+                    <div class="video-slider_caption"><div class="text-size-regular"> {{ block.settings.richtext_zitat }} </div><div class="text-size-regular">
+{{ block.settings.text_name }}
+</div></div>
+                </div> {% schema %} {
+    "name": "Video Review",
+    "settings": [
+        {
+            "id": "image_bild",
+            "type": "image_picker",
+            "label": "Bild"
+        },
+        {
+            "id": "richtext_zitat",
+            "type": "richtext",
+            "label": "Zitat",
+            "default": "<p>Ich habe soviel versucht und nun endlich das Richtige f\u00fcr meine Lippen gefunden: mein morgendliches und abendliches Ritual. Pflegt und sch\u00fctzt die ganze Nacht, ohne zu schmieren.<\/p>"
+        },
+        {
+            "id": "text_name",
+            "type": "text",
+            "label": "Name",
+            "default": "Grace"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Video Review",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

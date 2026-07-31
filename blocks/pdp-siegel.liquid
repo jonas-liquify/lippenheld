@@ -1,0 +1,30 @@
+<div li-static-block="PDP Siegel" class="product-header_badges"><div class="product-header_badge">{% if block.settings.image_siegel_1 %}
+{{ block.settings.image_siegel_1 | image_url: width: 200 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div><div class="product-header_badge">{% if block.settings.image_siegel_2 %}
+{{ block.settings.image_siegel_2 | image_url: width: 200 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div></div> {% schema %} {
+    "name": "PDP Siegel",
+    "settings": [
+        {
+            "id": "image_siegel_1",
+            "type": "image_picker",
+            "label": "Siegel 1"
+        },
+        {
+            "id": "image_siegel_2",
+            "type": "image_picker",
+            "label": "Siegel 2"
+        }
+    ],
+    "presets": [
+        {
+            "name": "PDP Siegel",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

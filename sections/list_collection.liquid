@@ -1,0 +1,148 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-left is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; --collection-columns: {{ section.settings.columns }};"><div class="container"><div class="collections_list">{% for collection in collections %}    <a li-for="collection in collections" li-object:href="collection.url" href="#" class="collections_item">
+                                    <div class="collections_media"><img src="{{ collection.featured_image | image_url: width: 800 }}" loading="lazy" alt="{{ collection.title }}" li-object:src="collection.featured_image | image_url: width: 800" li-object:alt="collection.title"><div class="collections_overlay"></div></div>
+                            <h2 li-object="collection.title" class="heading-style-h3 collections_title text-color-white">{{ collection.title }}</h2>
+                        </a>
+{% endfor %}</div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "List-Collection",
+    "class": "section_image-grid",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "white"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        },
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "range",
+            "id": "columns",
+            "min": 2,
+            "max": 4,
+            "step": 1,
+            "label": "Kollektionen pro Reihe",
+            "default": 3
+        }
+    ],
+    "presets": [
+        {
+            "name": "List-Collection",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "list-collections"
+        ]
+    }
+} {% endschema %}

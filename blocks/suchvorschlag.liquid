@@ -1,0 +1,56 @@
+<div li-block="Suchvorschlag" class="predictive-search_suggestion" {{ block.shopify_attributes }}>
+                    <div class="predictive-search_label">
+{{ block.settings.text_uberschrift }}
+</div>
+                    <div class="predictive-search_tags"><a href="{{ block.settings.url_link_1 }}" class="predictive-search_tag"> <span>{{ block.settings.text_label_1 }}</span> </a><a href="{{ block.settings.url_link_2 }}" class="predictive-search_tag"> <span>{{ block.settings.text_label_2 }}</span> </a><a href="{{ block.settings.url_link_3 }}" class="predictive-search_tag"> <span>{{ block.settings.text_label_3 }}</span> </a></div>
+                </div> {% schema %} {
+    "name": "Suchvorschlag",
+    "settings": [
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Beliebte Suchanfragen"
+        },
+        {
+            "id": "url_link_1",
+            "type": "url",
+            "label": "Link 1"
+        },
+        {
+            "id": "text_label_1",
+            "type": "text",
+            "label": "Label 1",
+            "default": "Wirkung"
+        },
+        {
+            "id": "url_link_2",
+            "type": "url",
+            "label": "Link 2"
+        },
+        {
+            "id": "text_label_2",
+            "type": "text",
+            "label": "Label 2",
+            "default": "Ergebnisse"
+        },
+        {
+            "id": "url_link_3",
+            "type": "url",
+            "label": "Link 3"
+        },
+        {
+            "id": "text_label_3",
+            "type": "text",
+            "label": "Label 3",
+            "default": "Club"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Suchvorschlag",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

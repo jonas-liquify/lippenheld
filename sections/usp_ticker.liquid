@@ -1,0 +1,109 @@
+<div class="padding-global is-width-full is-theme-{{ section.settings.color_scheme }} is-mpad-none" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"><div class="usp-ticker_track"><div li-content-for-theme-blocks="" class="usp-ticker_list">
+{% content_for 'blocks' %}
+</div></div><div class="hide"><script>
+        document.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll(".section_usp-ticker .usp-ticker_track").forEach(function (track) {
+            if (track.dataset.cloned) return;
+            var list = track.querySelector(".usp-ticker_list");
+            if (!list || !list.children.length) return;
+            var clone = list.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            track.appendChild(clone);
+            track.dataset.cloned = "true";
+          });
+        });
+      </script></div></div> {% schema %} {
+    "tag": "section",
+    "name": "USP Ticker",
+    "class": "section_usp-ticker",
+    "blocks": [
+        {
+            "type": "ticker-text"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 80,
+            "step": 2,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 80,
+            "step": 2,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "black"
+        }
+    ],
+    "presets": [
+        {
+            "name": "USP Ticker",
+            "category": "Content",
+            "blocks": [
+                {
+                    "type": "ticker-text"
+                }
+            ]
+        }
+    ],
+    "enabled_on": {
+        "groups": [
+            "*"
+        ]
+    }
+} {% endschema %}

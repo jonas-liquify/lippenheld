@@ -1,0 +1,283 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-left is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"><div class="container"><script src="{{ 'li_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="product-header_layout" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"><div class="product-header_media-column"><div class="product-header_gallery" x-data="{ active: 0 }"><div class="product-header_gallery-main"><img x-ref="main" src="{{ product.featured_image | image_url: width: 1400 }}" loading="eager" alt="{{ product.featured_image.alt }}" li-object:src="product.featured_image | image_url: width: 1400" li-object:alt="product.featured_image.alt"></div><div class="product-item_tag_list">{% if product.tags contains 'Bestseller' %}    <div li-if="product.tags contains 'Bestseller'" class="product-item_tag">
+    Bestseller    </div>
+{% endif %}</div>{% content_for "block", type: "pdp-siegel", id: "pdp-siegel" %}<div li-for:inside="media in product.media" class="product-header_thumbs">
+        {% for media in product.media %}                            <div class="product-header_thumb" role="button" tabindex="0" aria-label="Bild anzeigen" x-data="{ i: 0 }" x-init="i = Array.prototype.indexOf.call($el.parentElement.children, $el)" x-bind:class="{ 'is-active': active === i }" x-on:click="active = i; if ($el.dataset.full) $refs.main.src = $el.dataset.full" x-on:keydown.enter.prevent="active = i; if ($el.dataset.full) $refs.main.src = $el.dataset.full" data-full="{{ media | image_url: width: 1400 }}"><img src="{{ media | image_url: width: 200 }}" loading="lazy" alt="" li-object:src="media | image_url: width: 200"></div>
+                    {% endfor %}    </div></div>{% content_for "block", type: "pdp-redaktion", id: "pdp-redaktion" %}</div><div class="product-header_info-column"><div li-object="product.vendor" class="product-header_vendor">{{ product.vendor }}</div><h1 li-object="product.title" class="product-header_title">{{ product.title }}</h1><div class="product-header_rating"><div class="stars_wrapper"><div class="stars_list"><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg><svg viewbox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 0l1.24 3.45H10L7.06 5.6 8.18 9 5 6.9 1.82 9l1.12-3.4L0 3.45h3.76L5 0z"></path></svg></div><div class="stars_value">4,9</div></div><a href="{{ section.settings.url_bewertungs_link }}" class="product-header_rating-link"> <span>{{ section.settings.text_bewertungs_text }}</span> </a></div><div li-object="product.description" class="text-size-regular product-header_desc">{{ product.description }}</div>{% content_for "block", type: "pdp-bullets", id: "pdp-bullets" %}<div class="product-header_price-row"><div li-object="product.price | money" class="product-header_price">{{ product.price | money }}</div>{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price" class="product-header_price-compare">
+    <span li-object="product.compare_at_price | money">{{ product.compare_at_price | money }}</span>    </div>
+{% endif %}</div><div class="product-header_price-note">
+{{ section.settings.text_preishinweis }}
+</div><div class="product-header_points"> {{ section.settings.richtext_punkte_hinweis }} </div><div class="product-header_options"><template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" class="product-header_option" data-ProductVariantsLoop="true"><div li-element="product-options-name" class="product-header_option-name" x-text="option">Variante</div><div class="product-header_option-list"><template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <div li-element="product-option-loop"><div li-element="product-option-input" class="product-header_option-input" x-on:click="setVariant" :name="option" :data-name="option" type="radio" :value="variantName" :id="variantName.toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]+/g, '').replace(/--+/g, '-')" :checked="selected_or_first_available_variant?.options.includes(variantName)" data-selectorType="radio" :class="firstOptionHasAvailableChildren[variantName] ? '' : 'data-disabled'"><span li-element="product-option-name" x-text="variantName" :for="variantName">30 ml</span></div></div></template></div></div></template></div>{% if product.available == true %}    <div li-if="product.available == true">
+    <a li-element="add-to-cart" href="#" class="button max-width-full" @click="addToCart($event, true)" :disabled="!addToCartButton">In den Warenkorb</a>    </div>
+{% endif %}{% if product.available != true %}    <div li-if="product.available != true">
+    <a href="#" class="button is-secondary pointer-events-off max-width-full">Ausverkauft</a>    </div>
+{% endif %}{% content_for "block", type: "pdp-lieferung", id: "pdp-lieferung" %}{% content_for "block", type: "pdp-journey", id: "pdp-journey" %}<div li-content-for-theme-blocks="" class="accordion_list">
+{% content_for 'blocks' %}
+</div>{% content_for "block", type: "pdp-bundle", id: "pdp-bundle" %}</div></div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Product Header",
+    "class": "section_product-header",
+    "blocks": [
+        {
+            "type": "pdp-editorial"
+        },
+        {
+            "type": "produkt-bullet"
+        },
+        {
+            "type": "produkt-akkordeon"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "image_siegel_1",
+            "type": "image_picker",
+            "label": "Siegel 1"
+        },
+        {
+            "id": "image_siegel_2",
+            "type": "image_picker",
+            "label": "Siegel 2"
+        },
+        {
+            "id": "url_bewertungs_link",
+            "type": "url",
+            "label": "Bewertungs-Link"
+        },
+        {
+            "id": "text_bewertungs_text",
+            "type": "text",
+            "label": "Bewertungs-Text",
+            "default": "Bewertungen lesen"
+        },
+        {
+            "id": "text_preishinweis",
+            "type": "text",
+            "label": "Preishinweis",
+            "default": "inkl. MwSt. zzgl. Versandkosten \u00b7 Grundpreis 2.300,00 \u20ac pro Liter"
+        },
+        {
+            "id": "richtext_punkte_hinweis",
+            "type": "richtext",
+            "label": "Punkte-Hinweis",
+            "default": "<p>Verdiene <strong>1.199 Punkte<\/strong> mit diesem Einkauf<\/p>"
+        },
+        {
+            "id": "richtext_liefertext",
+            "type": "richtext",
+            "label": "Liefertext",
+            "default": "<p>Lieferung morgen, 1. August.<br\/>Bestellung innerhalb 12 Stunden 59 Minuten<\/p>"
+        },
+        {
+            "id": "text_journey_titel",
+            "type": "text",
+            "label": "Journey-Titel",
+            "default": "Your journeys, your results"
+        },
+        {
+            "id": "image_journey_1",
+            "type": "image_picker",
+            "label": "Journey 1"
+        },
+        {
+            "id": "image_journey_2",
+            "type": "image_picker",
+            "label": "Journey 2"
+        },
+        {
+            "id": "image_journey_3",
+            "type": "image_picker",
+            "label": "Journey 3"
+        },
+        {
+            "id": "text_journey_zahler",
+            "type": "text",
+            "label": "Journey-Z\u00e4hler",
+            "default": "12+"
+        },
+        {
+            "id": "text_bundle_titel",
+            "type": "text",
+            "label": "Bundle-Titel",
+            "default": "Gemeinsam kaufen"
+        },
+        {
+            "id": "product_bundle_produkt",
+            "type": "product",
+            "label": "Bundle-Produkt"
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 40
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "white"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product Header",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "produkt-akkordeon"
+                },
+                {
+                    "type": "pdp-siegel",
+                    "static": true,
+                    "id": "pdp-siegel"
+                },
+                {
+                    "type": "pdp-redaktion",
+                    "static": true,
+                    "id": "pdp-redaktion",
+                    "blocks": [
+                        {
+                            "type": "pdp-editorial"
+                        }
+                    ]
+                },
+                {
+                    "type": "pdp-bullets",
+                    "static": true,
+                    "id": "pdp-bullets",
+                    "blocks": [
+                        {
+                            "type": "produkt-bullet"
+                        }
+                    ]
+                },
+                {
+                    "type": "pdp-lieferung",
+                    "static": true,
+                    "id": "pdp-lieferung"
+                },
+                {
+                    "type": "pdp-journey",
+                    "static": true,
+                    "id": "pdp-journey"
+                },
+                {
+                    "type": "pdp-bundle",
+                    "static": true,
+                    "id": "pdp-bundle"
+                }
+            ]
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "product"
+        ]
+    }
+} {% endschema %}

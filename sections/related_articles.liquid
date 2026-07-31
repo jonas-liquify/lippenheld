@@ -1,0 +1,156 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-left is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; --blog-columns: {{ section.settings.columns }};"><div class="container">{% assign currentArticle = article.title %}<div class="blog_header"><div class="blog_intro"><h2 class="heading-style-h2">
+{{ section.settings.text_uberschrift }}
+</h2></div></div><div li-for:inside="article in blog.articles limit: 4" class="blog_list">
+        {% for article in blog.articles limit: 4 %}                            {% if article.title != currentArticle %}    <div li-if="article.title != currentArticle" class="blog_list-item">
+    <a li-object:href="article.url" href="{{ article.url }}" class="blog_item-grid"><div class="blog_media"><img src="{{ article.image | image_url: width: 800 }}" loading="lazy" alt="{{ article.image.alt }}" li-object:src="article.image | image_url: width: 800" li-object:alt="article.image.alt" class="blog_img"></div><div class="blog_info-wrapper"><h2 li-object="article.title" class="blog_title">{{ article.title }}</h2></div></a>    </div>
+{% endif %}
+                    {% endfor %}    </div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Related Articles",
+    "class": "section_blog",
+    "settings": [
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Weitere Artikel"
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "paper"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        },
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "range",
+            "id": "columns",
+            "min": 2,
+            "max": 4,
+            "step": 1,
+            "label": "Artikel pro Reihe",
+            "default": 3
+        }
+    ],
+    "presets": [
+        {
+            "name": "Related Articles",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "article"
+        ]
+    }
+} {% endschema %}

@@ -1,0 +1,29 @@
+<div li-static-block="Vorteile CTA" class="benefits_footer"><a href="{{ block.settings.url_button_link }}" class="button max-width-full"> <span>{{ block.settings.text_button_text }}</span> </a><div class="product-header_points"> {{ block.settings.richtext_hinweis }} </div></div> {% schema %} {
+    "name": "Vorteile CTA",
+    "settings": [
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button-Link"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button-Text",
+            "default": "In den Warenkorb"
+        },
+        {
+            "id": "richtext_hinweis",
+            "type": "richtext",
+            "label": "Hinweis",
+            "default": "<p>Verdiene <strong>1.199 Punkte<\/strong> mit diesem Einkauf<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Vorteile CTA",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

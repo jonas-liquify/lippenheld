@@ -1,0 +1,49 @@
+<div li-block="Vorher Nachher" class="before-after_item" {{ block.shopify_attributes }}>
+                    <div class="before-after_pane">{% if block.settings.image_vorher_bild %}
+{{ block.settings.image_vorher_bild | image_url: width: 700 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}<div class="before-after_pane-label">
+{{ block.settings.text_label_vorher }}
+</div></div>
+                    <div class="before-after_pane">{% if block.settings.image_nachher_bild %}
+{{ block.settings.image_nachher_bild | image_url: width: 700 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}<div class="before-after_pane-label">
+{{ block.settings.text_label_nachher }}
+</div></div>
+                </div> {% schema %} {
+    "name": "Vorher Nachher",
+    "settings": [
+        {
+            "id": "image_vorher_bild",
+            "type": "image_picker",
+            "label": "Vorher-Bild"
+        },
+        {
+            "id": "text_label_vorher",
+            "type": "text",
+            "label": "Label vorher",
+            "default": "Before"
+        },
+        {
+            "id": "image_nachher_bild",
+            "type": "image_picker",
+            "label": "Nachher-Bild"
+        },
+        {
+            "id": "text_label_nachher",
+            "type": "text",
+            "label": "Label nachher",
+            "default": "After"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Vorher Nachher",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

@@ -1,0 +1,22 @@
+<div li-block="Club Vorteil" class="footer_club-item" {{ block.shopify_attributes }}>
+                    <span>
+{{ block.settings.text_text }}
+</span>
+                </div> {% schema %} {
+    "name": "Club Vorteil",
+    "settings": [
+        {
+            "id": "text_text",
+            "type": "text",
+            "label": "Text",
+            "default": "Mit jedem Einkauf Punkte sammeln"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Club Vorteil",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

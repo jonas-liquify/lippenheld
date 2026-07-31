@@ -1,0 +1,178 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-center is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; --product-columns: {{ section.settings.columns }};"><div class="container"><div class="product_heading-wrapper"><div class="header-block_component"><div class="arc-label_wrapper"><svg class="arc-label" viewbox="0 0 140 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path id="arc-recommended-products-passt-dazu" d="M4 32 Q70 0 136 32" fill="none" stroke="none"></path><text class="arc-label_text"><textpath href="#arc-recommended-products-passt-dazu" startoffset="50%" text-anchor="middle" href="#arc-recommended-products-passt-dazu">
+{{ section.settings.text_subline }}
+</textpath></text></svg></div><h2 class="heading-style-h2">
+{{ section.settings.text_uberschrift }}
+</h2></div></div>{% for product in section.settings.collection_kollektion.products limit: section.settings.collection_kollektion_limit %}
+<div class="product_list">
+    {% render 'product_item', product: product %}
+</div>
+{% endfor %}</div></div> {% schema %} {
+    "tag": "section",
+    "name": "Recommended Products",
+    "class": "section_featured-products",
+    "settings": [
+        {
+            "id": "text_subline",
+            "type": "text",
+            "label": "Subline",
+            "default": "Passt dazu"
+        },
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Das k\u00f6nnte dir auch gefallen"
+        },
+        {
+            "id": "collection_kollektion",
+            "type": "collection",
+            "label": "Kollektion"
+        },
+        {
+            "type": "range",
+            "id": "collection_kollektion_limit",
+            "min": 1,
+            "max": 99,
+            "step": 1,
+            "label": "Limit: Kollektion",
+            "default": 6
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "white"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        },
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "range",
+            "id": "columns",
+            "min": 2,
+            "max": 5,
+            "step": 1,
+            "label": "Produkte pro Reihe",
+            "default": 4
+        }
+    ],
+    "presets": [
+        {
+            "name": "Recommended Products",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "product"
+        ]
+    }
+} {% endschema %}

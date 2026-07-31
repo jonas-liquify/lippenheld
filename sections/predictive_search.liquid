@@ -1,0 +1,75 @@
+{% if predictive_search.performed %}    <div li-if="predictive_search.performed" class="predictive-search_state">
+    {% assign result_count = predictive_search.resources.queries.size | plus: predictive_search.resources.collections.size | plus: predictive_search.resources.pages.size | plus: predictive_search.resources.articles.size | plus: predictive_search.resources.products.size %}{% if result_count > 0 %}    <div li-if="result_count > 0" class="predictive-search_state">
+    {% if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 %}    <div li-if="predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0" class="predictive-search_block">
+    <div class="predictive-search_label">Beliebte Suchanfragen</div><div class="predictive-search_tags">{% for query.styled_text %}    <a li-for="query in predictive_search.resources.queries" li-object:href="query.url" li-object="query.styled_text" href="#" class="predictive-search_tag">
+                                    Wirkung
+                        </a>
+{% endfor %}{% for collection.title %}    <a li-for="collection in predictive_search.resources.collections" li-object:href="collection.url" li-object="collection.title" href="#" class="predictive-search_tag">
+                                    Ergebnisse
+                        </a>
+{% endfor %}</div>    </div>
+{% endif %}{% if predictive_search.resources.products.size > 0 %}    <div li-if="predictive_search.resources.products.size > 0" class="predictive-search_block">
+    <div class="predictive-search_label">Produkte</div><div class="predictive-search_results">{% for product in predictive_search.resources.products %}    <div li-for="product in predictive_search.resources.products">
+                                    {% render 'product_item', product: product %}
+                        </div>
+{% endfor %}</div>    </div>
+{% endif %}{% if predictive_search.resources.pages.size > 0 or predictive_search.resources.articles.size > 0 %}    <div li-if="predictive_search.resources.pages.size > 0 or predictive_search.resources.articles.size > 0" class="predictive-search_block">
+    <div class="predictive-search_label">Seiten und Artikel</div><div class="predictive-search_tags">{% for page.title %}    <a li-for="page in predictive_search.resources.pages" li-object:href="page.url" li-object="page.title" href="#" class="predictive-search_tag">
+                                    Seite
+                        </a>
+{% endfor %}{% for article.title %}    <a li-for="article in predictive_search.resources.articles" li-object:href="article.url" li-object="article.title" href="#" class="predictive-search_tag">
+                                    Artikel
+                        </a>
+{% endfor %}</div>    </div>
+{% endif %}    </div>
+{% endif %}{% if result_count == 0 %}    <div li-if="result_count == 0" class="predictive-search_block">
+    <div class="text-size-regular">Keine Treffer für <span li-object="predictive_search.terms">{{ predictive_search.terms }}</span></div>    </div>
+{% endif %}    </div>
+{% endif %}{% unless predictive_search.performed %}    <div li-unless="predictive_search.performed" class="predictive-search_state">
+    <div li-content-for-theme-blocks="" class="predictive-search_block">
+{% content_for 'blocks' %}
+</div><div class="predictive-search_block"><div class="predictive-search_label">Kürzlich angesehen</div><div class="predictive-search_results">{% for product in section.settings.collection_vorschlags_kollektion.products limit: section.settings.collection_vorschlags_kollektion_limit %}
+<div>
+    {% render 'product_item', product: product %}
+</div>
+{% endfor %}</div></div>    </div>
+{% endunless %} {% schema %} {
+    "tag": "div",
+    "name": "predictive_search",
+    "class": "predictive-search_results-wrapper",
+    "blocks": [
+        {
+            "type": "suchvorschlag"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "collection_vorschlags_kollektion",
+            "type": "collection",
+            "label": "Vorschlags-Kollektion"
+        },
+        {
+            "type": "range",
+            "id": "collection_vorschlags_kollektion_limit",
+            "min": 1,
+            "max": 99,
+            "step": 1,
+            "label": "Limit: Vorschlags-Kollektion",
+            "default": 6
+        }
+    ],
+    "presets": [
+        {
+            "name": "predictive_search",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "suchvorschlag"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

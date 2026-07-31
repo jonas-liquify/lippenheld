@@ -1,0 +1,169 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-left is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"><div class="container"><div class="contact_layout"><div class="header-block_component"><div class="arc-label_wrapper"><svg class="arc-label" viewbox="0 0 140 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path id="arc-contact-kontakt" d="M4 32 Q70 0 136 32" fill="none" stroke="none"></path><text class="arc-label_text"><textpath href="#arc-contact-kontakt" startoffset="50%" text-anchor="middle" href="#arc-contact-kontakt">
+{{ section.settings.text_subline }}
+</textpath></text></svg></div><h2 class="heading-style-h2">
+{{ section.settings.text_uberschrift }}
+</h2><div class="text-size-regular"> {{ section.settings.richtext_text }} </div></div>{% form 'contact', class: 'form_component' %}
+<div class="form_row"><div class="form_field-wrapper"><label for="contact-name" class="form_label">Name</label><input class="form_input" type="text" id="contact-name" name="contact[name]" placeholder="Name" required=""></div><div class="form_field-wrapper"><label for="contact-email" class="form_label">E-Mail</label><input class="form_input" type="email" id="contact-email" name="contact[email]" placeholder="E-Mail" required=""></div></div><div class="spacer-medium"></div><div class="form_field-wrapper"><label for="contact-message" class="form_label">Nachricht</label><textarea class="form_input is-text-area" id="contact-message" name="contact[body]" placeholder="Nachricht" required=""></textarea></div><div li-object="form.errors | default_errors" class="text-size-tiny text-color-red">{{ form.errors | default_errors }}</div><div class="spacer-medium"></div><input type="submit" class="button" value="{{ section.settings.submit_text }}">{% if form.posted_successfully? %}    <div li-if="form.posted_successfully?" class="success-message">
+    <span>
+{{ section.settings.text_erfolgstext }}
+</span>    </div>
+{% endif %}{% endform %}</div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Contact",
+    "class": "section_contact",
+    "settings": [
+        {
+            "id": "text_subline",
+            "type": "text",
+            "label": "Subline",
+            "default": "Kontakt"
+        },
+        {
+            "id": "text_uberschrift",
+            "type": "text",
+            "label": "\u00dcberschrift",
+            "default": "Wir sind f\u00fcr dich da"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Schreib uns \u2013 wir melden uns innerhalb eines Werktags.<\/p>"
+        },
+        {
+            "id": "text_erfolgstext",
+            "type": "text",
+            "label": "Erfolgstext",
+            "default": "Danke f\u00fcr deine Nachricht!"
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "white"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        },
+        {
+            "type": "header",
+            "content": "Formular"
+        },
+        {
+            "type": "text",
+            "id": "submit_text",
+            "label": "Button-Text",
+            "default": "Absenden"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Contact",
+            "category": "Content",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

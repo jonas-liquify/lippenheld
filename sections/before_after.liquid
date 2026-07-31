@@ -1,0 +1,201 @@
+<div class="padding-global padding-section-small is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-left is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"><div class="container"><div class="slider_wrapper" data-slider=""><div class="before-after_track no-scrollbar" data-slider-track="">{% content_for "block", type: "vorher-nachher-intro", id: "vorher-nachher-intro" %}<div li-content-for-theme-blocks="" class="before-after_pair-list">
+{% content_for 'blocks' %}
+</div></div><button type="button" class="button-round slider_nav is-prev" data-slider-prev="" aria-label="Zurück" hidden=""><svg viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.2" fill="none"></path></svg></button><button type="button" class="button-round slider_nav" data-slider-next="" aria-label="Weiter"><svg viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.2" fill="none"></path></svg></button><div class="hide"><script>
+        (function () {
+          if (!window.__liSlider) {
+            window.__liSlider = function (root) {
+              var track = root.querySelector("[data-slider-track]");
+              if (!track || track.dataset.sliderReady) return;
+              track.dataset.sliderReady = "1";
+              var prev = root.querySelector("[data-slider-prev]");
+              var next = root.querySelector("[data-slider-next]");
+              var step = function () {
+                var first = track.firstElementChild;
+                var w = first ? first.getBoundingClientRect().width : 0;
+                return (w || track.clientWidth * 0.8) + 8;
+              };
+              var update = function () {
+                var max = track.scrollWidth - track.clientWidth - 2;
+                if (prev) prev.hidden = track.scrollLeft <= 0;
+                if (next) next.hidden = max <= 0 || track.scrollLeft >= max;
+              };
+              if (prev) prev.addEventListener("click", function () {
+                track.scrollBy({ left: -step(), behavior: "smooth" });
+              });
+              if (next) next.addEventListener("click", function () {
+                track.scrollBy({ left: step(), behavior: "smooth" });
+              });
+              track.addEventListener("scroll", update, { passive: true });
+              window.addEventListener("resize", update);
+              update();
+            };
+          }
+          var boot = function () {
+            document.querySelectorAll("[data-slider]").forEach(window.__liSlider);
+          };
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", boot);
+          } else {
+            boot();
+          }
+        })();
+      </script></div></div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Before After",
+    "class": "section_before-after",
+    "blocks": [
+        {
+            "type": "vorher-nachher"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "image_intro_bild",
+            "type": "image_picker",
+            "label": "Intro-Bild"
+        },
+        {
+            "id": "text_subline",
+            "type": "text",
+            "label": "Subline",
+            "default": "Testimonials"
+        },
+        {
+            "id": "text_intro_uberschrift",
+            "type": "text",
+            "label": "Intro-\u00dcberschrift",
+            "default": "Trusted by 100.000 Kunden"
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 0
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "none"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "olive"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "full"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Before After",
+            "category": "Content",
+            "blocks": [
+                {
+                    "type": "vorher-nachher"
+                },
+                {
+                    "type": "vorher-nachher-intro",
+                    "static": true,
+                    "id": "vorher-nachher-intro"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

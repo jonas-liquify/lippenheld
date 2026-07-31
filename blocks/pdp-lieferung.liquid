@@ -1,0 +1,18 @@
+<div li-static-block="PDP Lieferung" class="product-header_stock"><div class="product-header_stock-dot"></div><div class="product-header_stock-text"> {{ block.settings.richtext_liefertext }} </div></div> {% schema %} {
+    "name": "PDP Lieferung",
+    "settings": [
+        {
+            "id": "richtext_liefertext",
+            "type": "richtext",
+            "label": "Liefertext",
+            "default": "<p>Lieferung morgen, 1. August.<br\/>Bestellung innerhalb 12 Stunden 59 Minuten<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "PDP Lieferung",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

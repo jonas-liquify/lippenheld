@@ -1,0 +1,30 @@
+{
+    "sections": {
+        "form": {
+            "type": "form"
+        },
+        "trustpilot": {
+            "type": "trustpilot",
+            "blocks": {
+                "trustpilot-review": {
+                    "type": "trustpilot-review",
+                    "name": "Trustpilot Review"
+                },
+                "trustpilot-score": {
+                    "name": "Trustpilot Score",
+                    "type": "trustpilot-score",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "trustpilot-review"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "form",
+        "trustpilot"
+    ]
+}

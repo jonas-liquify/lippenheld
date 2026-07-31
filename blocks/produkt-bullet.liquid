@@ -1,0 +1,23 @@
+<div li-block="Produkt Bullet" class="product-header_bullet" {{ block.shopify_attributes }}>
+                    <svg viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 8.5L6.3 12L13 4.5" stroke="currentColor" stroke-width="1.2" fill="none"></path></svg>
+                    <span>
+{{ block.settings.text_text }}
+</span>
+                </div> {% schema %} {
+    "name": "Produkt Bullet",
+    "settings": [
+        {
+            "id": "text_text",
+            "type": "text",
+            "label": "Text",
+            "default": "Starkes Oliven-Antioxidans"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Produkt Bullet",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

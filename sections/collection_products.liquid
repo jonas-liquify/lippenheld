@@ -1,0 +1,164 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-left is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; --product-columns: {{ section.settings.columns }};"><div class="container">{% paginate collection.products by 24 %}
+    <div li-paginate="collection.products" li-paginate:by="24" class="filter_layout" by="24"><div class="filters_wrapper">{% for filter in collection.filters %}    <div li-for="filter in collection.filters" class="filter_group">
+                                    <div li-object="filter.label" class="filter_group-title">{{ filter.label }}</div>
+                            {% for filter_value in filter.values %}    <label li-for="filter_value in filter.values" class="filter_form_checkbox">
+                                    <span class="{% if filter_value.active %}filter_form_checkbox-icon is-checked{% else %}filter_form_checkbox-icon{% endif %}"></span>
+                            <span li-object="filter_value.label">{{ filter_value.label }}</span>
+                        </label>
+{% endfor %}
+                        </div>
+{% endfor %}</div><div class="filter_content"><div class="filter_toolbar"><div class="filter_count"><span li-object="collection.products_count">{{ collection.products_count }}</span> Produkte</div><div class="sort_wrapper"><span class="filter_count">Sortieren</span><select class="form_input is-select" aria-label="Sortierung">{% for option.name %}    <option li-for="option in collection.sort_options" li-object="option.name">
+                                    Empfohlen
+                        </option>
+{% endfor %}</select></div></div><div class="product_list">{% for product in collection.products %}    <div li-for="product in collection.products">
+                                    {% render 'product_item', product: product %}
+                        </div>
+{% endfor %}</div>{% if paginate.pages > 1 %}    <div li-if="paginate.pages > 1" class="pagination_wrapper">
+    {% for part.title %}    <a li-for="part in paginate.parts" li-object="part.title" li-object:href="part.url" href="#" class="pagination_link">
+                                    1
+                        </a>
+{% endfor %}    </div>
+{% endif %}</div></div>{% endpaginate %}</div></div> {% schema %} {
+    "tag": "section",
+    "name": "Collection Products",
+    "class": "section_filter",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 80
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "white"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        },
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "range",
+            "id": "columns",
+            "min": 2,
+            "max": 5,
+            "step": 1,
+            "label": "Produkte pro Reihe",
+            "default": 3
+        }
+    ],
+    "presets": [
+        {
+            "name": "Collection Products",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "collection"
+        ]
+    }
+} {% endschema %}

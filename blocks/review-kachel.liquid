@@ -1,0 +1,39 @@
+<div li-block="Review Kachel" class="review-wall_tile" {{ block.shopify_attributes }}>
+                    {% if block.settings.image_bild %}
+{{ block.settings.image_bild | image_url: width: 700 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}
+                    <div class="video-slider_overlay"></div>
+                    <div class="video-slider_caption"><div class="text-size-small"> {{ block.settings.richtext_zitat }} </div><div class="text-size-small">
+{{ block.settings.text_name }}
+</div></div>
+                </div> {% schema %} {
+    "name": "Review Kachel",
+    "settings": [
+        {
+            "id": "image_bild",
+            "type": "image_picker",
+            "label": "Bild"
+        },
+        {
+            "id": "richtext_zitat",
+            "type": "richtext",
+            "label": "Zitat",
+            "default": "<p>Alles andere hat meine Lippen nur ausgetrocknet. Nun endlich ein pflegender Schutz.<\/p>"
+        },
+        {
+            "id": "text_name",
+            "type": "text",
+            "label": "Name",
+            "default": "Grace"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Review Kachel",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

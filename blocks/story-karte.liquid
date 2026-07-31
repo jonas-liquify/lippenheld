@@ -1,0 +1,40 @@
+<div li-block="Story Karte" class="cards_item" x-data="{ open: false }" x-bind:class="{ 'is-open': open }" x-on:click="open = !open" {{ block.shopify_attributes }}>
+                    <div class="cards_item-media">{% if block.settings.image_bild %}
+{{ block.settings.image_bild | image_url: width: 900 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div>
+                    <div class="cards_item-overlay"></div>
+                    <div class="cards_item-head"><div class="cards_item-title">
+{{ block.settings.text_titel }}
+</div><div class="cards_item-toggle"><svg viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3.5v9M3.5 8h9" stroke="currentColor" stroke-width="1.2" fill="none"></path></svg></div></div>
+                    <div class="cards_item-body"><div class="cards_item-body-inner"><div class="text-size-regular"> {{ block.settings.richtext_text }} </div></div></div>
+                </div> {% schema %} {
+    "name": "Story Karte",
+    "settings": [
+        {
+            "id": "image_bild",
+            "type": "image_picker",
+            "label": "Bild"
+        },
+        {
+            "id": "text_titel",
+            "type": "text",
+            "label": "Titel",
+            "default": "Pflanzenmedizin als Unternehmens-DNA"
+        },
+        {
+            "id": "richtext_text",
+            "type": "richtext",
+            "label": "Text",
+            "default": "<p>Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Story Karte",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

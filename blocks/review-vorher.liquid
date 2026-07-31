@@ -1,0 +1,49 @@
+<div li-block="Review Vorher" class="review-wall_pair" {{ block.shopify_attributes }}>
+                    <div class="review-wall_tile"><div class="before-after_pane">{% if block.settings.image_vorher %}
+{{ block.settings.image_vorher | image_url: width: 700 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}<div class="before-after_pane-label">
+{{ block.settings.text_label_vorher }}
+</div></div></div>
+                    <div class="review-wall_tile"><div class="before-after_pane">{% if block.settings.image_nachher %}
+{{ block.settings.image_nachher | image_url: width: 700 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'placeholder.svg' | asset_url }}" loading="lazy" alt="">
+{% endif %}<div class="before-after_pane-label">
+{{ block.settings.text_label_nachher }}
+</div></div></div>
+                </div> {% schema %} {
+    "name": "Review Vorher",
+    "settings": [
+        {
+            "id": "image_vorher",
+            "type": "image_picker",
+            "label": "Vorher"
+        },
+        {
+            "id": "text_label_vorher",
+            "type": "text",
+            "label": "Label vorher",
+            "default": "Before"
+        },
+        {
+            "id": "image_nachher",
+            "type": "image_picker",
+            "label": "Nachher"
+        },
+        {
+            "id": "text_label_nachher",
+            "type": "text",
+            "label": "Label nachher",
+            "default": "After"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Review Vorher",
+            "blocks": []
+        }
+    ],
+    "tag": null
+} {% endschema %}

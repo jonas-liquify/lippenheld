@@ -1,0 +1,164 @@
+<div class="padding-global padding-section is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-center is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; --stats-columns: {{ section.settings.columns }};"><div class="container"><div li-content-for-theme-blocks="" class="stats_list">
+{% content_for 'blocks' %}
+</div>{% content_for "block", type: "stats-fussnote", id: "stats-fussnote" %}</div></div> {% schema %} {
+    "tag": "section",
+    "name": "Stats",
+    "class": "section_stats",
+    "blocks": [
+        {
+            "type": "kennzahl"
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "richtext_fussnote",
+            "type": "richtext",
+            "label": "Fu\u00dfnote",
+            "default": "<p>*Dauer der Verminderung von R\u00f6tungen: klinische Tests an 26 Frauen, innerhalb von 60 Minuten nach Produktanwendung im Vergleich zur unbehandelten Kontrollgruppe.<\/p>"
+        },
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 60
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 60
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "white"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "large"
+        },
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "range",
+            "id": "columns",
+            "min": 1,
+            "max": 4,
+            "step": 1,
+            "label": "Kennzahlen pro Reihe",
+            "default": 3
+        }
+    ],
+    "presets": [
+        {
+            "name": "Stats",
+            "category": "Content",
+            "blocks": [
+                {
+                    "type": "kennzahl"
+                },
+                {
+                    "type": "stats-fussnote",
+                    "static": true,
+                    "id": "stats-fussnote"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

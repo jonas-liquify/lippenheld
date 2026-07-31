@@ -1,0 +1,153 @@
+<div class="padding-global padding-section-small is-theme-{{ section.settings.color_scheme }} is-width-{{ section.settings.content_width }} is-align-{{ section.settings.content_align }} is-mpad-{{ section.settings.padding_mobile }}" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"><div class="container"><div class="page-hero_component"><div li-for:inside="tag in article.tags" class="blog_tag-row">
+        {% for tag in article.tags %}                            <div li-object="tag" class="blog_tag">{{ tag }}</div>
+                    {% endfor %}    </div><h1 li-object="article.title" class="heading-style-h1">{{ article.title }}</h1><div class="article_meta"><span li-object="article.author">{{ article.author }}</span><span li-object="article.published_at | date: '%d.%m.%Y'">{{ article.published_at | date: '%d.%m.%Y' }}</span></div></div></div></div> {% schema %} {
+    "tag": "section",
+    "name": "Article Hero",
+    "class": "section_page-hero",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Abst\u00e4nde"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand oben",
+            "default": 60
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Abstand unten",
+            "default": 40
+        },
+        {
+            "type": "select",
+            "id": "padding_mobile",
+            "label": "Abstand auf Mobil",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "Kein Abstand"
+                },
+                {
+                    "value": "small",
+                    "label": "Klein"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Gro\u00df"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "header",
+            "content": "Darstellung"
+        },
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Farbschema",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "Wei\u00df"
+                },
+                {
+                    "value": "paper",
+                    "label": "Papier"
+                },
+                {
+                    "value": "olive",
+                    "label": "Olive"
+                },
+                {
+                    "value": "ocean",
+                    "label": "Ocean"
+                },
+                {
+                    "value": "sand",
+                    "label": "Sand"
+                },
+                {
+                    "value": "black",
+                    "label": "Schwarz"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dunkelgr\u00fcn"
+                }
+            ],
+            "default": "white"
+        },
+        {
+            "type": "select",
+            "id": "content_width",
+            "label": "Inhaltsbreite",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Schmal"
+                },
+                {
+                    "value": "medium",
+                    "label": "Mittel"
+                },
+                {
+                    "value": "large",
+                    "label": "Breit"
+                },
+                {
+                    "value": "full",
+                    "label": "Randlos"
+                }
+            ],
+            "default": "small"
+        },
+        {
+            "type": "select",
+            "id": "content_align",
+            "label": "Ausrichtung",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Links"
+                },
+                {
+                    "value": "center",
+                    "label": "Zentriert"
+                },
+                {
+                    "value": "right",
+                    "label": "Rechts"
+                }
+            ],
+            "default": "center"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Article Hero",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "article"
+        ]
+    }
+} {% endschema %}

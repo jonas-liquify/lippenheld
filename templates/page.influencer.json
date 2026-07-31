@@ -1,0 +1,79 @@
+{
+    "sections": {
+        "page_hero": {
+            "type": "page_hero"
+        },
+        "quote": {
+            "type": "quote"
+        },
+        "form": {
+            "type": "form"
+        },
+        "faq": {
+            "type": "faq",
+            "blocks": {
+                "faq-eintrag": {
+                    "type": "faq-eintrag",
+                    "name": "FAQ Eintrag"
+                }
+            },
+            "block_order": [
+                "faq-eintrag"
+            ]
+        },
+        "review_wall": {
+            "type": "review_wall",
+            "blocks": {
+                "review-kachel": {
+                    "type": "review-kachel",
+                    "name": "Review Kachel"
+                },
+                "review-kennzahl": {
+                    "type": "review-kennzahl",
+                    "name": "Review Kennzahl"
+                },
+                "review-vorher": {
+                    "type": "review-vorher",
+                    "name": "Review Vorher"
+                },
+                "review-cta": {
+                    "name": "Review CTA",
+                    "type": "review-cta",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "review-kachel",
+                "review-kennzahl",
+                "review-vorher"
+            ]
+        },
+        "trustpilot": {
+            "type": "trustpilot",
+            "blocks": {
+                "trustpilot-review": {
+                    "type": "trustpilot-review",
+                    "name": "Trustpilot Review"
+                },
+                "trustpilot-score": {
+                    "name": "Trustpilot Score",
+                    "type": "trustpilot-score",
+                    "static": true
+                }
+            },
+            "block_order": [
+                "trustpilot-review"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "page_hero",
+        "quote",
+        "form",
+        "faq",
+        "review_wall",
+        "trustpilot"
+    ]
+}
