@@ -1,0 +1,15 @@
+<style>
+        /* Legt den Header transparent ueber den Seiteninhalt.
+           Wird von jeder Section eingebunden, die oben auf der Seite stehen
+           und den Header ueberlagern soll (Hero, Story, Header Overlay).
+           Rein CSS-Variablen &mdash; keine DOM-Struktur, keine Liquid-Bedingung,
+           deshalb in der Builder-Vorschau und in Shopify identisch. */
+        :root {
+          --header-position: fixed;
+          --header-inset: 0;
+          --header-bg: transparent;
+          --header-fg: #ffffff;
+          --header-border: transparent;
+          --header-pad-top: 1rem;
+        }
+      </style>

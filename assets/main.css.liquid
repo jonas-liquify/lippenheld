@@ -162,6 +162,7 @@
 .li-custom,
 .li-tag,
 .global-styles,
+.header-overlay,
 [li-cloak="hide"],
 [x-cloak] {
   display: none !important;
@@ -1637,52 +1638,49 @@ h6,
 /* =============================================================
    9. Navigation
    ============================================================= */
-/* Standard: klebender, solider Header.
-   Auf Seiten, die mit einem Vollbild-Hero starten, wird er automatisch
-   fixiert und transparent (siehe :has()-Regel unten) — ohne Liquid,
-   damit Builder-Vorschau und Live-Seite identisch aussehen. */
+/* --- Header-Darstellung -------------------------------------------------
+   Zwei Zustaende: solide (Standard) und transparent ueber dem Inhalt.
+
+   Gesteuert ueber vier Custom Properties mit Fallback = solide. Eine Section,
+   die den Header ueber sich legen will, setzt sie per <style> auf :root um
+   (Snippet "header-overlay"). Das funktioniert in der Builder-Vorschau und in
+   Shopify identisch, weil es NICHT von der DOM-Struktur abhaengt — Shopify
+   schiebt um jede Section ein <div class="shopify-section">, wodurch
+   strukturelle Selektoren wie
+   .main-wrapper > .section_hero:first-child ins Leere greifen.
+
+   Beim Scrollen gewinnt die is-scrolled-Regel (hoehere Spezifitaet). */
 .section_header-group {
-  position: sticky;
+  position: var(--header-position, sticky);
   top: 0;
+  left: var(--header-inset, auto);
+  right: var(--header-inset, auto);
   z-index: 900;
+}
+
+/* Steuert nur die Header-Darstellung, rendert nichts Sichtbares */
+.section_header-overlay {
+  display: block;
 }
 
 .section_navbar {
   position: relative;
   width: 100%;
-  background-color: var(--color--white);
-  color: var(--color--black);
-  border-bottom: 1px solid var(--border-color--primary);
+  background-color: var(--header-bg, var(--color--white));
+  color: var(--header-fg, var(--color--black));
+  border-bottom: 1px solid var(--header-border, var(--border-color--primary));
   transition: background-color var(--transition--base), color var(--transition--base),
     border-color var(--transition--base);
 }
 
-.page-wrapper:has(.main-wrapper > .section_hero:first-child) .section_header-group {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.page-wrapper:has(.main-wrapper > .section_hero:first-child) .section_navbar {
-  background-color: transparent;
-  color: var(--color--white);
-  border-bottom-color: transparent;
-}
-
-.page-wrapper:has(.main-wrapper > .section_hero:first-child) .nav_container {
-  padding-top: 1rem;
-}
-
-/* Beim Scrollen wird der Header in jedem Fall solide */
-.section_navbar:has(.nav_component.is-scrolled),
-.page-wrapper:has(.main-wrapper > .section_hero:first-child) .section_navbar:has(.nav_component.is-scrolled) {
+/* Beim Scrollen ist der Header immer solide */
+.section_navbar:has(.nav_component.is-scrolled) {
   background-color: var(--color--white);
   color: var(--color--black);
   border-bottom-color: var(--border-color--primary);
 }
 
-.page-wrapper:has(.main-wrapper > .section_hero:first-child) .section_navbar:has(.nav_component.is-scrolled) .nav_container {
+.section_navbar:has(.nav_component.is-scrolled) .nav_container {
   padding-top: 0;
 }
 
@@ -1692,6 +1690,7 @@ h6,
   justify-content: space-between;
   gap: 1.5rem;
   min-height: var(--nav--height);
+  padding-top: var(--header-pad-top, 0);
   padding-left: var(--side);
   padding-right: var(--side);
 }
@@ -2618,6 +2617,10 @@ h6,
   gap: 1.25rem;
 }
 
+.footer_social-item {
+  display: flex;
+}
+
 .footer_social-link {
   display: flex;
   width: 1.125rem;
@@ -3225,9 +3228,16 @@ h6,
 
 .image-grid_item {
   position: relative;
+  display: block;
+}
+
+/* li-block sitzt auf .image-grid_item, li-settings:url auf dem inneren Link —
+   die beiden Attribute duerfen nicht auf demselben Element stehen. */
+.image-grid_link {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: 100%;
 }
 
 .image-grid_media {
@@ -3342,6 +3352,12 @@ h6,
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background-color: var(--section-surface);
+}
+
+.social_link {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .social_item img {
