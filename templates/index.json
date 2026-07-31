@@ -1,116 +1,307 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "hero": {
-            "type": "hero"
-        },
-        "featured_products": {
-            "type": "featured_products"
-        },
-        "image_grid": {
-            "type": "image_grid"
-        },
-        "section_header": {
-            "type": "section_header"
-        },
-        "video_slider": {
-            "type": "video_slider",
-            "blocks": {
-                "video-review": {
-                    "type": "video-review",
-                    "name": "Video Review"
-                }
-            },
-            "block_order": [
-                "video-review"
-            ]
-        },
-        "stats": {
-            "type": "stats",
-            "blocks": {
-                "kennzahl": {
-                    "type": "kennzahl",
-                    "name": "Kennzahl"
-                },
-                "stats-fussnote": {
-                    "name": "Stats Fussnote",
-                    "type": "stats-fussnote",
-                    "static": true
-                }
-            },
-            "block_order": [
-                "kennzahl"
-            ]
-        },
-        "split_accordion": {
-            "type": "split_accordion",
-            "blocks": {
-                "split-akkordeon": {
-                    "type": "split-akkordeon",
-                    "name": "Split Akkordeon"
-                }
-            },
-            "block_order": [
-                "split-akkordeon"
-            ]
-        },
-        "quote": {
-            "type": "quote"
-        },
-        "before_after": {
-            "type": "before_after",
-            "blocks": {
-                "vorher-nachher": {
-                    "type": "vorher-nachher",
-                    "name": "Vorher Nachher"
-                },
-                "vorher-nachher-intro": {
-                    "name": "Vorher Nachher Intro",
-                    "type": "vorher-nachher-intro",
-                    "static": true
-                }
-            },
-            "block_order": [
-                "vorher-nachher"
-            ]
-        },
-        "trustpilot": {
-            "type": "trustpilot",
-            "blocks": {
-                "trustpilot-review": {
-                    "type": "trustpilot-review",
-                    "name": "Trustpilot Review"
-                },
-                "trustpilot-score": {
-                    "name": "Trustpilot Score",
-                    "type": "trustpilot-score",
-                    "static": true
-                }
-            },
-            "block_order": [
-                "trustpilot-review"
-            ]
-        },
-        "story": {
-            "type": "story"
-        },
-        "social_media": {
-            "type": "social_media"
-        }
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "text_uberschrift": "Natürliche Lippenpflege, schützt und pflegt, nährt und regeneriert, sanft wirksam",
+        "richtext_text": "<p>Mit laborgeprüfter Rezeptur. Gewonnen aus Aqua Mora, dem Olivenpresswasser. Schützt, pflegt &amp; regeneriert, 100% natürlich.</p>",
+        "url_button_link": "",
+        "text_button_text": "Jetzt entdecken",
+        "header_overlay": true,
+        "min_height": 800,
+        "overlay_strength": 100,
+        "content_align": "left"
+      }
     },
-    "layout": "theme",
-    "wrapper": "main.main-wrapper",
-    "order": [
-        "hero",
-        "featured_products",
-        "image_grid",
-        "section_header",
-        "video_slider",
-        "stats",
-        "split_accordion",
-        "quote",
-        "before_after",
-        "trustpilot",
-        "story",
-        "social_media"
-    ]
+    "featured_products": {
+      "type": "featured_products",
+      "settings": {
+        "text_subline": "Lippenheld",
+        "text_uberschrift": "Regeneriert, schützt und pflegt die Lippen",
+        "richtext_text": "<p>Lippenheld schützt &amp; pflegt, nährt &amp; regeneriert. Naturrein und liebevoll gewonnen.</p>",
+        "url_button_link": "",
+        "text_button_text": "Jetzt entdecken",
+        "collection_kollektion": "",
+        "collection_kollektion_limit": 6,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_mobile": "medium",
+        "color_scheme": "white",
+        "content_width": "full",
+        "columns": 2
+      }
+    },
+    "image_grid": {
+      "type": "image_grid",
+      "settings": {
+        "text_subline": "Anwendung",
+        "text_uberschrift": "Was ist dein Lippenproblem?",
+        "richtext_text": "<p>Nicht sicher, welcher Lippenheld für dich passt? Wähle einfach den Zustand deiner Lippen aus.</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_mobile": "medium",
+        "color_scheme": "olive",
+        "content_width": "full",
+        "columns": 4
+      }
+    },
+    "section_header": {
+      "type": "section_header",
+      "settings": {
+        "text_subline": "Reviews",
+        "text_uberschrift": "Endlich wirklich gepflegte Lippen",
+        "richtext_text": "<p>Schützt durch die einzigartige Rezeptur, kein Versiegeln der Lippen, sondern intelligente Versorgung. Pflegt intensiv durch die reichhaltigen Inhaltsstoffe, natürliche Regeneration, verstärkt durch das natürliche Antioxidans Hydroxytyrosol. Spürbar geschmeidige Lippen, ohne Kompromisse.</p>",
+        "url_button_link": "",
+        "text_button_text": "Jetzt entdecken",
+        "padding_top": 80,
+        "padding_bottom": 40,
+        "padding_mobile": "medium",
+        "color_scheme": "white",
+        "content_width": "medium",
+        "content_align": "center"
+      }
+    },
+    "video_slider": {
+      "type": "video_slider",
+      "blocks": {
+        "video-review": {
+          "type": "video-review",
+          "name": "Video Review",
+          "settings": {
+            "richtext_zitat": "<p>Ich habe soviel versucht und nun endlich das Richtige für meine Lippen gefunden: mein morgendliches und abendliches Ritual. Pflegt und schützt die ganze Nacht, ohne zu schmieren.</p>",
+            "text_name": "Grace"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "video-review"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_mobile": "medium",
+        "color_scheme": "white",
+        "content_width": "full",
+        "columns": 4
+      }
+    },
+    "stats": {
+      "type": "stats",
+      "blocks": {
+        "kennzahl": {
+          "type": "kennzahl",
+          "name": "Kennzahl",
+          "settings": {
+            "text_wert": "94%",
+            "richtext_text": "<p>sagten, ihre Lippen fühlten sich sofort glatter &amp; geschmeidiger an*</p>"
+          },
+          "blocks": {}
+        },
+        "stats-fussnote": {
+          "type": "stats-fussnote",
+          "name": "Stats Fussnote",
+          "static": true,
+          "settings": {
+            "richtext_fussnote": "<p>*Dauer der Verminderung von Rötungen: klinische Tests an 26 Frauen, innerhalb von 60 Minuten nach Produktanwendung im Vergleich zur unbehandelten Kontrollgruppe.</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "kennzahl"
+      ],
+      "settings": {
+        "richtext_fussnote": "<p>*Dauer der Verminderung von Rötungen: klinische Tests an 26 Frauen, innerhalb von 60 Minuten nach Produktanwendung im Vergleich zur unbehandelten Kontrollgruppe.</p>",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_mobile": "medium",
+        "color_scheme": "white",
+        "content_width": "large",
+        "columns": 3
+      }
+    },
+    "split_accordion": {
+      "type": "split_accordion",
+      "blocks": {
+        "split-akkordeon": {
+          "type": "split-akkordeon",
+          "name": "Split Akkordeon",
+          "settings": {
+            "text_titel": "Präventiv &amp; Pflegend",
+            "richtext_text": "<p>Lippenheld basiert auf einem der stärksten Oliven-Antioxidantien der Welt. Die Formulierung schützt, regeneriert und pflegt – ganz ohne Chemie, synthetische Zusätze oder unnötige Füllstoffe. Pure Natur für gesunde Lippen.</p>",
+            "url_button_link": "",
+            "text_button_text": "Jetzt entdecken"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "split-akkordeon"
+      ],
+      "settings": {
+        "text_subline": "Warum Lippenheld?",
+        "text_uberschrift": "Das stärkste Antioxidans aus Aqua Mora. 100% natürliche Bestandteile",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_mobile": "none",
+        "color_scheme": "ocean",
+        "media_position": "left"
+      }
+    },
+    "quote": {
+      "type": "quote",
+      "settings": {
+        "text_subline": "Founder Story",
+        "richtext_zitat": "<p>„Als Naturmediziner mit 35 Jahren Berufserfahrung in meinem Naturheilzentrum Allgäu entwickle ich auch für die verschiedensten Unternehmen Biokosmetik. Aber was es bis jetzt wirklich nicht gab, war ein wirksamer Lippenbalsam, der wissenschaftlich untersucht ist, auch gegen Herpesviren agiert und dabei pflegt und die Lippen schützt.“</p>",
+        "richtext_zuordnung": "<p>Dr. h.c. Progress Universität Gyumri Edmund C. Herzog<br/>Gründer und Geschäftsführer</p>",
+        "url_button_link": "",
+        "text_button_text": "Jetzt entdecken",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_mobile": "medium",
+        "color_scheme": "white",
+        "content_width": "large",
+        "media_position": "left"
+      }
+    },
+    "before_after": {
+      "type": "before_after",
+      "blocks": {
+        "vorher-nachher": {
+          "type": "vorher-nachher",
+          "name": "Vorher Nachher",
+          "settings": {
+            "text_label_vorher": "Before",
+            "text_label_nachher": "After"
+          },
+          "blocks": {}
+        },
+        "vorher-nachher-intro": {
+          "type": "vorher-nachher-intro",
+          "name": "Vorher Nachher Intro",
+          "static": true,
+          "settings": {
+            "text_subline": "Testimonials",
+            "text_intro_uberschrift": "Trusted by 100.000 Kunden"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "vorher-nachher"
+      ],
+      "settings": {
+        "text_subline": "Testimonials",
+        "text_intro_uberschrift": "Trusted by 100.000 Kunden",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_mobile": "none",
+        "color_scheme": "olive",
+        "content_width": "full"
+      }
+    },
+    "trustpilot": {
+      "type": "trustpilot",
+      "blocks": {
+        "trustpilot-review": {
+          "type": "trustpilot-review",
+          "name": "Trustpilot Review",
+          "settings": {
+            "text_titel": "Ich liebe das Produkt wirklich",
+            "richtext_text": "<p>Ich liebe das Produkt, das ich gekauft habe. Ich hatte außerdem einen sehr guten Kontakt zum Kundenservice.</p>",
+            "text_name": "Louisa Maierhover",
+            "text_zeit": "vor 5 Stunden"
+          },
+          "blocks": {}
+        },
+        "trustpilot-score": {
+          "type": "trustpilot-score",
+          "name": "Trustpilot Score",
+          "static": true,
+          "settings": {
+            "text_bewertung": "Excellent",
+            "text_anzahl": "Basierend auf 5.620 Bewertungen",
+            "url_link": "",
+            "text_quelle": "Trustpilot"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "trustpilot-review"
+      ],
+      "settings": {
+        "text_bewertung": "Excellent",
+        "text_anzahl": "Basierend auf 5.620 Bewertungen",
+        "url_link": "",
+        "text_quelle": "Trustpilot",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_mobile": "none",
+        "color_scheme": "paper",
+        "content_width": "full"
+      }
+    },
+    "story": {
+      "type": "story",
+      "settings": {
+        "text_uberschrift": "Aqua Mora und der Wirkstoff Hydroxytyrosol",
+        "richtext_text": "<p>Es klingt wie ein toskanisches Märchen, das jetzt wahr wurde. Von Generation zu Generation wurde es mündlich weitergegeben: Das aus der Olive gewonnene Aqua Mora ist ein gesundheitsfördernder Trunk, der von den alten Toskanerinnen nach der Olivenernte getrunken wurde. Viele Generationen setzten auf das alte Geheimnis, ohne zu wissen, was dahintersteckt.</p>",
+        "url_button_link": "",
+        "text_button_text": "Jetzt entdecken",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "header_overlay": false,
+        "min_height": 800,
+        "overlay_strength": 0
+      }
+    },
+    "social_media": {
+      "type": "social_media",
+      "settings": {
+        "text_subline": "Social Media",
+        "text_uberschrift": "Lippenheld auf Instagram:",
+        "url_profil_link": "",
+        "text_handle": "@lippenheld_de",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_mobile": "medium",
+        "color_scheme": "white",
+        "content_width": "large",
+        "columns": 4
+      }
+    },
+    "header_overlay_jDYyjx": {
+      "type": "header_overlay",
+      "name": "Header Overlay",
+      "settings": {}
+    }
+  },
+  "layout": "theme",
+  "wrapper": "main.main-wrapper",
+  "order": [
+    "header_overlay_jDYyjx",
+    "hero",
+    "featured_products",
+    "image_grid",
+    "section_header",
+    "video_slider",
+    "stats",
+    "split_accordion",
+    "quote",
+    "before_after",
+    "trustpilot",
+    "story",
+    "social_media"
+  ]
 }
